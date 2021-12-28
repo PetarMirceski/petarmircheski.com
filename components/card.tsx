@@ -43,8 +43,7 @@ export const Card: FC<Props> = ({ text, image, title, icon }) => {
             display="inline-flex"
             alignItems="center"
           >
-            {title}
-            {'  '} {icon && icon}
+            {title} {'  '} {icon && icon}
           </chakra.h2>
           <chakra.p mt={4} color={useColorModeValue('gray.600', 'gray.400')}>
             {text}
