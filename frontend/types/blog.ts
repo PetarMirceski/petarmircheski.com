@@ -4,6 +4,8 @@ interface BlogAttributes {
   content: string;
   title: string;
   headerImage: Image;
+  description: string;
+  createdAt: string;
 }
 
 interface BlogPost {

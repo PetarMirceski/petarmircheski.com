@@ -1,21 +1,13 @@
 import type { NextPage } from 'next';
-import { LorenzSpinner } from 'components/threeScene';
 import { Layout } from 'components/layout';
-import dynamic from 'next/dynamic';
 import { IoHeart } from 'react-icons/io5';
 import { SimpleGrid, Box } from '@chakra-ui/react';
 import { Card } from 'components/card';
 import { Bio } from 'components/bio';
 
-const ClientScene = dynamic(() => import('components/threeScene'), {
-  ssr: false,
-  loading: () => <LorenzSpinner />,
-});
-
 const Home: NextPage = () => {
   return (
     <Layout>
-      <ClientScene />
       <SimpleGrid columns={1} spacing={0}>
         <Box>
           <Card
