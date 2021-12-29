@@ -6,8 +6,10 @@ uploads/
 /.pnp
 .pnp.js
 
+.tmp/
 # testing
 /coverage
+
 
 # next.js
 .next/
