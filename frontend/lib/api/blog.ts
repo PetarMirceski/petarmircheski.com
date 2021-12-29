@@ -17,6 +17,5 @@ export const fetchPaginatedBlog = async (page: number = 1) => {
       encodeValuesOnly: true,
     }
   );
-  console.log(query);
   return await apiInstance.get<BlogPostResponse>(routes.blog.find(query));
 };

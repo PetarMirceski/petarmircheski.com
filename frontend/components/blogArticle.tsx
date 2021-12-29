@@ -7,6 +7,8 @@ import {
   chakra,
   useColorModeValue,
 } from '@chakra-ui/react';
+import { addBaseUrlToImage } from 'utils/imageUrlUtils';
+import moment from 'moment';
 
 interface Props {
   title: string;
@@ -21,6 +23,7 @@ export const BlogArticle: FC<Props> = ({
   description,
   date,
 }) => {
+  const dateObject = moment(date);
   return (
     <Flex
       bg={useColorModeValue('#F9FAFB', 'gray.600')}
@@ -41,7 +44,7 @@ export const BlogArticle: FC<Props> = ({
           w="full"
           h={64}
           fit="cover"
-          src={headerImage}
+          src={addBaseUrlToImage(headerImage)}
           alt="Article"
         />
 
@@ -73,7 +76,7 @@ export const BlogArticle: FC<Props> = ({
                 fontSize="sm"
                 color={useColorModeValue('gray.600', 'gray.300')}
               >
-                {date}
+                {dateObject.format('MMMM Do')}
               </chakra.span>
             </Flex>
           </Box>

@@ -88,8 +88,8 @@ export const Navbar = () => {
           flexGrow={1}
           mt={{ base: 4, md: 0 }}
         >
-          <LinkItem href="/posts">Posts</LinkItem>
-          <LinkItem href="/blog">Blog</LinkItem>
+          <LinkItem href="/posts/1">Posts</LinkItem>
+          <LinkItem href="/blog/1">Blog</LinkItem>
         </Stack>
 
         <Box flex={1} align="right">
@@ -106,10 +106,10 @@ export const Navbar = () => {
                 <NextLink href="/" passHref>
                   <MenuItem as={Link}>About</MenuItem>
                 </NextLink>
-                <NextLink href="/works" passHref>
+                <NextLink href="/works/1" passHref>
                   <MenuItem as={Link}>Works</MenuItem>
                 </NextLink>
-                <NextLink href="/posts" passHref>
+                <NextLink href="/posts/1" passHref>
                   <MenuItem as={Link}>Posts</MenuItem>
                 </NextLink>
               </MenuList>
