@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export const MDXcomponents = {
   Image: Image,
-  a: (props: any) => <FancyLink passHref={true} {...props} color="teal.500" />,
+  a: (props: any) => <FancyLink  {...props} color="teal.500" />,
   h1: (props: any) => (
     <Text my={3} as="h1" fontSize="6xl" {...props}>
       {props.children}

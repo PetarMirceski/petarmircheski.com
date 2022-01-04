@@ -90,10 +90,10 @@ export const Navbar = () => {
                 aria-label="Options"
               />
               <MenuList>
-                <NextLink href="/blog" passHref>
+                <NextLink href="/blog">
                   <MenuItem as={Link}>Blog</MenuItem>
                 </NextLink>
-                <NextLink href="/music" passHref>
+                <NextLink href="/music">
                   <MenuItem as={Link}>Music</MenuItem>
                 </NextLink>
               </MenuList>

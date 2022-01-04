@@ -4,7 +4,7 @@ import { FC } from 'react';
 
 export const FancyLink: FC<LinkProps> = ({ children, ...props }) => {
   return (
-    <NextLink href={String(props.href)} passHref>
+    <NextLink href={String(props.href)}>
       <Link {...props} color="teal.500">
         {children}
       </Link>
