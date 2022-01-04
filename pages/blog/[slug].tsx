@@ -29,7 +29,15 @@ interface Props {
 const Blog: NextPage<Props> = ({ post }) => {
   const Component = useMDXComponent(post.body.code);
   return (
-    <Layout showScene={false}>
+    <Layout
+      showScene={false}
+      meta={{
+        title: post.title,
+        description: post.summary,
+        image: post.image,
+        publishedAt: post.publishedAt,
+      }}
+    >
       <ContainerLayout>
         <BlogOutline post={post}>
           <Component

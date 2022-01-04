@@ -1,12 +1,10 @@
-import { ChakraProvider, extendTheme } from '@chakra-ui/react';
+import { ChakraProvider, ThemeConfig, extendTheme } from '@chakra-ui/react';
 import { mode } from '@chakra-ui/theme-tools';
 import type { AppProps } from 'next/app';
 
-const customTheme = {
-  config: {
-    initialColorMode: 'dark',
-    useSystemColorMode: false,
-  },
+const config: ThemeConfig = {
+  initialColorMode: 'dark',
+  useSystemColorMode: false,
 };
 
 const styles = {
@@ -17,9 +15,15 @@ const styles = {
   }),
 };
 
+const fonts = {
+  fonts: {
+    body: 'Roboto',
+  },
+};
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ChakraProvider theme={extendTheme({ customTheme, styles })}>
+    <ChakraProvider theme={extendTheme({ config, styles, fonts })}>
       <Component {...pageProps} />
     </ChakraProvider>
   );

@@ -24,6 +24,8 @@ interface Props {
 }
 
 export const Bio: FC<Props> = ({ bioEntries }) => {
+  const fontColour = useColorModeValue('gray.800', 'white');
+  const bgColour = useColorModeValue('gray.600', 'gray.400');
   return (
     <PostWrapper>
       <Box
@@ -35,17 +37,14 @@ export const Bio: FC<Props> = ({ bioEntries }) => {
       >
         <chakra.h2
           fontSize={{ base: '2xl', md: '3xl' }}
-          color={useColorModeValue('gray.800', 'white')}
+          color={fontColour}
           fontWeight="bold"
         >
           Bio
         </chakra.h2>
         {bioEntries.map((bioEntry, key) => {
           return (
-            <BioSection
-              key={key}
-              color={useColorModeValue('gray.600', 'gray.400')}
-            >
+            <BioSection key={key} color={bgColour}>
               <BioYear>{bioEntry.year}</BioYear>
               {bioEntry.description}
             </BioSection>

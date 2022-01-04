@@ -134,7 +134,7 @@ const ThreeScene: React.FC = () => {
         renderer.dispose();
       };
     }
-  }, []);
+  }, [initialCameraPosition, renderer, scene, target]);
 
   useEffect(() => {
     window.addEventListener('resize', handleWindowResize, false);
