@@ -46,14 +46,14 @@ export const MDXcomponents = {
   },
   ul: (props: any) => {
     return (
-      <UnorderedList pl={10} {...props}>
+      <UnorderedList pl={4} {...props}>
         {props.children}
       </UnorderedList>
     );
   },
   ol: (props: any) => {
     return (
-      <OrderedList pl={10} {...props}>
+      <OrderedList pl={4} {...props}>
         {props.children}
       </OrderedList>
     );

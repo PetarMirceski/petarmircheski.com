@@ -114,12 +114,12 @@ const Blog: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
         <Stack>
           <Heading textAlign="center">My Personal Blog</Heading>
           <chakra.h1 textAlign="center">
-            Sometimes I write stuff sometimes I don`&apos;`t. Feel free to
-            search some of my blog posts using the searchbar below.
+            Sometimes I write stuff sometimes I don&apos;t. Feel free to search
+            some of my blog posts using the searchbar below.
           </chakra.h1>
         </Stack>
         <Center pb="10">
-          <Box maxWidth="70%" width="70%">
+          <Box maxWidth="100%" width={['100%', '80%', '75%']}>
             <InputGroup>
               <InputLeftElement pointerEvents="none">
                 <Search2Icon color={useColorModeValue('black', 'white')} />
