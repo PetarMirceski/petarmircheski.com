@@ -9,7 +9,7 @@ const Music: NextPage = () => {
   return (
     <Layout>
       <ContainerLayout>
-        <Stack>
+        <Stack mt={-20}>
           <Heading textAlign="center">Music That I Enjoy</Heading>
           <chakra.h1 textAlign="center">
             Handpicked songs that I think are worth sharing with the internet

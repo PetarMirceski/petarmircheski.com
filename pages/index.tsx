@@ -11,8 +11,8 @@ const Home: NextPage = () => {
   return (
     <Layout>
       <ContainerLayout>
-        <SimpleGrid columns={1} spacing={0}>
-          <Box py={10}>
+        <SimpleGrid columns={1} spacing={0} mt={-20}>
+          <Box pb={10}>
             <Card title="Work" image="/computer_programming_man.png">
               I am currently residing in Tokyo since I am doing my masters
               degree here. I am majoring in the Department of Systems and

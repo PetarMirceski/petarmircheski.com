@@ -4,7 +4,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
-// TODO: Fix the typing and the model but for not it looks cool
+// TODO: Fix the typing and the model but for now it looks cool
 export const LorenzSpinner = () => (
   <Spinner
     size="xl"
@@ -55,7 +55,6 @@ export function loadGLTFModel(
 const ThreeScene: React.FC = () => {
   const refBody = useRef<HTMLDivElement>(null);
   const [renderer, setRenderer] = useState<THREE.WebGLRenderer | null>();
-  const [_camera, setCamera] = useState<THREE.OrthographicCamera | null>();
   const [target] = useState(new THREE.Vector3(0, 13, 0));
   const [initialCameraPosition] = useState(
     new THREE.Vector3(
@@ -65,7 +64,6 @@ const ThreeScene: React.FC = () => {
     )
   );
   const [scene] = useState(new THREE.Scene());
-  const [_controls, setControls] = useState<any>();
 
   const handleWindowResize = useCallback(() => {
     const { current: container } = refBody;
@@ -93,7 +91,8 @@ const ThreeScene: React.FC = () => {
       container.appendChild(renderer.domElement);
       setRenderer(renderer);
 
-      const scale = scH * 0.07 + 4;
+      const scalingConstant = scH < 500 ? 2 : 1;
+      const scale = scH * 0.07 * scalingConstant + 4;
       const camera = new THREE.OrthographicCamera(
         -scale,
         scale,
@@ -104,7 +103,6 @@ const ThreeScene: React.FC = () => {
       );
       camera.position.copy(initialCameraPosition);
       camera.lookAt(target);
-      setCamera(camera);
 
       const ambientLight = new THREE.AmbientLight(0xcccccc, 1);
       scene.add(ambientLight);
@@ -113,7 +111,6 @@ const ThreeScene: React.FC = () => {
       controls.enablePan = false;
       controls.autoRotate = true;
       controls.target = target;
-      setControls(controls);
 
       loadGLTFModel(scene, '/scene.gltf', {
         receiveShadow: false,

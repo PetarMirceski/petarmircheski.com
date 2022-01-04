@@ -111,7 +111,7 @@ const Blog: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   return (
     <Layout>
       <ContainerLayout>
-        <Stack>
+        <Stack mt={-20}>
           <Heading textAlign="center">My Personal Blog</Heading>
           <chakra.h1 textAlign="center">
             Sometimes I write stuff sometimes I don&apos;t. Feel free to search
