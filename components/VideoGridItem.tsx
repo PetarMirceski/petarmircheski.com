@@ -13,7 +13,6 @@ interface Props {
   link: string;
 }
 export const VideoGridItem: FC<Props> = ({ title, videoId, link }) => {
-  // TODO: Add a play icon for the video that routed instead of link
   return (
     <GridItem
       bg={useColorModeValue('#e8d2b5', 'black')}

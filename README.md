@@ -32,5 +32,3 @@ npm run mogrigy
 
 - Add image optimization
 - Add NextHead to the pages
-- Write some more blog posts
-- Add a play icon to the music links
