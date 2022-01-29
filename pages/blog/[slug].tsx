@@ -1,3 +1,5 @@
+import 'katex/dist/katex.min.css';
+
 import { BlogOutline } from 'components/BlogOutline';
 import { MDXcomponents } from 'components/MDXcomponents';
 import { ContainerLayout } from 'layouts/ContainerLayout';
