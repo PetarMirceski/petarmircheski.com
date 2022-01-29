@@ -70,7 +70,7 @@ export const BlogArticle: FC<Props> = ({
                 fontSize="sm"
                 color={useColorModeValue('gray.600', 'gray.300')}
               >
-                {dateObject.format('MMMM Do')}
+                {dateObject.format('MMMM Do YYYY')}
               </chakra.span>
             </Flex>
           </Box>
