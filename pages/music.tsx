@@ -17,6 +17,11 @@ const Music: NextPage = () => {
         </Stack>
         <BlogArticlesGrid>
           <VideoGridItem
+            title="Radiohead - Knives Out"
+            videoId="2Lpw3yMCWro"
+            link="https://www.youtube.com/watch?v=2Lpw3yMCWro"
+          />
+          <VideoGridItem
             title="Tigran Hamasyan - Road Song"
             videoId="XzYi73A7g7E"
             link="https://www.youtube.com/watch?v=XzYi73A7g7E"
