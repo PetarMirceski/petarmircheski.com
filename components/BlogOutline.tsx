@@ -55,7 +55,7 @@ export const BlogOutline: FC<Props> = ({ post, children }) => {
               <Avatar
                 size="md"
                 name="Petar Mircheski"
-                src="/profile.jpg"
+                src="/newer_profile.jpg"
                 mr={2}
               />
               <Text fontSize="sm">

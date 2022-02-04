@@ -4,7 +4,6 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
-// TODO: Fix the typing and the model but for now it looks cool
 export const LorenzSpinner = () => (
   <Spinner
     size="xl"

@@ -10,18 +10,19 @@ interface Props {
 export const Card: FC<Props> = ({ image, title, icon, children }) => {
   return (
     <PostWrapper>
-      <Box w={{ lg: '50%' }}>
+      <Box w={{ lg: '30%' }}>
         <Box
           h={{ base: 64, lg: 'full' }}
           rounded={{ lg: 'lg' }}
-          bgSize="cover"
+          bgSize="contain"
           style={{
             backgroundImage: `url('${image}')`,
+            backgroundRepeat: 'no-repeat',
           }}
         />
       </Box>
 
-      <Box py={20} px={6} maxW={{ base: 'xl', lg: '5xl' }} w={{ lg: '50%' }}>
+      <Box py={20} px={6} maxW={{ base: 'xl', lg: '5xl' }} w={{ lg: '70%' }}>
         <chakra.h2
           fontSize={{ base: '2xl', md: '3xl' }}
           color={useColorModeValue('black', 'white')}
@@ -32,10 +33,16 @@ export const Card: FC<Props> = ({ image, title, icon, children }) => {
           {title}
           <Box ml={2}>{icon && icon}</Box>
         </chakra.h2>
-        <chakra.p mt={4} color={useColorModeValue('gray.600', 'gray.400')}>
-          {children}
-        </chakra.p>
+        {children}
       </Box>
     </PostWrapper>
+  );
+};
+
+export const CardText: FC = ({ children }) => {
+  return (
+    <chakra.p mt={4} color={useColorModeValue('gray.600', 'gray.400')}>
+      {children}
+    </chakra.p>
   );
 };
