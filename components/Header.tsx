@@ -18,6 +18,7 @@ import { LinkItem } from 'components/LinkItem';
 import { AnimatePresence, motion } from 'framer-motion';
 import NextLink from 'next/link';
 import { FC } from 'react';
+import { AiFillGitlab } from 'react-icons/ai';
 
 const ThemeTogglerIcon: FC = () => {
   const { toggleColorMode } = useColorMode();
@@ -81,6 +82,9 @@ export const Navbar = () => {
 
         <Box flex={1} align="right">
           <ThemeTogglerIcon />
+          <LinkItem href="https://gitlab.com/petar.mirceski1998">
+            <IconButton aria-label="link" icon={<AiFillGitlab />} />
+          </LinkItem>
           <Box ml={2} display={{ base: 'inline-block', md: 'none' }}>
             <Menu isLazy id="navbar-menu" autoSelect={false}>
               <MenuButton

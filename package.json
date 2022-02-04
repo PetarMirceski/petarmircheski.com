@@ -11,6 +11,7 @@
     "start": "next start",
     "lint": "next lint",
     "prune": "ts-prune",
+    "type-check": "tsc",
     "format": "prettier --ignore-path .gitignore \"**/*.+(ts|js|tsx|jsx)\" --write"
   },
   "dependencies": {

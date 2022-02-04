@@ -1,12 +1,12 @@
 import { Box, Container } from '@chakra-ui/react';
-import { Footer } from 'components/footer';
-import { Navbar } from 'components/header';
-import { LorenzSpinner } from 'components/threeScene';
+import { Footer } from 'components/Footer';
+import { Navbar } from 'components/Header';
+import { LorenzSpinner } from 'components/ThreeScene';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import { FC, PropsWithChildren } from 'react';
 
-const ClientScene = dynamic(() => import('components/threeScene'), {
+const ClientScene = dynamic(() => import('components/ThreeScene'), {
   ssr: false,
   loading: () => <LorenzSpinner />,
 });
@@ -41,7 +41,7 @@ export const Layout: FC<PropsWithChildren<ChildrenProps>> = ({
         <meta name="robots" content="follow, index" />
         <meta content={customMeta?.description} name="description" />
         <meta property="og:type" content={customMeta?.type} />
-        <meta property="og:site_name" content="Lee Robinson" />
+        <meta property="og:site_name" content="Petar Mircheski" />
         <meta property="og:description" content={customMeta?.description} />
         <meta property="og:title" content={customMeta?.title} />
         <meta property="og:image" content={customMeta?.image} />

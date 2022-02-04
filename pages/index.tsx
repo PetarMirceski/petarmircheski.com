@@ -1,6 +1,6 @@
 import { Box, SimpleGrid } from '@chakra-ui/react';
 import { Bio } from 'components/Bio';
-import { Card } from 'components/card';
+import { Card } from 'components/Card';
 import { FancyLink } from 'components/FancyLink';
 import { ContainerLayout } from 'layouts/ContainerLayout';
 import { Layout } from 'layouts/Layout';

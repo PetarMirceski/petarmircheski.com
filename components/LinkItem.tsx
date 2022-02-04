@@ -4,13 +4,12 @@ import { FC } from 'react';
 
 interface LinkItemProps {
   href: string;
-  children: string;
 }
 
-export const LinkItem: FC<LinkItemProps> = ({ href, children }) => {
+export const LinkItem: FC<LinkItemProps> = ({ children, ...props }) => {
   return (
-    <NextLink href={href}>
-      <Link p={2} color={useColorModeValue('light', 'dark')}>
+    <NextLink href={props.href}>
+      <Link {...props} p={2} color={useColorModeValue('light', 'dark')}>
         {children}
       </Link>
     </NextLink>
