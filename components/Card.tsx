@@ -18,6 +18,7 @@ export const Card: FC<Props> = ({ image, title, icon, children }) => {
           style={{
             backgroundImage: `url('${image}')`,
             backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center',
           }}
         />
       </Box>
