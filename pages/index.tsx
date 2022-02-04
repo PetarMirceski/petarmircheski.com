@@ -1,4 +1,4 @@
-import { Box, SimpleGrid, Text } from '@chakra-ui/react';
+import { Box, SimpleGrid } from '@chakra-ui/react';
 import { Bio } from 'components/Bio';
 import { Card, CardText } from 'components/Card';
 import { FancyLink } from 'components/FancyLink';
