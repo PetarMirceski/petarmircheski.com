@@ -31,6 +31,7 @@ export const Layout: FC<PropsWithChildren<ChildrenProps>> = ({
     title: 'Petar Mircheski',
     description: `Researcher, creator, developer`,
     type: 'website',
+    image: 'https://www.petarmircheski.com/banners/banner.png',
     ...meta,
   };
 
@@ -44,7 +45,7 @@ export const Layout: FC<PropsWithChildren<ChildrenProps>> = ({
         <meta property="og:site_name" content="Petar Mircheski" />
         <meta property="og:description" content={customMeta?.description} />
         <meta property="og:title" content={customMeta?.title} />
-        <meta property="og:image" content={customMeta?.image} />
+        <meta property="og:image" content={customMeta.image} />
         {customMeta?.publishedAt && (
           <meta
             property="article:published_time"
