@@ -111,7 +111,7 @@ const ThreeScene: React.FC = () => {
       controls.autoRotate = true;
       controls.target = target;
 
-      loadGLTFModel(scene, '/scene.gltf', {
+      loadGLTFModel(scene, '/lorenz_attractor/scene.gltf', {
         receiveShadow: false,
         castShadow: false,
       }).then(() => {
