@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "NODE_OPTIONS='--experimental-json-modules' node ./scripts/sitemap.mjs",
     "start": "next start",
     "lint": "next lint",
     "prune": "ts-prune",
