@@ -1,3 +1,5 @@
+import 'styles/prism.css';
+
 import { ChakraProvider, ThemeConfig, extendTheme } from '@chakra-ui/react';
 import { mode } from '@chakra-ui/theme-tools';
 import type { AppProps } from 'next/app';

@@ -1,0 +1,192 @@
+---
+title: 'How I Programmed this Blog'
+publishedAt: '2022-02-04'
+summary: 'Brief guide on how this blog was made using MDX and Next.js.'
+image: '/static/how_i_programmed_this_blog/next_js_logo.png'
+---
+
+After coming to Japan during the winter holidays since I had too much free time
+I decided on starting my own website and blog. Having previous experience with
+working with React and Next.js I decided to take up on the challenge of working
+on some personal hobby project.
+
+# Theming
+
+Having first hand experience using Material-UI and using it extensively for the
+past 2 years I wanted to switch things and learn a new framework or technology
+for this website. I chose Chakra-UI for this project because of it's simplicity
+and large palette of components that are available. The benefits of using
+Chakra-UI are tremendous, such as:
+
+1. It's a modular library
+2. Implementing style-props.
+3. Responsive styles.
+4. It comes with Light and Dark mode management hooks.
+5. Big enough community to be an asset to my knowledge.
+6. Excellent integration with Next.js.
+
+```tsx:components/Card.tsx
+export const Card: FC<Props> = ({ image, title, icon, children }) => {
+  return (
+    <PostWrapper>
+      <Box w={{ lg: '30%' }}>
+        <Box
+          h={{ base: 64, lg: 'full' }}
+          rounded={{ lg: 'lg' }}
+          bgSize="contain"
+          style={{
+            backgroundImage: `url('${image}')`,
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center',
+          }}
+        />
+      </Box>
+
+      <Box py={20} px={6} maxW={{ base: 'xl', lg: '5xl' }} w={{ lg: '70%' }}>
+        <chakra.h2
+          fontSize={{ base: '2xl', md: '3xl' }}
+          color={useColorModeValue('black', 'white')}
+          fontWeight="bold"
+          display="inline-flex"
+          alignItems="center"
+        >
+          {title}
+          <Box ml={2}>{icon && icon}</Box>
+        </chakra.h2>
+        {children}
+      </Box>
+    </PostWrapper>
+  );
+};
+```
+
+# Content Management
+
+This blog is built using MDX and ContentLayer, this serves as a great alternative
+to keeping the blog-posts inside a markup file such as a json-file or maintaining
+a big code base that is based on a content management tool such as Strapi.js,
+WordPress or Ghost.js. The file structure of the posts is managed by ContentLayer
+which manages the .mdx files that have a predefined structure. Each .mdx file
+contains the following structure:
+
+```md
+---
+title: '2021 Year in Review'
+publishedAt: '2021-12-30'
+summary: 'Highlights and reflections on 2021 and a look forward to 2022.'
+image: '/static/2021_year_in_review/2021.jpg'
+---
+```
+
+Using the ContentLayer I can easily parse the .mdx files their meta-data
+add calculated attributes to the blog posts such as reading time and the url
+slug and display the data easily inside the blog page and blog posts.
+
+```ts:contentlayer.config.ts
+const computedFields: ComputedFields = {
+  readingTime: { type: 'json', resolve: (doc) => readingTime(doc.body.raw) },
+  wordCount: {
+    type: 'number',
+    resolve: (doc) => doc.body.raw.split(/\s+/gu).length,
+  },
+  slug: {
+    type: 'string',
+    resolve: (doc) => doc._raw.sourceFileName.replace(/\.mdx$/, ''),
+  },
+};
+```
+
+ContentLayer generates typescript types making the coding experience more
+type-safe and sane. It also has the ability to easily integrate with the
+rehype the Markdown HTML processor in order to more easily parse the .mdx files.
+The rehype extensions that I use are the rehype-gfm (github flavored markdown css),
+the rehype-math which allows me to input latex-like $\LaTeX$ math expressions and
+rehype-code-titles and rehype-prism which are extensions that format markdown
+code-blocks with a title and add the ability to format the code inside the
+code-blocks with a beautiful theme.
+
+```ts:contentlayer.config.ts
+const Blog = defineDocumentType(() => ({
+  name: 'Blog',
+  filePathPattern: 'blog/*.mdx',
+  bodyType: 'mdx',
+  fields: {
+    title: { type: 'string', required: true },
+    publishedAt: { type: 'string', required: true },
+    summary: { type: 'string', required: true },
+    image: { type: 'string', required: true },
+  },
+  computedFields,
+}));
+
+const contentLayerConfig = makeSource({
+  contentDirPath: 'data',
+  documentTypes: [Blog],
+  mdx: {
+    remarkPlugins: [remarkGfm, remarkMath],
+    rehypePlugins: [
+      rehypeSlug,
+      rehypeCodeTitles,
+      rehypeKatex,
+      rehypePrism,
+      [
+        rehypeAutolinkHeadings,
+        {
+          properties: {
+            className: ['anchor'],
+          },
+        },
+      ],
+    ],
+  },
+});
+```
+
+MDX allows me to directly define JSX code inside the markdown posts. This is needed
+to explicitly define images, charts and other useful components to make the blog more
+aesthetically appealing.
+
+```md
+---
+title: '2021 Year in Review'
+publishedAt: '2021-12-30'
+summary: 'Highlights and reflections on 2021 and a look forward to 2022.'
+image: '/static/2021_year_in_review/2021.jpg'
+---
+
+<Image
+alt={`2019 Year in Review`}
+src={`/static/2021_year_in_review/2021.jpg`}
+width={1200}
+height={630}
+priority
+/>
+```
+
+# Using Next.js with ContentLayer
+
+Using Next.js gives us the ability to programmatically create static html documents
+using the data that ContentLayer serves us. This increases the performance of the
+web-site and also allows us to use the native `getStaticProps()` function that Next.js
+has. Using the post-slug we can build the structure of the blog very easily:
+
+```ts:pages/blog/[slug].tsx
+import { GetStaticPaths, GetStaticProps } from 'next';
+import { allBlogs } from '.contentlayer/data';
+import type { Blog } from '.contentlayer/types';
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const post = allBlogs.find((post: Blog) => post.slug === params?.slug);
+  return { props: { post } };
+};
+```
+
+# Summary
+
+1. Next.js, ContentLayer and MDX work excellently together.
+2. The Blog has low over-head since no back-end and database are needed.
+3. The code strcuture is flexible and ergonomic.
+4. ContentLayer is a little difficult to use because of the lack of documentation at
+   the time this blog was made but there are a lot of examples on the internet that
+   people can draw inspirations from.
+5. Open-sourcing is fun 🚀.

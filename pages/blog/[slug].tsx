@@ -19,9 +19,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  // @ts-ignore: Try to fix the params.slug is possibly undefined
-  const post = allBlogs.find((post) => post.slug === params.slug);
-
+  const post = allBlogs.find((post: Blog) => post.slug === params?.slug);
   return { props: { post } };
 };
 
