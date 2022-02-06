@@ -56,7 +56,7 @@ export const Layout: FC<PropsWithChildren<ChildrenProps>> = ({
 
       <Box as="main" pb={8}>
         <Navbar />
-        <Container maxW="container.l" pt={14}>
+        <Container maxW="container.xl" pt={14}>
           {showScene && <ClientScene />}
           {children}
         </Container>

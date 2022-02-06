@@ -1,4 +1,5 @@
 import 'katex/dist/katex.min.css';
+import 'prismjs/themes/prism-tomorrow.css';
 
 import { BlogOutline } from 'components/BlogOutline';
 import { MDXcomponents } from 'components/MDXcomponents';
