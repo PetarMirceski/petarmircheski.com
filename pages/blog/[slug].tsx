@@ -3,7 +3,6 @@ import 'prismjs/themes/prism-tomorrow.css';
 
 import { BlogOutline } from 'components/BlogOutline';
 import { MDXcomponents } from 'components/MDXcomponents';
-import { ContainerLayout } from 'layouts/ContainerLayout';
 import { Layout } from 'layouts/Layout';
 import type { NextPage } from 'next';
 import { GetStaticPaths, GetStaticProps } from 'next';
@@ -39,17 +38,15 @@ const Blog: NextPage<Props> = ({ post }) => {
         publishedAt: post.publishedAt,
       }}
     >
-      <ContainerLayout>
-        <BlogOutline post={post}>
-          <Component
-            components={
-              {
-                ...MDXcomponents,
-              } as any
-            }
-          />
-        </BlogOutline>
-      </ContainerLayout>
+      <BlogOutline post={post}>
+        <Component
+          components={
+            {
+              ...MDXcomponents,
+            } as any
+          }
+        />
+      </BlogOutline>
     </Layout>
   );
 };

@@ -1,4 +1,4 @@
-import { Box, Container } from '@chakra-ui/react';
+import { Box, Container, Flex, useColorModeValue } from '@chakra-ui/react';
 import { Footer } from 'components/Footer';
 import { Navbar } from 'components/Header';
 import { LorenzSpinner } from 'components/ThreeScene';
@@ -58,7 +58,15 @@ export const Layout: FC<PropsWithChildren<ChildrenProps>> = ({
         <Navbar />
         <Container maxW="container.xl" pt={14}>
           {showScene && <ClientScene />}
-          {children}
+          <Flex
+            bg={useColorModeValue('white', 'black')}
+            w="full"
+            alignItems="center"
+            justifyContent="center"
+            borderRadius="20px"
+          >
+            {children}
+          </Flex>
         </Container>
         <Footer />
       </Box>
