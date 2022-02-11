@@ -9,7 +9,7 @@ import { IoHeart } from 'react-icons/io5';
 const Home: NextPage = () => {
   return (
     <Layout>
-      <SimpleGrid columns={1} spacing={0} mt={-20}>
+      <SimpleGrid columns={1} spacing={0} mt={-10}>
         <Box pb={10}>
           <Card title="Work" image="/newer_profile.jpg">
             <CardText>
