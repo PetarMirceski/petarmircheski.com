@@ -17,7 +17,8 @@ const Home: NextPage = () => {
               studies here. I am majoring in the Department of Systems and
               Control Engineering, School of Engineering, Tokyo Institute of
               Technology, Japan. My academic advisor is Prof. Dr. Nakao Hiroya.
-              I have a knack for problem solving.
+              I have a knack for problem solving. You can find my CV{' '}
+              <FancyLink href="/cv.pdf">here</FancyLink>.
             </CardText>
           </Card>
         </Box>
