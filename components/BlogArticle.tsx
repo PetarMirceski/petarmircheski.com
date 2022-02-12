@@ -41,7 +41,7 @@ export const BlogArticle: FC<Props> = ({
           alt="Article"
         />
 
-        <Box p={6}>
+        <Box p={3}>
           <Box>
             <Link
               display="block"
