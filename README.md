@@ -1,34 +1,26 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## petarmircheski.com
 
-## Getting Started
+- _Language_: [Typescript](https://www.typescriptlang.org/)
+- _Framework_: : [Next.js](https://nextjs.org/)
+- _Content_: : [MDX](https://mdxjs.com/)
+- _Styling_: [Charkra-UI](https://chakra-ui.com/)
+- _Deployment_: [Vercel](https://vercel.com/)
 
-First, run the development server:
+## Project Organization
 
-```bash
-npm run dev
-```
+- `data/*` - MDX data that is used for blogs.
+- `layouts/*` - The different page layouts, both for JSX pages and MDX blog posts.
+- `pages/*` - Static pages.
+- `public/*` - Images, animations and all other static assets.
+- `styles/*` - Global styles for the prism syntax highlighting.
+- `scripts/*` - Sitemap generating script.
+- `components/*` - All .tsx components building blocks.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-## Important things to do before pushing to the repository
-
-Firstly cause we use MDX and store the images in the public/static
-folder we should execute some commands to resize the images
-to a more suitable and smaller format.
-
-In order to do this you have to install imagemagick using
-
-```bash
-sudo apt install imagemagick
-```
-
-After installing imagemagick please use the command
+## Running the dev server
 
 ```bash
-npm run mogrigy
+$ git clone https://gitlab.com/petar.mirceski1998/personal-blog
+$ cd personal-blog
+$ npm install
+$ npm run dev
 ```
-
-## TODO List for further improving the project:
-
-- Add image optimization
-- Add NextHead to the pages

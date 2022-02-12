@@ -22,7 +22,7 @@ export const BlogOutline: FC<Props> = ({ post, children }) => {
         spacing={8}
         justifyContent="center"
         alignItems="flex-start"
-        m="0 auto 4rem auto"
+        m="20px auto 4rem auto"
         maxWidth="700px"
         w="100%"
         px={2}
