@@ -1,15 +1,14 @@
-import { Box, Container, Flex, useColorModeValue } from '@chakra-ui/react';
+import { Container, Flex, useColorModeValue } from '@chakra-ui/react';
 import { Footer } from 'components/Footer';
-import { Navbar } from 'components/Header';
-import { LorenzSpinner } from 'components/ThreeScene';
-import dynamic from 'next/dynamic';
+import { motion } from 'framer-motion';
 import Head from 'next/head';
 import { FC, PropsWithChildren } from 'react';
 
-const ClientScene = dynamic(() => import('components/ThreeScene'), {
-  ssr: false,
-  loading: () => <LorenzSpinner />,
-});
+const variants = {
+  hidden: { opacity: 0, x: 0, y: 20 },
+  enter: { opacity: 1, x: 0, y: 0 },
+  exit: { opacity: 0, x: -0, y: 20 },
+};
 
 interface Meta {
   description?: string;
@@ -19,12 +18,11 @@ interface Meta {
   image?: string;
 }
 interface ChildrenProps {
-  showScene?: boolean;
   meta?: Meta;
 }
+
 export const Layout: FC<PropsWithChildren<ChildrenProps>> = ({
   children,
-  showScene = true,
   meta,
 }) => {
   const customMeta = {
@@ -45,7 +43,7 @@ export const Layout: FC<PropsWithChildren<ChildrenProps>> = ({
         <meta property="og:site_name" content="Petar Mircheski" />
         <meta property="og:description" content={customMeta?.description} />
         <meta property="og:title" content={customMeta?.title} />
-        <meta property="og:image" content={customMeta.image} />
+        <meta property="og:image" content={customMeta.image} />{' '}
         {customMeta?.publishedAt && (
           <meta
             property="article:published_time"
@@ -54,10 +52,15 @@ export const Layout: FC<PropsWithChildren<ChildrenProps>> = ({
         )}
       </Head>
 
-      <Box as="main" pb={8}>
-        <Navbar />
-        <Container maxW="container.xl" pt={14}>
-          {showScene && <ClientScene />}
+      <Container maxW="container.xl">
+        <motion.article
+          initial="hidden"
+          animate="enter"
+          exit="exit"
+          variants={variants}
+          transition={{ duration: 0.4, type: 'easeInOut' }}
+          style={{ position: 'relative' }}
+        >
           <Flex
             bg={useColorModeValue('white', 'black')}
             w="full"
@@ -67,9 +70,9 @@ export const Layout: FC<PropsWithChildren<ChildrenProps>> = ({
           >
             {children}
           </Flex>
-        </Container>
-        <Footer />
-      </Box>
+        </motion.article>
+      </Container>
+      <Footer />
     </>
   );
 };

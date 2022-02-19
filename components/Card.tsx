@@ -7,6 +7,7 @@ interface Props {
   title: string;
   icon?: ReactNode;
 }
+
 export const Card: FC<Props> = ({ image, title, icon, children }) => {
   return (
     <PostWrapper>

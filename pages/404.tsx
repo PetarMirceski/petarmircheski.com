@@ -13,8 +13,8 @@ import type { NextPage } from 'next';
 
 const Custom404: NextPage = () => {
   return (
-    <Layout showScene={false}>
-      <SimpleGrid columns={1} spacing={0}>
+    <Layout>
+      <SimpleGrid columns={1} spacing={0} pt={14}>
         <Box>
           <Center>
             <Heading as="h1" size="4xl" isTruncated>

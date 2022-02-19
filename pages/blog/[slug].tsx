@@ -30,7 +30,6 @@ const Blog: NextPage<Props> = ({ post }) => {
   const Component = useMDXComponent(post.body.code);
   return (
     <Layout
-      showScene={false}
       meta={{
         title: post.title,
         description: post.summary,
