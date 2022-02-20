@@ -1,33 +1,15 @@
 import 'styles/prism.css';
+import '@fontsource/roboto/400.css';
 
 import { Box, Container } from '@chakra-ui/react';
-import { ChakraProvider, ThemeConfig, extendTheme } from '@chakra-ui/react';
-import { mode } from '@chakra-ui/theme-tools';
+import { ChakraProvider } from '@chakra-ui/react';
 import { Navbar } from 'components/Header';
 import { LorenzSpinner } from 'components/ThreeScene';
 import { AnimatePresence } from 'framer-motion';
 import type { AppProps } from 'next/app';
 import dynamic from 'next/dynamic';
 import { NextRouter } from 'next/router';
-
-const config: ThemeConfig = {
-  initialColorMode: 'dark',
-  useSystemColorMode: false,
-};
-
-const styles = {
-  global: (props: any) => ({
-    body: {
-      bg: mode('#ebdfce', 'black')(props),
-    },
-  }),
-};
-
-const fonts = {
-  fonts: {
-    body: 'Roboto',
-  },
-};
+import { theme } from 'styles/theme';
 
 const ClientScene = dynamic(() => import('components/ThreeScene'), {
   ssr: false,
@@ -42,10 +24,11 @@ const isErrorOrQuery = (router: NextRouter) => {
   }
   return false;
 };
+
 function MyApp({ Component, pageProps, router }: AppProps) {
   const hideState = isErrorOrQuery(router);
   return (
-    <ChakraProvider theme={extendTheme({ config, styles, fonts })}>
+    <ChakraProvider theme={theme}>
       <AnimatePresence
         exitBeforeEnter
         initial={false}
