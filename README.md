@@ -24,3 +24,12 @@ $ cd personal-blog
 $ npm install
 $ npm run dev
 ```
+
+## Before publishing
+
+```bash
+$ sudo apt install jpegoptim
+$ sudo apt install pngcrush
+$ cd public/static/
+$ bash optimize.sh
+```

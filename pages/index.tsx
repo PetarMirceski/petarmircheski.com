@@ -11,7 +11,7 @@ const Home: NextPage = () => {
     <Layout>
       <SimpleGrid columns={1} spacing={0} mt={-10}>
         <Box pb={10}>
-          <Card title="Work" image="/newer_profile.jpg">
+          <Card title="Work" image="static/images/newer_profile.jpg">
             <CardText>
               I am currently residing in Tokyo since I am doing my masters
               studies here. I am majoring in the Department of Systems and
@@ -51,7 +51,11 @@ const Home: NextPage = () => {
           />
         </Box>
         <Box py={10}>
-          <Card title="I" icon={<IoHeart />} image="/neko_punch.png">
+          <Card
+            title="I"
+            icon={<IoHeart />}
+            image="static/images/neko_punch.png"
+          >
             <CardText>
               Art and
               <FancyLink p={1} href="/music">
