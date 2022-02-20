@@ -6,7 +6,7 @@ optimizejpg() {
     if test -d $i; then
       cd $i
       echo $i
-      optimize
+      optimizejpg
       cd ..
     fi
   done
@@ -26,5 +26,5 @@ optimizepng() {
 
 }
 
-# optimizejpg
+optimizejpg
 optimizepng
