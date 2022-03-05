@@ -1,7 +1,7 @@
-import { Box, chakra, useColorModeValue } from '@chakra-ui/react';
-import styled from '@emotion/styled';
-import { PostWrapper } from 'layouts/PostWrapper';
-import { FC } from 'react';
+import { Box, chakra, useColorModeValue } from "@chakra-ui/react";
+import styled from "@emotion/styled";
+import { PostWrapper } from "layouts/PostWrapper";
+import { FC } from "react";
 
 const BioSection = styled(Box)`
   padding-left: 3.4em;
@@ -24,19 +24,19 @@ interface Props {
 }
 
 export const Bio: FC<Props> = ({ bioEntries }) => {
-  const fontColour = useColorModeValue('gray.800', 'white');
-  const bgColour = useColorModeValue('gray.600', 'gray.400');
+  const fontColour = useColorModeValue("gray.800", "white");
+  const bgColour = useColorModeValue("gray.600", "gray.400");
   return (
     <PostWrapper>
       <Box
         pt={10}
         pb={10}
         px={6}
-        maxW={{ base: 'xl', lg: '5xl' }}
-        w={{ lg: '100%' }}
+        maxW={{ base: "xl", lg: "5xl" }}
+        w={{ lg: "100%" }}
       >
         <chakra.h2
-          fontSize={{ base: '2xl', md: '3xl' }}
+          fontSize={{ base: "2xl", md: "3xl" }}
           color={fontColour}
           fontWeight="bold"
         >

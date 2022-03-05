@@ -1,4 +1,4 @@
-import { ArrowBackIcon } from '@chakra-ui/icons';
+import { ArrowBackIcon } from "@chakra-ui/icons";
 import {
   Box,
   Button,
@@ -6,10 +6,10 @@ import {
   Heading,
   SimpleGrid,
   Text,
-} from '@chakra-ui/react';
-import { FancyLink } from 'components/FancyLink';
-import { Layout } from 'layouts/Layout';
-import type { NextPage } from 'next';
+} from "@chakra-ui/react";
+import { FancyLink } from "components/FancyLink";
+import { Layout } from "layouts/Layout";
+import type { NextPage } from "next";
 
 const Custom404: NextPage = () => {
   return (

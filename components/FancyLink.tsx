@@ -1,6 +1,6 @@
-import { Link, LinkProps } from '@chakra-ui/react';
-import NextLink from 'next/link';
-import { FC } from 'react';
+import { Link, LinkProps } from "@chakra-ui/react";
+import NextLink from "next/link";
+import { FC } from "react";
 
 export const FancyLink: FC<LinkProps> = ({ children, ...props }) => {
   return (

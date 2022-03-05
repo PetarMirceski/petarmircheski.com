@@ -1,4 +1,4 @@
-import { HamburgerIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
+import { HamburgerIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
 import {
   Box,
   Container,
@@ -13,12 +13,12 @@ import {
   Stack,
   useColorMode,
   useColorModeValue,
-} from '@chakra-ui/react';
-import { LinkItem } from 'components/LinkItem';
-import { AnimatePresence, motion } from 'framer-motion';
-import NextLink from 'next/link';
-import { FC } from 'react';
-import { AiFillGitlab } from 'react-icons/ai';
+} from "@chakra-ui/react";
+import { LinkItem } from "components/LinkItem";
+import { AnimatePresence, motion } from "framer-motion";
+import NextLink from "next/link";
+import { FC } from "react";
+import { AiFillGitlab } from "react-icons/ai";
 
 const ThemeTogglerIcon: FC = () => {
   const { toggleColorMode } = useColorMode();
@@ -26,8 +26,8 @@ const ThemeTogglerIcon: FC = () => {
   return (
     <AnimatePresence exitBeforeEnter initial={false}>
       <motion.div
-        style={{ display: 'inline-block' }}
-        key={useColorModeValue('light', 'dark')}
+        style={{ display: "inline-block" }}
+        key={useColorModeValue("light", "dark")}
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 20, opacity: 0 }}
@@ -35,7 +35,7 @@ const ThemeTogglerIcon: FC = () => {
       >
         <IconButton
           aria-label="Toggle theme"
-          colorScheme={useColorModeValue('purple', 'orange')}
+          colorScheme={useColorModeValue("purple", "orange")}
           icon={useColorModeValue(<MoonIcon />, <SunIcon />)}
           onClick={toggleColorMode}
         />
@@ -50,8 +50,8 @@ export const Navbar = () => {
       position="fixed"
       as="nav"
       w="100%"
-      bg={useColorModeValue('#ffffff40', '#20202380')}
-      css={{ backdropFilter: 'blur(10px)' }}
+      bg={useColorModeValue("#ffffff40", "#20202380")}
+      css={{ backdropFilter: "blur(10px)" }}
       zIndex={1}
     >
       <Container
@@ -63,15 +63,15 @@ export const Navbar = () => {
         justify="space-between"
       >
         <Flex align="center" mr={5}>
-          <Heading as="h1" size="lg" letterSpacing={'tighter'}>
+          <Heading as="h1" size="lg" letterSpacing={"tighter"}>
             <LinkItem href="/">Petar Mircheski</LinkItem>
           </Heading>
         </Flex>
 
         <Stack
-          direction={{ base: 'column', md: 'row' }}
-          display={{ base: 'none', md: 'flex' }}
-          width={{ base: 'full', md: 'auto' }}
+          direction={{ base: "column", md: "row" }}
+          display={{ base: "none", md: "flex" }}
+          width={{ base: "full", md: "auto" }}
           alignItems="center"
           flexGrow={1}
           mt={{ base: 4, md: 0 }}
@@ -85,7 +85,7 @@ export const Navbar = () => {
           <LinkItem href="https://gitlab.com/petar.mirceski1998">
             <IconButton aria-label="link" icon={<AiFillGitlab />} />
           </LinkItem>
-          <Box ml={2} display={{ base: 'inline-block', md: 'none' }}>
+          <Box ml={2} display={{ base: "inline-block", md: "none" }}>
             <Menu isLazy id="navbar-menu" autoSelect={false}>
               <MenuButton
                 as={IconButton}

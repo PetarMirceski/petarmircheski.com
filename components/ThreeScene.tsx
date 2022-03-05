@@ -1,8 +1,8 @@
-import { Box, Spinner } from '@chakra-ui/react';
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { Box, Spinner } from "@chakra-ui/react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import * as THREE from "three";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
 export const LorenzSpinner = () => (
   <Spinner
@@ -28,7 +28,7 @@ export function loadGLTFModel(
       glbPath,
       (gltf) => {
         const obj = gltf.scene;
-        obj.name = 'lorenz_attractor';
+        obj.name = "lorenz_attractor";
         obj.position.y = 0;
         obj.position.x = 0;
         obj.receiveShadow = receiveShadow;
@@ -111,7 +111,7 @@ const ThreeScene: React.FC = () => {
       controls.autoRotate = true;
       controls.target = target;
 
-      loadGLTFModel(scene, '/lorenz_attractor/scene.gltf', {
+      loadGLTFModel(scene, "/lorenz_attractor/scene.gltf", {
         receiveShadow: false,
         castShadow: false,
       }).then(() => {
@@ -133,9 +133,9 @@ const ThreeScene: React.FC = () => {
   }, [initialCameraPosition, renderer, scene, target]);
 
   useEffect(() => {
-    window.addEventListener('resize', handleWindowResize, false);
+    window.addEventListener("resize", handleWindowResize, false);
     return () => {
-      window.removeEventListener('resize', handleWindowResize, false);
+      window.removeEventListener("resize", handleWindowResize, false);
     };
   }, [renderer, handleWindowResize]);
 
@@ -144,7 +144,7 @@ const ThreeScene: React.FC = () => {
       ref={refBody}
       className="voxel-dog"
       m="auto"
-      mt={['-10px', '0px', '-40px']}
+      mt={["-10px", "0px", "-40px"]}
       w={[280, 480, 640]}
       h={[280, 480, 640]}
       position="relative"

@@ -1,5 +1,5 @@
-import { Flex, chakra } from '@chakra-ui/react';
-import { FC } from 'react';
+import { Flex, chakra } from "@chakra-ui/react";
+import { FC } from "react";
 
 export const Footer: FC = () => {
   return (

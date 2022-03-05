@@ -1,8 +1,8 @@
-import { Heading, Stack, chakra } from '@chakra-ui/react';
-import { VideoGridItem } from 'components/VideoGridItem';
-import { BlogArticlesGrid } from 'layouts/BlogArticlesGrid';
-import { Layout } from 'layouts/Layout';
-import type { NextPage } from 'next';
+import { Heading, Stack, chakra } from "@chakra-ui/react";
+import { VideoGridItem } from "components/VideoGridItem";
+import { BlogArticlesGrid } from "layouts/BlogArticlesGrid";
+import { Layout } from "layouts/Layout";
+import type { NextPage } from "next";
 
 const Music: NextPage = () => {
   return (

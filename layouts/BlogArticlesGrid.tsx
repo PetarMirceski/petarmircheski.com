@@ -1,5 +1,5 @@
-import { SimpleGrid } from '@chakra-ui/react';
-import { FC } from 'react';
+import { SimpleGrid } from "@chakra-ui/react";
+import { FC } from "react";
 
 export const BlogArticlesGrid: FC = ({ children }) => {
   return (

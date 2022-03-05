@@ -1,23 +1,23 @@
-import { ThemeConfig, extendTheme } from '@chakra-ui/react';
-import { mode } from '@chakra-ui/theme-tools';
+import { ThemeConfig, extendTheme } from "@chakra-ui/react";
+import { mode } from "@chakra-ui/theme-tools";
 
 const config: ThemeConfig = {
-  initialColorMode: 'dark',
+  initialColorMode: "dark",
   useSystemColorMode: false,
 };
 
 const styles = {
   global: (props: any) => ({
     body: {
-      bg: mode('#ebdfce', 'black')(props),
+      bg: mode("#ebdfce", "black")(props),
     },
   }),
 };
 
 const fonts = {
   fonts: {
-    heading: 'Roboto',
-    body: 'Roboto',
+    heading: "Roboto",
+    body: "Roboto",
   },
 };
 

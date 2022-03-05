@@ -4,8 +4,8 @@ import {
   Image,
   Link,
   useColorModeValue,
-} from '@chakra-ui/react';
-import { FC } from 'react';
+} from "@chakra-ui/react";
+import { FC } from "react";
 
 interface Props {
   title: string;
@@ -15,7 +15,7 @@ interface Props {
 export const VideoGridItem: FC<Props> = ({ title, videoId, link }) => {
   return (
     <GridItem
-      bg={useColorModeValue('#e8d2b5', 'black')}
+      bg={useColorModeValue("#e8d2b5", "black")}
       shadow="md"
       rounded="lg"
     >

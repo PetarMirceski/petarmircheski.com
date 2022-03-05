@@ -1,10 +1,10 @@
-import { Box, SimpleGrid } from '@chakra-ui/react';
-import { Bio } from 'components/Bio';
-import { Card, CardText } from 'components/Card';
-import { FancyLink } from 'components/FancyLink';
-import { Layout } from 'layouts/Layout';
-import type { NextPage } from 'next';
-import { IoHeart } from 'react-icons/io5';
+import { Box, SimpleGrid } from "@chakra-ui/react";
+import { Bio } from "components/Bio";
+import { Card, CardText } from "components/Card";
+import { FancyLink } from "components/FancyLink";
+import { Layout } from "layouts/Layout";
+import type { NextPage } from "next";
+import { IoHeart } from "react-icons/io5";
 
 const Home: NextPage = () => {
   return (
@@ -17,7 +17,7 @@ const Home: NextPage = () => {
               studies here. I am majoring in the Department of Systems and
               Control Engineering, School of Engineering, Tokyo Institute of
               Technology, Japan. My academic advisor is Prof. Dr. Nakao Hiroya.
-              I have a knack for problem solving. You can find my{' '}
+              I have a knack for problem solving. You can find my{" "}
               <FancyLink href="/cv.pdf">CV here</FancyLink>.
             </CardText>
           </Card>
@@ -25,26 +25,26 @@ const Home: NextPage = () => {
         <Box py={10}>
           <Bio
             bioEntries={[
-              { year: '1998', description: 'Born in Skopje, Macedonia.' },
+              { year: "1998", description: "Born in Skopje, Macedonia." },
               {
-                year: '2020',
+                year: "2020",
                 description: `Completed undergraduate studies at Ss. Cyril and Methodius
                               University of Skopje, Faculty of Electrical Engineering and
                               Information Technology, Department of Systems and Control
                               Engineering.`,
               },
               {
-                year: '2019',
+                year: "2019",
                 description:
-                  'Worked as a Machine Learning engineer at Aritmatrix, Skopje.',
+                  "Worked as a Machine Learning engineer at Aritmatrix, Skopje.",
               },
               {
-                year: '2020',
+                year: "2020",
                 description:
-                  'Worked as Front-End Senior Developer at Aritmatrix, Skopje.',
+                  "Worked as Front-End Senior Developer at Aritmatrix, Skopje.",
               },
               {
-                year: '2021~',
+                year: "2021~",
                 description: `Master studies at Department of Systems and Control Engineering, School of Engineering, Tokyo Institute of Technology, Japan.`,
               },
             ]}

@@ -1,8 +1,8 @@
-import { Container, Flex, useColorModeValue } from '@chakra-ui/react';
-import { Footer } from 'components/Footer';
-import { motion } from 'framer-motion';
-import Head from 'next/head';
-import { FC, PropsWithChildren } from 'react';
+import { Container, Flex, useColorModeValue } from "@chakra-ui/react";
+import { Footer } from "components/Footer";
+import { motion } from "framer-motion";
+import Head from "next/head";
+import { FC, PropsWithChildren } from "react";
 
 const variants = {
   hidden: { opacity: 0, x: 0, y: 20 },
@@ -26,10 +26,10 @@ export const Layout: FC<PropsWithChildren<ChildrenProps>> = ({
   meta,
 }) => {
   const customMeta = {
-    title: 'Petar Mircheski',
+    title: "Petar Mircheski",
     description: `Researcher, creator, developer`,
-    type: 'website',
-    image: 'https://www.petarmircheski.com/banners/banner.png',
+    type: "website",
+    image: "https://www.petarmircheski.com/banners/banner.png",
     ...meta,
   };
 
@@ -43,7 +43,7 @@ export const Layout: FC<PropsWithChildren<ChildrenProps>> = ({
         <meta property="og:site_name" content="Petar Mircheski" />
         <meta property="og:description" content={customMeta?.description} />
         <meta property="og:title" content={customMeta?.title} />
-        <meta property="og:image" content={customMeta.image} />{' '}
+        <meta property="og:image" content={customMeta.image} />{" "}
         {customMeta?.publishedAt && (
           <meta
             property="article:published_time"
@@ -58,11 +58,11 @@ export const Layout: FC<PropsWithChildren<ChildrenProps>> = ({
           animate="enter"
           exit="exit"
           variants={variants}
-          transition={{ duration: 0.4, type: 'easeInOut' }}
-          style={{ position: 'relative' }}
+          transition={{ duration: 0.4, type: "easeInOut" }}
+          style={{ position: "relative" }}
         >
           <Flex
-            bg={useColorModeValue('white', 'black')}
+            bg={useColorModeValue("white", "black")}
             w="full"
             alignItems="center"
             justifyContent="center"

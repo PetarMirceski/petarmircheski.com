@@ -6,9 +6,9 @@ import {
   Link,
   chakra,
   useColorModeValue,
-} from '@chakra-ui/react';
-import moment from 'moment';
-import { FC } from 'react';
+} from "@chakra-ui/react";
+import moment from "moment";
+import { FC } from "react";
 
 interface Props {
   title: string;
@@ -27,7 +27,7 @@ export const BlogArticle: FC<Props> = ({
   const dateObject = moment(date);
   return (
     <GridItem
-      bg={useColorModeValue('#e8d2b5', 'black')}
+      bg={useColorModeValue("#e8d2b5", "black")}
       shadow="md"
       rounded="lg"
     >
@@ -45,11 +45,11 @@ export const BlogArticle: FC<Props> = ({
           <Box>
             <Link
               display="block"
-              color={useColorModeValue('gray.800', 'white')}
+              color={useColorModeValue("gray.800", "white")}
               fontWeight="bold"
               fontSize="2xl"
               mt={2}
-              _hover={{ color: 'gray.600', textDecor: 'underline' }}
+              _hover={{ color: "gray.600", textDecor: "underline" }}
               href={`/blog/${slug}`}
             >
               {title}
@@ -57,7 +57,7 @@ export const BlogArticle: FC<Props> = ({
             <chakra.p
               mt={2}
               fontSize="sm"
-              color={useColorModeValue('gray.600', 'gray.400')}
+              color={useColorModeValue("gray.600", "gray.400")}
             >
               {description}
             </chakra.p>
@@ -68,9 +68,9 @@ export const BlogArticle: FC<Props> = ({
               <chakra.span
                 mx={1}
                 fontSize="sm"
-                color={useColorModeValue('gray.600', 'gray.300')}
+                color={useColorModeValue("gray.600", "gray.300")}
               >
-                {dateObject.format('MMMM Do YYYY')}
+                {dateObject.format("MMMM Do YYYY")}
               </chakra.span>
             </Flex>
           </Box>

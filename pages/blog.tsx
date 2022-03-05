@@ -1,4 +1,4 @@
-import { Search2Icon } from '@chakra-ui/icons';
+import { Search2Icon } from "@chakra-ui/icons";
 import {
   Box,
   Button,
@@ -11,17 +11,17 @@ import {
   Stack,
   chakra,
   useColorModeValue,
-} from '@chakra-ui/react';
-import { BlogArticle } from 'components/BlogArticle';
-import Fuse from 'fuse.js';
-import { BlogArticlesGrid } from 'layouts/BlogArticlesGrid';
-import { Layout } from 'layouts/Layout';
-import type { InferGetStaticPropsType, NextPage } from 'next';
-import { useRouter } from 'next/router';
-import { ChangeEvent, FC, useState } from 'react';
+} from "@chakra-ui/react";
+import { BlogArticle } from "components/BlogArticle";
+import Fuse from "fuse.js";
+import { BlogArticlesGrid } from "layouts/BlogArticlesGrid";
+import { Layout } from "layouts/Layout";
+import type { InferGetStaticPropsType, NextPage } from "next";
+import { useRouter } from "next/router";
+import { ChangeEvent, FC, useState } from "react";
 
-import { allBlogs } from '.contentlayer/data';
-import type { Blog } from '.contentlayer/types';
+import { allBlogs } from ".contentlayer/data";
+import type { Blog } from ".contentlayer/types";
 
 const options = {
   includeScore: true,
@@ -69,7 +69,7 @@ const PostNotFoundComponent: FC<NoPostProps> = ({
     return (
       <ErrorMessage
         messageTitle="No posts were made. Sorry :'("
-        onClick={() => router.push('/')}
+        onClick={() => router.push("/")}
       />
     );
   }
@@ -78,7 +78,7 @@ const PostNotFoundComponent: FC<NoPostProps> = ({
     return (
       <ErrorMessage
         messageTitle="Could not find you post :'(. Go back"
-        onClick={() => setQuery('')}
+        onClick={() => setQuery("")}
       />
     );
   }
@@ -88,12 +88,12 @@ const PostNotFoundComponent: FC<NoPostProps> = ({
 const Blog: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   posts,
 }) => {
-  const [searchQuery, setSearchQuery] = useState<string>('');
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
   const searchByQuery = (query: string, posts: Blog[]) => {
     const resultingArray: Blog[] = [];
 
-    if (query === '') {
+    if (query === "") {
       return posts;
     }
     const searchTerms = posts.map((post: Blog) => post.title);
@@ -118,17 +118,17 @@ const Blog: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
           </chakra.h1>
         </Stack>
         <Center pb="10">
-          <Box maxWidth="100%" width={['100%', '80%', '75%']}>
+          <Box maxWidth="100%" width={["100%", "80%", "75%"]}>
             <InputGroup>
               <InputLeftElement pointerEvents="none">
-                <Search2Icon color={useColorModeValue('black', 'white')} />
+                <Search2Icon color={useColorModeValue("black", "white")} />
               </InputLeftElement>
               <Input
                 variant="outline"
                 border="1px"
-                borderColor={useColorModeValue('black', 'white')}
+                borderColor={useColorModeValue("black", "white")}
                 placeholder="Search blog posts..."
-                _placeholder={{ color: useColorModeValue('black', 'white') }}
+                _placeholder={{ color: useColorModeValue("black", "white") }}
                 value={searchQuery}
                 onChange={(event: ChangeEvent<HTMLInputElement>) =>
                   setSearchQuery(event.target.value)

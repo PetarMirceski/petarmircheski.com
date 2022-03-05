@@ -1,6 +1,6 @@
-import { Box, chakra, useColorModeValue } from '@chakra-ui/react';
-import { PostWrapper } from 'layouts/PostWrapper';
-import { FC, ReactNode } from 'react';
+import { Box, chakra, useColorModeValue } from "@chakra-ui/react";
+import { PostWrapper } from "layouts/PostWrapper";
+import { FC, ReactNode } from "react";
 
 interface Props {
   image: string;
@@ -11,23 +11,23 @@ interface Props {
 export const Card: FC<Props> = ({ image, title, icon, children }) => {
   return (
     <PostWrapper>
-      <Box w={{ lg: '30%' }}>
+      <Box w={{ lg: "30%" }}>
         <Box
-          h={{ base: 64, lg: 'full' }}
-          rounded={{ lg: 'lg' }}
+          h={{ base: 64, lg: "full" }}
+          rounded={{ lg: "lg" }}
           bgSize="contain"
           style={{
             backgroundImage: `url('${image}')`,
-            backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'center',
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
           }}
         />
       </Box>
 
-      <Box py={20} px={6} maxW={{ base: 'xl', lg: '5xl' }} w={{ lg: '70%' }}>
+      <Box py={20} px={6} maxW={{ base: "xl", lg: "5xl" }} w={{ lg: "70%" }}>
         <chakra.h2
-          fontSize={{ base: '2xl', md: '3xl' }}
-          color={useColorModeValue('black', 'white')}
+          fontSize={{ base: "2xl", md: "3xl" }}
+          color={useColorModeValue("black", "white")}
           fontWeight="bold"
           display="inline-flex"
           alignItems="center"
@@ -43,7 +43,7 @@ export const Card: FC<Props> = ({ image, title, icon, children }) => {
 
 export const CardText: FC = ({ children }) => {
   return (
-    <chakra.p mt={4} color={useColorModeValue('gray.600', 'gray.400')}>
+    <chakra.p mt={4} color={useColorModeValue("gray.600", "gray.400")}>
       {children}
     </chakra.p>
   );

@@ -5,11 +5,11 @@ import {
   Heading,
   Stack,
   Text,
-} from '@chakra-ui/react';
-import { format, parseISO } from 'date-fns';
-import { FC } from 'react';
+} from "@chakra-ui/react";
+import { format, parseISO } from "date-fns";
+import { FC } from "react";
 
-import type { Blog } from '.contentlayer/types';
+import type { Blog } from ".contentlayer/types";
 
 interface Props {
   post: Blog;
@@ -45,8 +45,8 @@ export const BlogOutline: FC<Props> = ({ post, children }) => {
           </Heading>
           <Flex
             justify="space-between"
-            align={['initial', 'center']}
-            direction={['column', 'row']}
+            align={["initial", "center"]}
+            direction={["column", "row"]}
             mt={2}
             w="100%"
             mb={4}
@@ -59,8 +59,8 @@ export const BlogOutline: FC<Props> = ({ post, children }) => {
                 mr={2}
               />
               <Text fontSize="sm">
-                {'Petar Mircheski /'}
-                {format(parseISO(post.publishedAt), 'MMMM dd, yyyy')}
+                {"Petar Mircheski /"}
+                {format(parseISO(post.publishedAt), "MMMM dd, yyyy")}
               </Text>
             </Flex>
             <Text fontSize="sm" color="gray.500" minWidth="100px" mt={[2, 0]}>

@@ -1,6 +1,6 @@
-import { ListItem, OrderedList, Text, UnorderedList } from '@chakra-ui/react';
-import { FancyLink } from 'components/FancyLink';
-import Image from 'next/image';
+import { ListItem, OrderedList, Text, UnorderedList } from "@chakra-ui/react";
+import { FancyLink } from "components/FancyLink";
+import Image from "next/image";
 
 export const MDXcomponents = {
   Image: Image,
