@@ -78,8 +78,8 @@ export const Navbar = () => {
         >
           <LinkItem href="/blog">Blog</LinkItem>
           <LinkItem href="/music">Music</LinkItem>
+          <LinkItem href="/photos">Photos</LinkItem>
         </Stack>
-
         <Box flex={1} align="right">
           <ThemeTogglerIcon />
           <LinkItem href="https://gitlab.com/petar.mirceski1998">
@@ -99,6 +99,9 @@ export const Navbar = () => {
                 </NextLink>
                 <NextLink href="/music">
                   <MenuItem as={Link}>Music</MenuItem>
+                </NextLink>
+                <NextLink href="/photos">
+                  <MenuItem as={Link}>Photos</MenuItem>
                 </NextLink>
               </MenuList>
             </Menu>

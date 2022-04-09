@@ -3,7 +3,7 @@ import "prismjs/themes/prism-tomorrow.css";
 
 import { BlogOutline } from "components/BlogOutline";
 import { MDXcomponents } from "components/MDXcomponents";
-import { Layout } from "layouts/Layout";
+import { BlogHead } from "layouts/BlogHead";
 import type { NextPage } from "next";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { useMDXComponent } from "next-contentlayer/hooks";
@@ -29,14 +29,15 @@ interface Props {
 const Blog: NextPage<Props> = ({ post }) => {
   const Component = useMDXComponent(post.body.code);
   return (
-    <Layout
-      meta={{
-        title: post.title,
-        description: post.summary,
-        image: post.image,
-        publishedAt: post.publishedAt,
-      }}
-    >
+    <>
+      <BlogHead
+        meta={{
+          title: post.title,
+          description: post.summary,
+          image: post.image,
+          publishedAt: post.publishedAt,
+        }}
+      />
       <BlogOutline post={post}>
         <Component
           components={
@@ -46,7 +47,7 @@ const Blog: NextPage<Props> = ({ post }) => {
           }
         />
       </BlogOutline>
-    </Layout>
+    </>
   );
 };
 

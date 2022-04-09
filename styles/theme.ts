@@ -9,7 +9,7 @@ const config: ThemeConfig = {
 const styles = {
   global: (props: any) => ({
     body: {
-      bg: mode("#ebdfce", "black")(props),
+      bg: mode("white", "black")(props),
     },
   }),
 };

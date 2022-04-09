@@ -1,8 +1,10 @@
 import "styles/prism.css";
+import "styles/globals.css";
 import "@fontsource/roboto/400.css";
 
 import { Box, Container } from "@chakra-ui/react";
 import { ChakraProvider } from "@chakra-ui/react";
+import { Footer } from "components/Footer";
 import { Navbar } from "components/Header";
 import { LorenzSpinner } from "components/ThreeScene";
 import { AnimatePresence } from "framer-motion";
@@ -40,6 +42,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
             {!hideState && <ClientScene />}
           </Container>
           <Component {...pageProps} />
+          <Footer />
         </Box>
       </AnimatePresence>
     </ChakraProvider>

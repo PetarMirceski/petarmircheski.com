@@ -2,12 +2,12 @@ import {
   Box,
   Flex,
   GridItem,
-  Image,
   Link,
   chakra,
   useColorModeValue,
 } from "@chakra-ui/react";
 import moment from "moment";
+import Image from "next/image";
 import { FC } from "react";
 
 interface Props {
@@ -17,6 +17,7 @@ interface Props {
   date: string;
   slug: string;
 }
+
 export const BlogArticle: FC<Props> = ({
   title,
   headerImage,
@@ -32,15 +33,16 @@ export const BlogArticle: FC<Props> = ({
       rounded="lg"
     >
       <Box mx="auto" maxW="2xl">
+        {/* # TODO: Fix the Image to use the nextImage from nextjs  */}
         <Image
-          roundedTop="lg"
-          w="full"
-          h={64}
-          fit="cover"
+          className="rounded-image"
           src={headerImage}
           alt="Article"
+          width="100%"
+          height="64px"
+          layout="responsive"
+          objectFit="cover"
         />
-
         <Box p={3}>
           <Box>
             <Link
