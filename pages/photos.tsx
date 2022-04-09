@@ -1,6 +1,7 @@
 import { Box, Heading, Stack } from "@chakra-ui/react";
 import { getGalleryQuery } from "api/gallery";
 import type { PhotoPath } from "api/gallery";
+import { getBlurredImage } from "helpers/imageHelpers";
 import { BlogHead } from "layouts/BlogHead";
 import { MotionWrapper } from "layouts/MotionWrapper";
 import type { InferGetStaticPropsType, NextPage } from "next";
@@ -58,6 +59,8 @@ const Photos: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
                         rounded="20px"
                       >
                         <Image
+                          placeholder="blur"
+                          blurDataURL={getBlurredImage(baseWidth, baseHeight)}
                           className="rounded-image"
                           src={image.path}
                           height={baseHeight}
