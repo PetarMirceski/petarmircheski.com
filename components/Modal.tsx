@@ -15,7 +15,12 @@ interface Props {
 }
 export const ModalComponent: FC<Props> = ({ isOpen, onClose, imagePath }) => {
   return (
-    <Modal isOpen={isOpen} onClose={onClose} size="full">
+    <Modal
+      isOpen={isOpen}
+      onClose={onClose}
+      size="full"
+      blockScrollOnMount={false}
+    >
       <ModalOverlay />
       <ModalContent>
         <ModalCloseButton />
