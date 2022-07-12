@@ -1,12 +1,13 @@
-import { Box, Heading, Stack } from "@chakra-ui/react";
+import { Box, Heading, Stack, useDisclosure } from "@chakra-ui/react";
 import { getGalleryQuery } from "api/gallery";
 import type { PhotoPath } from "api/gallery";
+import { ModalComponent } from "components/Modal";
 import { getBlurredImage } from "helpers/imageHelpers";
 import { BlogHead } from "layouts/BlogHead";
 import { MotionWrapper } from "layouts/MotionWrapper";
 import type { InferGetStaticPropsType, NextPage } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import { useState } from "react";
 import { XBlock, XMasonry } from "react-xmasonry";
 
 export const getStaticProps = async () => {
@@ -17,6 +18,12 @@ export const getStaticProps = async () => {
 const Photos: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   data,
 }) => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [imagePath, setImagePath] = useState("");
+  const configureModal = (evt: any) => {
+    onOpen();
+    setImagePath(evt.target.src);
+  };
   return (
     <>
       <BlogHead />
@@ -34,45 +41,42 @@ const Photos: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
               const aspectRatio = image.size.height / image.size.width;
               let baseHeight = 700;
               let baseWidth = 700;
-              const randomNoise =
-                Math.random() > 0.5 ? (Math.random() - 0.5) / 5 : 0;
-
               baseHeight =
-                aspectRatio > 1
-                  ? baseHeight * (aspectRatio + randomNoise)
-                  : baseHeight;
+                aspectRatio > 1 ? baseHeight * aspectRatio : baseHeight;
 
               baseWidth =
-                aspectRatio < 1
-                  ? baseWidth * (1 / (aspectRatio + randomNoise))
-                  : baseWidth;
+                aspectRatio < 1 ? baseWidth * (1 / aspectRatio) : baseWidth;
 
               return (
                 <XBlock key={index} width={aspectRatio < 1.1 ? 2 : 1}>
-                  <Link href={`/photos/${image.slug}`}>
-                    <Box p={1} cursor="pointer">
-                      <Box
-                        alignItems="center"
-                        bg="transparent"
-                        _hover={{ boxShadow: "dark-lg" }}
-                        lineHeight="0"
-                        rounded="20px"
-                      >
-                        <Image
-                          placeholder="blur"
-                          blurDataURL={getBlurredImage(baseWidth, baseHeight)}
-                          className="rounded-image"
-                          src={image.path}
-                          height={baseHeight}
-                          width={baseWidth}
-                          quality="100"
-                        />
-                      </Box>
+                  <Box p={1} cursor="pointer">
+                    <Box
+                      alignItems="center"
+                      bg="transparent"
+                      _hover={{ boxShadow: "dark-lg" }}
+                      lineHeight="0"
+                      rounded="20px"
+                    >
+                      <Image
+                        placeholder="blur"
+                        blurDataURL={getBlurredImage(baseWidth, baseHeight)}
+                        className="rounded-image"
+                        src={image.path}
+                        height={baseHeight}
+                        width={baseWidth}
+                        quality="100"
+                        onClick={configureModal}
+                      />
                     </Box>
-                  </Link>
+                  </Box>
                 </XBlock>
               );
             })}
+            <ModalComponent
+              isOpen={isOpen}
+              onClose={onClose}
+              imagePath={imagePath}
+            />
           </XMasonry>
         </Stack>
       </MotionWrapper>
