@@ -1,4 +1,4 @@
-import { Box, Heading, Stack, useDisclosure } from "@chakra-ui/react";
+import { Heading, Stack, useDisclosure } from "@chakra-ui/react";
 import { getGalleryQuery } from "api/gallery";
 import type { PhotoPath } from "api/gallery";
 import { ModalComponent } from "components/Modal";
@@ -8,7 +8,8 @@ import { MotionWrapper } from "layouts/MotionWrapper";
 import type { InferGetStaticPropsType, NextPage } from "next";
 import Image from "next/image";
 import { useState } from "react";
-import { XBlock, XMasonry } from "react-xmasonry";
+// @ts-ignore
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
 export const getStaticProps = async () => {
   const data = getGalleryQuery(0, 0, true);
@@ -32,54 +33,39 @@ const Photos: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
           <Stack mt={-20}>
             <Heading textAlign="center">My personal image gallery</Heading>
           </Stack>
-          <XMasonry
-            maxColumns={3}
-            targetBlockWidth={500}
-            smartUpdateCeil={10000}
+          <ResponsiveMasonry
+            columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}
           >
-            {data.map((image: PhotoPath, index) => {
-              const aspectRatio = image.size.height / image.size.width;
-              let baseHeight = 700;
-              let baseWidth = 700;
-              baseHeight =
-                aspectRatio > 1 ? baseHeight * aspectRatio : baseHeight;
+            <Masonry gutter={10}>
+              {data.map((image: PhotoPath, index) => {
+                const aspectRatio = image.size.height / image.size.width;
+                let baseHeight = 700;
+                let baseWidth = 700;
+                baseHeight =
+                  aspectRatio > 1 ? baseHeight * aspectRatio : baseHeight;
 
-              baseWidth =
-                aspectRatio < 1 ? baseWidth * (1 / aspectRatio) : baseWidth;
+                baseWidth =
+                  aspectRatio < 1 ? baseWidth * (1 / aspectRatio) : baseWidth;
 
-              return (
-                <XBlock key={index} width={aspectRatio < 1.1 ? 2 : 1}>
-                  <Box p={1} cursor="pointer">
-                    <Box
-                      alignItems="center"
-                      bg="transparent"
-                      _hover={{ boxShadow: "dark-lg" }}
-                      lineHeight="0"
-                      rounded="20px"
-                    >
-                      <Image
-                        placeholder="blur"
-                        blurDataURL={getBlurredImage(baseWidth, baseHeight)}
-                        className="rounded-image"
-                        src={image.path}
-                        height={baseHeight}
-                        width={baseWidth}
-                        quality="100"
-                        onClick={configureModal}
-                      />
-                    </Box>
-                  </Box>
-                </XBlock>
-              );
-            })}
-            <ModalComponent
-              isOpen={isOpen}
-              onClose={onClose}
-              imagePath={imagePath}
-            />
-          </XMasonry>
+                return (
+                  <Image
+                    key={index}
+                    className="pointer-image"
+                    placeholder="blur"
+                    blurDataURL={getBlurredImage(baseWidth, baseHeight)}
+                    src={image.path}
+                    height={baseHeight}
+                    width={baseWidth}
+                    quality="100"
+                    onClick={configureModal}
+                  />
+                );
+              })}
+            </Masonry>
+          </ResponsiveMasonry>
         </Stack>
       </MotionWrapper>
+      <ModalComponent isOpen={isOpen} onClose={onClose} imagePath={imagePath} />
     </>
   );
 };

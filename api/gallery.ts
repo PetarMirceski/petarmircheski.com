@@ -45,7 +45,7 @@ const sortByDate = (firstFile: string, secondFile: string): number => {
   const secondFileStats = fs.statSync(makeFullPath(secondFile));
   const firstDate = new Date(firstFileStats.birthtime);
   const secondDate = new Date(secondFileStats.birthtime);
-  return firstDate.getTime() - secondDate.getTime();
+  return secondDate.getTime() - firstDate.getTime();
 };
 
 export const getGalleryQuery = (

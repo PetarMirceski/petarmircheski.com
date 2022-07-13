@@ -1,3 +1,6 @@
 .rounded-image {
   border-radius: 20px;
 }
+.pointer-image {
+  cursor: pointer;
+}
