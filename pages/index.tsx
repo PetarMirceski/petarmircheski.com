@@ -67,12 +67,9 @@ const Home: NextPage = () => {
                     Music.
                   </FancyLink>
                   When I am not doing research or at the lab I tweak with my
-                  <FancyLink p={1} href="https://gitlab.com/petar.mirceski1998">
-                    dot-files, program,
-                  </FancyLink>
-                  tweak electronics or stroll through Akihabara to find dirt
-                  cheap electronics and garbage that I like tweaking with. I
-                  also sometimes write
+                  dot-files, program, tweak electronics or stroll through
+                  Akihabara to find dirt cheap electronics and garbage that I
+                  like tweaking with. I also sometimes write
                   <FancyLink p={1} href="/blog">
                     blog posts
                   </FancyLink>

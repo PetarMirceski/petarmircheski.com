@@ -110,6 +110,7 @@ const ThreeScene: React.FC = () => {
       controls.enablePan = false;
       controls.autoRotate = true;
       controls.target = target;
+      controls.enableZoom = false;
 
       loadGLTFModel(scene, "/lorenz_attractor/scene.gltf", {
         receiveShadow: false,
@@ -142,7 +143,6 @@ const ThreeScene: React.FC = () => {
   return (
     <Box
       ref={refBody}
-      className="voxel-dog"
       m="auto"
       mt={["-10px", "0px", "-40px"]}
       w={[280, 480, 640]}

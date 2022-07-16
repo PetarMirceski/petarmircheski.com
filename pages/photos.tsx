@@ -58,6 +58,7 @@ const Photos: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
                     width={baseWidth}
                     quality="100"
                     onClick={configureModal}
+                    alt=""
                   />
                 );
               })}
