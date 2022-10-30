@@ -36,7 +36,7 @@ const Photos: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
           <ResponsiveMasonry
             columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}
           >
-            <Masonry gutter={10}>
+            <Masonry gutter="10px">
               {data.map((image: PhotoPath, index) => {
                 const aspectRatio = image.size.height / image.size.width;
                 let baseHeight = 700;

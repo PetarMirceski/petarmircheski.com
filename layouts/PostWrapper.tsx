@@ -1,7 +1,10 @@
 import { Box, useColorModeValue } from "@chakra-ui/react";
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 
-export const PostWrapper: FC = ({ children }) => {
+interface Props {
+  children: ReactNode;
+}
+export const PostWrapper: FC<Props> = ({ children }) => {
   return (
     <Box
       bg={useColorModeValue("#e8d2b5", "black")}

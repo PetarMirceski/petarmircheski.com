@@ -32,16 +32,16 @@ const Home: NextPage = () => {
                 bioEntries={[
                   { year: "1998", description: "Born in Skopje, Macedonia." },
                   {
+                    year: "2019",
+                    description:
+                      "Worked as a Machine Learning engineer at Aritmatrix, Skopje.",
+                  },
+                  {
                     year: "2020",
                     description: `Completed undergraduate studies at Ss. Cyril and Methodius
                               University of Skopje, Faculty of Electrical Engineering and
                               Information Technology, Department of Systems and Control
                               Engineering.`,
-                  },
-                  {
-                    year: "2019",
-                    description:
-                      "Worked as a Machine Learning engineer at Aritmatrix, Skopje.",
                   },
                   {
                     year: "2020",

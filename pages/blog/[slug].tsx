@@ -1,5 +1,4 @@
 import "katex/dist/katex.min.css";
-import "prismjs/themes/prism-tomorrow.css";
 
 import { BlogOutline } from "components/BlogOutline";
 import { MDXcomponents } from "components/MDXcomponents";
@@ -8,8 +7,8 @@ import type { NextPage } from "next";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { useMDXComponent } from "next-contentlayer/hooks";
 
-import { allBlogs } from ".contentlayer/data";
-import type { Blog } from ".contentlayer/types";
+import { allBlogs } from ".contentlayer/generated";
+import type { Blog } from ".contentlayer/generated";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {

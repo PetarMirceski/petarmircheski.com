@@ -6,6 +6,7 @@ interface Props {
   image: string;
   title: string;
   icon?: ReactNode;
+  children: ReactNode;
 }
 
 export const Card: FC<Props> = ({ image, title, icon, children }) => {
@@ -41,7 +42,10 @@ export const Card: FC<Props> = ({ image, title, icon, children }) => {
   );
 };
 
-export const CardText: FC = ({ children }) => {
+interface CardTextProps {
+  children: ReactNode;
+}
+export const CardText: FC<CardTextProps> = ({ children }) => {
   return (
     <chakra.p mt={4} color={useColorModeValue("gray.600", "gray.400")}>
       {children}

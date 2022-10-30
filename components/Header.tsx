@@ -24,7 +24,7 @@ const ThemeTogglerIcon: FC = () => {
   const { toggleColorMode } = useColorMode();
 
   return (
-    <AnimatePresence exitBeforeEnter initial={false}>
+    <AnimatePresence mode="wait" initial={false}>
       <motion.div
         style={{ display: "inline-block" }}
         key={useColorModeValue("light", "dark")}
@@ -58,11 +58,11 @@ export const Navbar = () => {
         display="flex"
         p={2}
         maxW="container.md"
-        wrap="wrap"
-        align="center"
-        justify="space-between"
+        flexWrap="wrap"
+        alignItems="center"
+        justifyContent="space-between"
       >
-        <Flex align="center" mr={5}>
+        <Flex alignItems="center" mr={5}>
           <Heading as="h1" size="lg" letterSpacing={"tighter"}>
             <LinkItem href="/">Petar Mircheski</LinkItem>
           </Heading>
@@ -80,7 +80,7 @@ export const Navbar = () => {
           <LinkItem href="/music">Music</LinkItem>
           <LinkItem href="/photos">Photos</LinkItem>
         </Stack>
-        <Box flex={1} align="right">
+        <Box flex={1} alignItems="right">
           <ThemeTogglerIcon />
           <LinkItem href="https://gitlab.com/petar.mirceski1998">
             <IconButton aria-label="link" icon={<AiFillGitlab />} />

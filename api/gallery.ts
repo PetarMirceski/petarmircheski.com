@@ -18,14 +18,14 @@ export type PhotoPath = {
 
 type PhotoPaths = PhotoPath[];
 
-export const makeFullPath = (photoName: string) => {
+const makeFullPath = (photoName: string) => {
   return `${GALLERY_DATA_PATH}${photoName}`;
 };
-export const makeStaticPath = (photoName: string) => {
+const makeStaticPath = (photoName: string) => {
   return `${GALLERY_STATIC_DATA_PATH}${photoName}`;
 };
 
-export const getGallerySize = (): number => {
+const getGallerySize = (): number => {
   const data = fs.readdirSync(GALLERY_DATA_PATH);
   return data.length;
 };

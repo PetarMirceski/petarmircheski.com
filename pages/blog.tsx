@@ -13,6 +13,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { BlogArticle } from "components/BlogArticle";
+import { Blog, allBlogs } from "contentlayer/generated";
 import Fuse from "fuse.js";
 import { BlogArticlesGrid } from "layouts/BlogArticlesGrid";
 import { BlogHead } from "layouts/BlogHead";
@@ -20,9 +21,6 @@ import { MotionWrapper } from "layouts/MotionWrapper";
 import type { InferGetStaticPropsType, NextPage } from "next";
 import { useRouter } from "next/router";
 import { ChangeEvent, FC, useState } from "react";
-
-import { allBlogs } from ".contentlayer/data";
-import type { Blog } from ".contentlayer/types";
 
 const OPTIONS = {
   includeScore: true,

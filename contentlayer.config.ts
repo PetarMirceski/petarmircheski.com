@@ -26,8 +26,8 @@ const computedFields: ComputedFields = {
 
 const Blog = defineDocumentType(() => ({
   name: "Blog",
-  filePathPattern: "blog/*.mdx",
-  bodyType: "mdx",
+  filePathPattern: "*.mdx",
+  contentType: "mdx",
   fields: {
     title: { type: "string", required: true },
     publishedAt: { type: "string", required: true },
@@ -38,7 +38,7 @@ const Blog = defineDocumentType(() => ({
 }));
 
 const contentLayerConfig = makeSource({
-  contentDirPath: "data",
+  contentDirPath: "data/blog",
   documentTypes: [Blog],
   mdx: {
     remarkPlugins: [remarkGfm, remarkMath],

@@ -22,7 +22,7 @@ const Custom404: NextPage = () => {
           <SimpleGrid columns={1} spacing={0} pt={14}>
             <Box>
               <Center>
-                <Heading as="h1" size="4xl" isTruncated>
+                <Heading as="h1" size="4xl">
                   404 😿
                 </Heading>
               </Center>

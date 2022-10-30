@@ -27,12 +27,11 @@ export const ModalComponent: FC<Props> = ({ isOpen, onClose, imagePath }) => {
         <ModalBody>
           <Image
             padding={10}
-            quality="100"
             src={imagePath}
             width="100vw"
             height="100vh"
-            layout="responsive"
             objectFit="contain"
+            alt="modal-image"
           />
         </ModalBody>
       </ModalContent>

@@ -4,8 +4,10 @@ import "@fontsource/roboto/400.css";
 
 import { Box, Container } from "@chakra-ui/react";
 import { ChakraProvider } from "@chakra-ui/react";
+import { MDXProvider } from "@mdx-js/react";
 import { Footer } from "components/Footer";
 import { Navbar } from "components/Header";
+import { MDXcomponents } from "components/MDXcomponents";
 import { LorenzSpinner } from "components/ThreeScene";
 import { AnimatePresence } from "framer-motion";
 import type { AppProps } from "next/app";
@@ -24,26 +26,30 @@ const isErrorOrQuery = (router: NextRouter) => {
   if (router.route === "/404") {
     return true;
   }
+
   return false;
 };
 
 function MyApp({ Component, pageProps, router }: AppProps) {
-  const hideState = isErrorOrQuery(router);
+  let hideState = isErrorOrQuery(router);
+
   return (
     <ChakraProvider theme={theme}>
       <AnimatePresence
-        exitBeforeEnter
+        mode="wait"
         initial={false}
         onExitComplete={() => window.scrollTo(0, 0)}
       >
-        <Box as="main" pb={8}>
-          <Navbar />
-          <Container maxW="container.xl" pt={14}>
-            {!hideState && <ClientScene />}
-          </Container>
-          <Component {...pageProps} />
-          <Footer />
-        </Box>
+        <MDXProvider components={MDXcomponents}>
+          <Box as="main" pb={8}>
+            <Navbar />
+            <Container maxW="container.xl" pt={14}>
+              {!hideState && <ClientScene />}
+            </Container>
+            <Component {...pageProps} />
+            <Footer />
+          </Box>
+        </MDXProvider>
       </AnimatePresence>
     </ChakraProvider>
   );
