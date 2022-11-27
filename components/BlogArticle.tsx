@@ -1,13 +1,6 @@
-import {
-  Box,
-  Flex,
-  GridItem,
-  Image,
-  Link,
-  chakra,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import { Box, Flex, Link, chakra, useColorModeValue } from "@chakra-ui/react";
 import moment from "moment";
+import Image from "next/image";
 import { FC } from "react";
 
 interface Props {
@@ -27,55 +20,58 @@ export const BlogArticle: FC<Props> = ({
 }) => {
   const dateObject = moment(date);
   return (
-    <GridItem
+    <Flex
+      key={title}
       bg={useColorModeValue("#e8d2b5", "black")}
+      width="full"
       shadow="md"
       rounded="lg"
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      justifyContent="center"
     >
-      <Box mx="auto" maxW="2xl">
-        {/* # TODO: Fix the Image to use the nextImage from nextjs  */}
+      <Box mx="auto" rounded="lg" shadow="md" maxW="2xl">
         <Image
-          className="rounded-image"
           src={headerImage}
-          alt="Article"
-          height={64}
-          width="100%"
+          alt={title}
+          width={1000}
+          height={128}
+          quality={100}
+          className="rounded-image"
         />
-        <Box p={3}>
-          <Box>
-            <Link
-              display="block"
-              color={useColorModeValue("gray.800", "white")}
-              fontWeight="bold"
-              fontSize="2xl"
-              mt={2}
-              _hover={{ color: "gray.600", textDecor: "underline" }}
-              href={`/blog/${slug}`}
-            >
-              {title}
-            </Link>
-            <chakra.p
-              mt={2}
-              fontSize="sm"
-              color={useColorModeValue("gray.600", "gray.400")}
-            >
-              {description}
-            </chakra.p>
-          </Box>
 
-          <Box mt={4}>
-            <Flex alignItems="center">
-              <chakra.span
-                mx={1}
-                fontSize="sm"
-                color={useColorModeValue("gray.600", "gray.300")}
-              >
-                {dateObject.format("MMMM Do YYYY")}
-              </chakra.span>
-            </Flex>
-          </Box>
+        <Box p={2}>
+          <Link
+            display="block"
+            color={useColorModeValue("gray.800", "white")}
+            fontWeight="bold"
+            fontSize="2xl"
+            mt={2}
+            _hover={{ color: "gray.600", textDecor: "underline" }}
+            href={`/blog/${slug}`}
+          >
+            {title}
+          </Link>
+
+          <chakra.p
+            mt={2}
+            fontSize="sm"
+            color={useColorModeValue("gray.600", "gray.400")}
+          >
+            {description}
+          </chakra.p>
+
+          <Flex alignItems="center" my={3}>
+            <chakra.span
+              fontSize="sm"
+              color={useColorModeValue("gray.600", "gray.300")}
+            >
+              {dateObject.format("MMMM Do YYYY")}
+            </chakra.span>
+          </Flex>
         </Box>
       </Box>
-    </GridItem>
+    </Flex>
   );
 };
