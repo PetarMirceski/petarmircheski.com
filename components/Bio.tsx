@@ -30,7 +30,7 @@ export const Bio: FC<Props> = ({ bioEntries }) => {
     <PostWrapper>
       <Box
         pt={10}
-        pb={10}
+        pb={5}
         px={6}
         maxW={{ base: "xl", lg: "5xl" }}
         w={{ lg: "100%" }}

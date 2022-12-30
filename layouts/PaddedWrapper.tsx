@@ -5,5 +5,9 @@ interface Props {
   children: ReactNode;
 }
 export const PaddedWrapper: FC<Props> = ({ children }) => {
-  return <Container maxW="container.xl">{children}</Container>;
+  return (
+    <Container maxW="container.xxl" pt="20">
+      {children}
+    </Container>
+  );
 };

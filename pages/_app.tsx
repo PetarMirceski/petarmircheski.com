@@ -2,37 +2,17 @@ import "styles/prism.css";
 import "styles/globals.css";
 import "@fontsource/roboto/400.css";
 
-import { Box, Container } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { ChakraProvider } from "@chakra-ui/react";
 import { MDXProvider } from "@mdx-js/react";
 import { Footer } from "components/Footer";
 import { Navbar } from "components/Header";
 import { MDXcomponents } from "components/MDXcomponents";
-import { LorenzSpinner } from "components/ThreeScene";
 import { AnimatePresence } from "framer-motion";
 import type { AppProps } from "next/app";
-import dynamic from "next/dynamic";
-import { NextRouter } from "next/router";
 import { theme } from "styles/theme";
 
-const ClientScene = dynamic(() => import("components/ThreeScene"), {
-  ssr: false,
-  loading: () => <LorenzSpinner />,
-});
-const isErrorOrQuery = (router: NextRouter) => {
-  if (router.query?.slug) {
-    return true;
-  }
-  if (router.route === "/404") {
-    return true;
-  }
-
-  return false;
-};
-
-function MyApp({ Component, pageProps, router }: AppProps) {
-  let hideState = isErrorOrQuery(router);
-
+function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
       <AnimatePresence
@@ -41,11 +21,8 @@ function MyApp({ Component, pageProps, router }: AppProps) {
         onExitComplete={() => window.scrollTo(0, 0)}
       >
         <MDXProvider components={MDXcomponents}>
-          <Box as="main" pb={8}>
-            <Navbar />
-            <Container maxW="container.xl" pt={14}>
-              {!hideState && <ClientScene />}
-            </Container>
+          <Navbar />
+          <Box as="main" pt={{ base: 16, md: 32 }} pb={{ base: 24, md: 16 }}>
             <Component {...pageProps} />
             <Footer />
           </Box>

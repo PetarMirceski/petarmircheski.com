@@ -1,21 +1,29 @@
-import { Box, SimpleGrid } from "@chakra-ui/react";
+import { Box, VStack } from "@chakra-ui/react";
 import { Bio } from "components/Bio";
 import { Card, CardText } from "components/Card";
 import { FancyLink } from "components/FancyLink";
+import { LorenzSpinner } from "components/ThreeScene";
 import { BlogHead } from "layouts/BlogHead";
 import { MotionWrapper } from "layouts/MotionWrapper";
 import { PaddedWrapper } from "layouts/PaddedWrapper";
 import type { NextPage } from "next";
+import dynamic from "next/dynamic";
 import { IoHeart } from "react-icons/io5";
+
+const ClientScene = dynamic(() => import("components/ThreeScene"), {
+  ssr: false,
+  loading: () => <LorenzSpinner />,
+});
 
 const Home: NextPage = () => {
   return (
     <>
       <BlogHead />
-      <PaddedWrapper>
-        <MotionWrapper>
-          <SimpleGrid columns={1} spacing={0} mt={-10}>
-            <Box pb={10}>
+      <ClientScene />
+      <MotionWrapper>
+        <PaddedWrapper>
+          <VStack>
+            <Box>
               <Card title="Work" image="static/images/newer_profile.jpg">
                 <CardText>
                   I am currently residing in Tokyo since I am doing my masters
@@ -27,7 +35,7 @@ const Home: NextPage = () => {
                 </CardText>
               </Card>
             </Box>
-            <Box py={10}>
+            <Box>
               <Bio
                 bioEntries={[
                   { year: "1998", description: "Born in Skopje, Macedonia." },
@@ -55,7 +63,7 @@ const Home: NextPage = () => {
                 ]}
               />
             </Box>
-            <Box py={10}>
+            <Box>
               <Card
                 title="I"
                 icon={<IoHeart />}
@@ -82,9 +90,9 @@ const Home: NextPage = () => {
                 </CardText>
               </Card>
             </Box>
-          </SimpleGrid>
-        </MotionWrapper>
-      </PaddedWrapper>
+          </VStack>
+        </PaddedWrapper>
+      </MotionWrapper>
     </>
   );
 };

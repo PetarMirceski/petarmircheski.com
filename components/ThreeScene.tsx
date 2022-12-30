@@ -91,7 +91,7 @@ const ThreeScene: React.FC = () => {
       setRenderer(renderer);
 
       const scalingConstant = scH < 500 ? 2 : 1;
-      const scale = scH * 0.07 * scalingConstant + 4;
+      const scale = scH * 0.059 * scalingConstant + 4;
       const camera = new THREE.OrthographicCamera(
         -scale,
         scale,
@@ -144,7 +144,6 @@ const ThreeScene: React.FC = () => {
     <Box
       ref={refBody}
       m="auto"
-      mt={["-10px", "0px", "-40px"]}
       w={[280, 480, 640]}
       h={[280, 480, 640]}
       position="relative"

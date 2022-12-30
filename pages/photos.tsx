@@ -5,6 +5,7 @@ import { ModalComponent } from "components/Modal";
 import { getBlurredImage } from "helpers/imageHelpers";
 import { BlogHead } from "layouts/BlogHead";
 import { MotionWrapper } from "layouts/MotionWrapper";
+import { PaddedWrapper } from "layouts/PaddedWrapper";
 import type { InferGetStaticPropsType, NextPage } from "next";
 import Image from "next/image";
 import { useState } from "react";
@@ -29,42 +30,43 @@ const Photos: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
     <>
       <BlogHead />
       <MotionWrapper doFlex={false}>
-        <Stack p={10}>
-          <Stack mt={-20}>
-            <Heading textAlign="center">My personal image gallery</Heading>
+        <PaddedWrapper>
+          <Heading textAlign="center">My personal image gallery</Heading>
+          <Stack>
+            <ResponsiveMasonry
+              columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}
+              style={{ marginTop: "60px" }}
+            >
+              <Masonry gutter="10px">
+                {data.map((image: PhotoPath, index) => {
+                  const aspectRatio = image.size.height / image.size.width;
+                  let baseHeight = 700;
+                  let baseWidth = 700;
+                  baseHeight =
+                    aspectRatio > 1 ? baseHeight * aspectRatio : baseHeight;
+
+                  baseWidth =
+                    aspectRatio < 1 ? baseWidth * (1 / aspectRatio) : baseWidth;
+
+                  return (
+                    <Image
+                      key={index}
+                      className="pointer-image"
+                      placeholder="blur"
+                      blurDataURL={getBlurredImage(baseWidth, baseHeight)}
+                      src={image.path}
+                      height={baseHeight}
+                      width={baseWidth}
+                      quality="100"
+                      onClick={configureModal}
+                      alt=""
+                    />
+                  );
+                })}
+              </Masonry>
+            </ResponsiveMasonry>
           </Stack>
-          <ResponsiveMasonry
-            columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}
-          >
-            <Masonry gutter="10px">
-              {data.map((image: PhotoPath, index) => {
-                const aspectRatio = image.size.height / image.size.width;
-                let baseHeight = 700;
-                let baseWidth = 700;
-                baseHeight =
-                  aspectRatio > 1 ? baseHeight * aspectRatio : baseHeight;
-
-                baseWidth =
-                  aspectRatio < 1 ? baseWidth * (1 / aspectRatio) : baseWidth;
-
-                return (
-                  <Image
-                    key={index}
-                    className="pointer-image"
-                    placeholder="blur"
-                    blurDataURL={getBlurredImage(baseWidth, baseHeight)}
-                    src={image.path}
-                    height={baseHeight}
-                    width={baseWidth}
-                    quality="100"
-                    onClick={configureModal}
-                    alt=""
-                  />
-                );
-              })}
-            </Masonry>
-          </ResponsiveMasonry>
-        </Stack>
+        </PaddedWrapper>
       </MotionWrapper>
       <ModalComponent isOpen={isOpen} onClose={onClose} imagePath={imagePath} />
     </>
