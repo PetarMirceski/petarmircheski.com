@@ -22,6 +22,21 @@ const Music: NextPage = () => {
             </Stack>
             <BlogArticlesGrid>
               <VideoGridItem
+                title="Alexandra Savior - Can't Help Myself"
+                videoId="2faK7a4NdMg"
+                link="https://www.youtube.com/watch?v=2faK7a4NdMg"
+              />
+              <VideoGridItem
+                title="Puma Blue - Hounds"
+                videoId="IuVFMVX2eY0"
+                link="https://www.youtube.com/watch?v=IuVFMVX2eY0"
+              />
+              <VideoGridItem
+                title="Magdalena Bay - Dreamcatching"
+                videoId="8QfQeYaS-7A"
+                link="https://www.youtube.com/watch?v=8QfQeYaS-7A"
+              />
+              <VideoGridItem
                 title="Radiohead - Let Down"
                 videoId="ZVgHPSyEIqk"
                 link="https://www.youtube.com/watch?v=ZVgHPSyEIqk"
