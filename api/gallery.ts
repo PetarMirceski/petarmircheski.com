@@ -40,11 +40,25 @@ const getSizes = (image: string): Size => {
   return { height: 0, width: 0 };
 };
 
-const sortByDate = (firstFile: string, secondFile: string): number => {
+export const sortByDate = (firstFile: string, secondFile: string): number => {
   const firstFileStats = fs.statSync(makeFullPath(firstFile));
   const secondFileStats = fs.statSync(makeFullPath(secondFile));
   const firstDate = new Date(firstFileStats.birthtime);
   const secondDate = new Date(secondFileStats.birthtime);
+  return secondDate.getTime() - firstDate.getTime();
+};
+
+const sortByDateName = (firstFile: string, secondFile: string): number => {
+  const firstDate = new Date(
+    parseInt(firstFile.slice(1, 4)),
+    parseInt(firstFile.slice(4, 6)),
+    parseInt(firstFile.slice(6, 8))
+  );
+  const secondDate = new Date(
+    parseInt(secondFile.slice(1, 4)),
+    parseInt(secondFile.slice(4, 6)),
+    parseInt(secondFile.slice(6, 8))
+  );
   return secondDate.getTime() - firstDate.getTime();
 };
 
@@ -54,7 +68,7 @@ export const getGalleryQuery = (
   allPhotos: boolean = false
 ): PhotoPaths => {
   const data = fs.readdirSync(GALLERY_DATA_PATH);
-  const photoList = data.sort(sortByDate).map((filePath) => {
+  const photoList = data.sort(sortByDateName).map((filePath) => {
     const fileName = path.parse(filePath).name;
     return {
       path: makeStaticPath(filePath),

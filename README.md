@@ -33,3 +33,11 @@ $ sudo apt install pngcrush
 $ cd public/static/
 $ bash optimize.sh
 ```
+
+## Image Naming
+
+Use the jhead utility
+
+```bash
+find . -iname '*jpg' -exec jhead -n%Y%m%d
+```
