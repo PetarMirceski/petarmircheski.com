@@ -47,7 +47,7 @@ export async function getStaticProps() {
           const sizeUrl = `https://www.flickr.com/services/rest/?method=flickr.photos.getSizes&api_key=${process.env.API_KEY}&photo_id=${pic.id}&format=json&nojsoncallback=1`;
           const sizeResponse = await fetch(sizeUrl);
           const sizeData = await sizeResponse.json();
-          const selectedSize = sizeData.sizes.size[8]; // You can choose the size index as needed
+          const selectedSize = sizeData.sizes.size[7]; // You can choose the size index as needed
 
           return {
             id: pic.id,
@@ -88,7 +88,10 @@ function Photos({ photos }: { photos: Photo[] }) {
             photos={photos || []}
             renderPhoto={NextJsImage}
             defaultContainerWidth={1600}
-            sizes={{ size: "calc(100vw - 240px)" }}
+            sizes={{
+              size: "calc(100vw - 240px)",
+              sizes: [{ viewport: "(max-width: 960px)", size: "100vw" }],
+            }}
           />
         </Container>
       </MotionWrapper>
