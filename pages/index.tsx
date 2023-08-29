@@ -56,14 +56,14 @@ const Home: NextPage = () => {
               Interests
             </Heading>
             <Text mb={2}>
-              I have a deep-seated passion for delving into the confluence of
-              nonlinear dynamics and systems and control engineering. I&apos;ve
-              been fortunate to immerse myself in a variety of captivating
-              topics, including Reduction Methods, Syncronization, Nonlinear
-              System Analysis, Chaos Theory and Networked Dynamics. These
-              explorations have equipped me with a solid foundation in the
-              realms of systems engineering while nurturing my fascination for
-              intricate dynamics and their real-world applications.
+              I have a deep-seated passion for delving into the topic of
+              nonlinear dynamics and control engineering. I&apos;ve been
+              fortunate to immerse myself in a variety of captivating topics,
+              including Reduction Methods, Syncronization, Nonlinear System
+              Analysis, Chaos Theory and Networked Dynamics. These explorations
+              have equipped me with a solid foundation in the realms of systems
+              engineering while nurturing my fascination for intricate dynamics
+              and their real-world applications.
             </Text>
             <Text mb={2}>
               I love learning languages, I am fluent in Macedonian and English,
