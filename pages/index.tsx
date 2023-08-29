@@ -18,13 +18,13 @@ const Home: NextPage = () => {
       <MotionWrapper>
         <Container maxW="container.md" py={8}>
           <Box p={6} display={{ lg: "flex" }} maxW={{ lg: "5xl" }}>
-            <Box w={{ lg: "30%" }}>
+            <Box w={{ lg: "45%" }}>
               <Box
                 h={{ base: 64, lg: "full" }}
                 rounded={{ lg: "lg" }}
                 bgSize="contain"
                 style={{
-                  backgroundImage: `url('static/images/newer_profile.jpg')`,
+                  backgroundImage: `url('static/images/beach_crop.jpeg')`,
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",
                 }}
@@ -57,17 +57,17 @@ const Home: NextPage = () => {
             </Heading>
             <Text mb={2}>
               I have a deep-seated passion for delving into the topic of
-              nonlinear dynamics and control engineering. I&apos;ve been
-              fortunate to immerse myself in a variety of captivating topics,
-              including Reduction Methods, Syncronization, Nonlinear System
-              Analysis, Chaos Theory and Networked Dynamics. These explorations
-              have equipped me with a solid foundation in the realms of systems
+              nonlinear dynamics and control engineering. I have been fortunate
+              to immerse myself in a variety of captivating topics, including
+              Reduction Methods, Syncronization, Nonlinear System Analysis,
+              Chaos Theory and Networked Dynamics. These explorations have
+              equipped me with a solid foundation in the realms of systems
               engineering while nurturing my fascination for intricate dynamics
               and their real-world applications.
             </Text>
             <Text mb={2}>
               I love learning languages, I am fluent in Macedonian and English,
-              and I have some efficiency in Serbo-Croatian. I&aposm currently
+              and I have some efficiency in Serbo-Croatian. I am currently
               engrossed in mastering Japanese. My linguistic journey has not
               only enabled me to bridge cultural gaps but has also kindled my
               curiosity for understanding diverse societies.
