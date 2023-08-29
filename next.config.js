@@ -17,7 +17,7 @@ module.exports = withMDX(
     swcMinify: true,
     reactStrictMode: true,
     images: {
-      domains: ["img.youtube.com", "images.pexels.com"],
+      domains: ["img.youtube.com", "live.staticflickr.com"],
     },
     pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
   })

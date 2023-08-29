@@ -31,8 +31,8 @@ export const MotionWrapper: FC<Props> = ({ children, doFlex = true }) => {
       animate="enter"
       exit="exit"
       variants={variants}
-      transition={{ duration: 0.4, type: "easeInOut" }}
       style={{ position: "relative" }}
+      transition={{ duration: 0.5 }}
     >
       {doFlex ? flexWrapperWithChildren : children}
     </motion.article>

@@ -7,7 +7,7 @@ interface Props {
 export const BlogArticlesGrid: FC<Props> = ({ children }) => {
   return (
     <Wrap>
-      <SimpleGrid width="full" spacing={6} columns={[1, 1, 1, 2, 3, 4]} mx={10}>
+      <SimpleGrid width="full" spacing={6} columns={[1, 1, 2, 2, 3, 3]}>
         {children}
       </SimpleGrid>
     </Wrap>

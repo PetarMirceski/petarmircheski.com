@@ -1,10 +1,4 @@
-import {
-  Box,
-  GridItem,
-  Image,
-  Link,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import { Box, GridItem, Image, Link } from "@chakra-ui/react";
 import { FC } from "react";
 
 interface Props {
@@ -14,11 +8,7 @@ interface Props {
 }
 export const VideoGridItem: FC<Props> = ({ title, videoId, link }) => {
   return (
-    <GridItem
-      bg={useColorModeValue("#e8d2b5", "black")}
-      shadow="md"
-      rounded="lg"
-    >
+    <GridItem shadow="md" rounded="lg">
       <Box mx="auto" maxW="2xl">
         <Link display="block" fontWeight="bold" fontSize="2xl" href={link}>
           <Image
