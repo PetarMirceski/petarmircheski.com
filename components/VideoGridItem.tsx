@@ -8,7 +8,7 @@ interface Props {
 }
 export const VideoGridItem: FC<Props> = ({ title, videoId, link }) => {
   return (
-    <GridItem shadow="md" rounded="lg">
+    <GridItem shadow="dark-lg" rounded="lg">
       <Box mx="auto" maxW="2xl">
         <Link display="block" fontWeight="bold" fontSize="2xl" href={link}>
           <Image

@@ -30,7 +30,7 @@ export const BlogArticle: FC<Props> = ({
     <Flex
       key={title}
       width="full"
-      shadow="lg"
+      shadow="dark-lg"
       rounded="lg"
       display="flex"
       flexDirection="column"
