@@ -10,11 +10,20 @@ export const getStaticProps = () => {
   const posts = allBlogs.sort(
     (a, b) => Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
   );
-  return { props: { posts } };
+  const trimmedPosts = posts.map((post) => {
+    return {
+      slug: post.slug,
+      title: post.title,
+      summary: post.summary,
+      publishedAt: post.publishedAt,
+      image: post.image,
+    };
+  }) as Blog[];
+  return { props: { trimmedPosts } };
 };
 
 const Blog: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
-  posts,
+  trimmedPosts,
 }) => {
   return (
     <MotionWrapper>
@@ -31,7 +40,7 @@ const Blog: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
         </Box>
         <Box>
           <BlogArticlesGrid>
-            {posts.map((post: Blog, id: number) => {
+            {trimmedPosts.map((post: Blog, id: number) => {
               return (
                 <BlogArticle
                   key={id}

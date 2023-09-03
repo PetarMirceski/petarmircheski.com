@@ -2,45 +2,46 @@ import { CheckCircleIcon, SpinnerIcon } from "@chakra-ui/icons";
 import {
   Box,
   Container,
+  Flex,
   Heading,
   List,
   ListIcon,
   ListItem,
   Text,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import { FancyLink } from "components/FancyLink";
 import { MotionWrapper } from "layouts/MotionWrapper";
 import type { NextPage } from "next";
+import Image from "next/image";
 
 const Home: NextPage = () => {
+  const imageSize = useBreakpointValue({ base: 300, md: 1500 }); // Adjust sizes as needed
+
   return (
     <>
       <MotionWrapper>
         <Container maxW="container.md" py={8}>
-          <Box p={6} display={{ lg: "flex" }} maxW={{ lg: "5xl" }}>
-            <Box w={{ lg: "45%" }}>
-              <Box
-                h={{ base: 64, lg: "full" }}
-                rounded={{ lg: "lg" }}
-                bgSize="contain"
+          <Flex flexDir={{ base: "column", md: "row" }} align="center">
+            {/* Left side - Profile Image */}
+            <Box p={4} textAlign={{ base: "center", md: "left" }}>
+              <Image
+                src="/static/images/beach_crop.jpeg"
+                alt="Your Profile"
+                width={imageSize}
+                height={imageSize}
                 style={{
-                  backgroundImage: `url('static/images/beach_crop.jpeg')`,
-                  backgroundRepeat: "no-repeat",
-                  backgroundPosition: "center",
+                  objectFit: "cover",
                 }}
               />
             </Box>
 
-            <Box
-              py={5}
-              pl={8}
-              maxW={{ base: "xl", lg: "5xl" }}
-              w={{ lg: "70%" }}
-            >
+            {/* Right side - Description */}
+            <Box p={4} textAlign={{ base: "left", md: "left" }}>
               <Heading as="h2" size="lg" mb={4}>
                 About Me
               </Heading>
-              <Text mb={4} textAlign="justify">
+              <Text align="left">
                 I am a Macedonian graduate student at Tokyo Institue of
                 Technology majoring in the Department of Systems and Control
                 Engineering, School of Engineering, Tokyo Institute of
@@ -49,9 +50,9 @@ const Home: NextPage = () => {
                 <FancyLink href="/cv.pdf">CV&nbsp;here</FancyLink>.
               </Text>
             </Box>
-          </Box>
+          </Flex>
 
-          <Box p={4} textAlign="justify">
+          <Box p={4}>
             <Heading as="h2" size="lg" mb={4}>
               Interests
             </Heading>
@@ -93,7 +94,7 @@ const Home: NextPage = () => {
               .
             </Text>
           </Box>
-          <Box p={4} textAlign="justify">
+          <Box p={4}>
             <Heading as="h2" size="lg" mb={4}>
               Resume
             </Heading>
@@ -155,6 +156,11 @@ const Home: NextPage = () => {
               <ListItem>
                 <ListIcon as={CheckCircleIcon} color="green.500" />
                 [2023] IFAC Japan, Yokohama
+              </ListItem>
+
+              <ListItem>
+                <ListIcon as={CheckCircleIcon} color="green.500" />
+                [2023] Dyanamics Days Europe, Naples
               </ListItem>
             </List>
           </Box>

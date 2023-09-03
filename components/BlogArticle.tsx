@@ -1,13 +1,6 @@
-import {
-  Box,
-  Flex,
-  Image,
-  Link,
-  chakra,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import { Box, Flex, Link, chakra, useColorModeValue } from "@chakra-ui/react";
+import { Img } from "@chakra-ui/react";
 import moment from "moment";
-/* import Image from "next/image"; */
 import { FC } from "react";
 
 interface Props {
@@ -38,14 +31,20 @@ export const BlogArticle: FC<Props> = ({
       justifyContent="center"
     >
       <Box mx="auto" rounded="lg">
-        <Image
-          roundedTop="lg"
-          w="full"
-          h={64}
-          fit="cover"
-          src={headerImage}
-          alt="Article"
-        />
+        <Link
+          display="block"
+          fontWeight="bold"
+          fontSize="2xl"
+          href={`/blog/${slug}`}
+        >
+          <Img
+            roundedTop="lg"
+            w="full"
+            h={64}
+            src={headerImage}
+            alt="Article"
+          />
+        </Link>
         <Box p={2}>
           <Link
             display="block"

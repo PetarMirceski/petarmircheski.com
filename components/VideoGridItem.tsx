@@ -1,4 +1,5 @@
-import { Box, GridItem, Image, Link } from "@chakra-ui/react";
+import { Box, GridItem, Link } from "@chakra-ui/react";
+import { Img } from "@chakra-ui/react";
 import { FC } from "react";
 
 interface Props {
@@ -11,11 +12,10 @@ export const VideoGridItem: FC<Props> = ({ title, videoId, link }) => {
     <GridItem shadow="dark-lg" rounded="lg">
       <Box mx="auto" maxW="2xl">
         <Link display="block" fontWeight="bold" fontSize="2xl" href={link}>
-          <Image
+          <Img
             roundedTop="lg"
             w="full"
             h={64}
-            fit="cover"
             src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
             alt="Article"
           />
