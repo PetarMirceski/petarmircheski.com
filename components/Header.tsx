@@ -14,7 +14,7 @@ import {
   useColorMode,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { LinkItem } from "components/LinkItem";
+import { LinkItem } from "components/Links";
 import { AnimatePresence, motion } from "framer-motion";
 import NextLink from "next/link";
 import { FC } from "react";

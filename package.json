@@ -6,7 +6,7 @@
   "license": "MIT",
   "main": "app/main.js",
   "scripts": {
-    "dev": "next dev",
+    "dev": "contentlayer dev & next dev",
     "build": "next build",
     "postbuild": "NODE_OPTIONS='--experimental-json-modules' node ./scripts/sitemap.mjs",
     "start": "next start",

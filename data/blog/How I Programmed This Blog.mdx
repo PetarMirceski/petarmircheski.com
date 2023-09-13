@@ -25,37 +25,33 @@ Chakra-UI are tremendous, such as:
 5. Big enough community to be an asset to my knowledge.
 6. Excellent integration with Next.js.
 
-```tsx:components/Card.tsx
-export const Card: FC<Props> = ({ image, title, icon, children }) => {
+```tsx:components/VideoGridItem.tsx
+export const VideoGridItem: FC<Props> = ({ title, videoId, link }) => {
   return (
-    <PostWrapper>
-      <Box w={{ lg: '30%' }}>
-        <Box
-          h={{ base: 64, lg: 'full' }}
-          rounded={{ lg: 'lg' }}
-          bgSize="contain"
-          style={{
-            backgroundImage: `url('${image}')`,
-            backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'center',
-          }}
-        />
+    <GridItem shadow="dark-lg" rounded="lg">
+      <Box mx="auto" maxW="2xl">
+        <Link display="block" fontWeight="bold" fontSize="2xl" href={link}>
+          <Img
+            roundedTop="lg"
+            w="full"
+            h={64}
+            src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
+            alt="Article"
+          />
+        </Link>
+        <Box p={6} display="flex">
+          <Link
+            display="block"
+            fontWeight="bold"
+            fontSize="2xl"
+            mt={2}
+            href={link}
+          >
+            {title}
+          </Link>
+        </Box>
       </Box>
-
-      <Box py={20} px={6} maxW={{ base: 'xl', lg: '5xl' }} w={{ lg: '70%' }}>
-        <chakra.h2
-          fontSize={{ base: '2xl', md: '3xl' }}
-          color={useColorModeValue('black', 'white')}
-          fontWeight="bold"
-          display="inline-flex"
-          alignItems="center"
-        >
-          {title}
-          <Box ml={2}>{icon && icon}</Box>
-        </chakra.h2>
-        {children}
-      </Box>
-    </PostWrapper>
+    </GridItem>
   );
 };
 ```

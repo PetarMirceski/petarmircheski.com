@@ -3,22 +3,22 @@ import {
   Box,
   Button,
   Center,
+  Container,
   Heading,
   SimpleGrid,
   Text,
 } from "@chakra-ui/react";
-import { FancyLink } from "components/FancyLink";
+import { FancyLink } from "components/Links";
 import { BlogHead } from "layouts/BlogHead";
 import { MotionWrapper } from "layouts/MotionWrapper";
-import { PaddedWrapper } from "layouts/PaddedWrapper";
 import type { NextPage } from "next";
 
 const Custom404: NextPage = () => {
   return (
     <>
       <BlogHead />
-      <PaddedWrapper>
-        <MotionWrapper>
+      <MotionWrapper>
+        <Container maxW="container.md" py={8}>
           <SimpleGrid columns={1} spacing={0} pt={14}>
             <Box>
               <Center>
@@ -54,8 +54,8 @@ const Custom404: NextPage = () => {
               </Center>
             </Box>
           </SimpleGrid>
-        </MotionWrapper>
-      </PaddedWrapper>
+        </Container>
+      </MotionWrapper>
     </>
   );
 };

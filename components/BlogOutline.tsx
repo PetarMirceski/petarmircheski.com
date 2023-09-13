@@ -69,26 +69,24 @@ const BlogTitle: FC<BlogTitleProps> = ({ title, publishedAt, readingTime }) => {
 };
 export const BlogOutline: FC<Props> = ({ post, children }) => {
   return (
-    <>
-      <Stack
-        as="article"
-        spacing={8}
-        justifyContent="center"
-        alignItems="flex-start"
-        m="20px auto 4rem auto"
-        maxWidth="700px"
-        w="100%"
-        px={2}
-      >
-        {post && (
-          <BlogTitle
-            title={post.title}
-            publishedAt={post.publishedAt}
-            readingTime={post.readingTime.text}
-          />
-        )}
-        <Container maxW="700px">{children}</Container>
-      </Stack>
-    </>
+    <Stack
+      as="article"
+      spacing={8}
+      justifyContent="center"
+      alignItems="flex-start"
+      m="20px auto 4rem auto"
+      maxWidth="700px"
+      w="100%"
+      px={2}
+    >
+      {post && (
+        <BlogTitle
+          title={post.title}
+          publishedAt={post.publishedAt}
+          readingTime={post.readingTime.text}
+        />
+      )}
+      <Container maxW="700px">{children}</Container>
+    </Stack>
   );
 };

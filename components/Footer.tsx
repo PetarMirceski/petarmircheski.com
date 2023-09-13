@@ -1,10 +1,12 @@
-import { Flex, chakra } from "@chakra-ui/react";
+import { Flex, Text } from "@chakra-ui/react";
 import { FC } from "react";
 
 export const Footer: FC = () => {
   return (
     <Flex mt={6} w="full" alignItems="center" justifyContent="center">
-      <chakra.p>©2022 Petar Mircheski. All Rights Reserved.</chakra.p>
+      <Text>
+        ©{new Date().getFullYear()} Petar Mircheski. All Rights Reserved.
+      </Text>
     </Flex>
   );
 };
