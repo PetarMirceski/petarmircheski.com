@@ -8,6 +8,7 @@ import {
   ListIcon,
   ListItem,
   Text,
+  UnorderedList,
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { FancyLink } from "components/Links";
@@ -160,6 +161,19 @@ const Home: NextPage = () => {
               [2023] Dyanamics Days Europe, Naples
             </ListItem>
           </List>
+
+          <Heading as="h2" size="md" mb={4}>
+            Papers and Conference Proceedings
+          </Heading>
+          <UnorderedList spacing={2} mb={4}>
+            <ListItem>
+              <FancyLink href="https://doi.org/10.1063/5.0161119">
+                [2023] Phase-amplitude reduction and optimal phase locking of
+                collectively oscillating networks.
+              </FancyLink>{" "}
+              Petar Mircheski, Jinjie Zhu, Hiroya Nakao. Chaos journal.
+            </ListItem>
+          </UnorderedList>
         </Box>
       </Container>
     </MotionWrapper>
