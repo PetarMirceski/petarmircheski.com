@@ -98,7 +98,7 @@ const Home: NextPage = () => {
           <Heading as="h2" size="lg" mb={4}>
             Resume
           </Heading>
-          <Heading as="h2" size="md" mb={4}>
+          <Heading as="h2" size="md" mb={4} textAlign="center">
             Education
           </Heading>
           <List spacing={2} mb={4}>
@@ -116,7 +116,7 @@ const Home: NextPage = () => {
             </ListItem>
           </List>
 
-          <Heading as="h2" size="md" mb={4}>
+          <Heading as="h2" size="md" mb={4} textAlign="center">
             Professional Experience
           </Heading>
           <List spacing={2} mb={4}>
@@ -138,42 +138,52 @@ const Home: NextPage = () => {
             </ListItem>
           </List>
 
-          <Heading as="h2" size="md" mb={4}>
+          <Heading as="h2" size="md" mb={4} textAlign="center">
+            Papers and Conference Proceedings
+          </Heading>
+          <UnorderedList spacing={2} mb={4}>
+            <ListItem>
+              P. Mircheski, J. Zhu, H Nakao,{" "}
+              <FancyLink href="https://doi.org/10.1063/5.0161119">
+                “Phase-amplitude reduction and optimal phase locking of
+                collectively oscillating networks”{" "}
+              </FancyLink>
+              ,Chaos 33, 103111 [1-18] (2023)
+            </ListItem>
+          </UnorderedList>
+
+          <Heading as="h2" size="md" mb={4} textAlign="center">
             Conferences Attended
           </Heading>
           <List spacing={2} mb={4}>
             <ListItem>
               <ListIcon as={CheckCircleIcon} color="green.500" />
-              [2022] Conference on Complex Systems Spain, Palma de Majorka
+              P. Mircheski, J. Zhu, H Nakao, “Phase-amplitude reduction of
+              networks and synchronization”, Poster Presentation at Dynamics
+              Days Europe, Naples, Italy, Poster presentation (05-06.09.2023)
             </ListItem>
             <ListItem>
               <ListIcon as={CheckCircleIcon} color="green.500" />
-              [2023] IUTAM Japan, Tsukuba
+              P. Mircheski, H Nakao, “Phase-amplitude reduction of limit cycling
+              networks for optimal synchronization”, Poster Presentation at
+              International Union of theoritical and applied mechanics, Tsukuba,
+              Japan (01.08.2023)
             </ListItem>
-
             <ListItem>
               <ListIcon as={CheckCircleIcon} color="green.500" />
-              [2023] IFAC Japan, Yokohama
+              P. Mircheski, H Nakao, “Phase-amplitude reduction for optimal
+              synchronization of limit cycling networks”, Poster Presentation at
+              International federation of automatic control, Yokohama, Japan
+              (13.07.2023)
             </ListItem>
-
             <ListItem>
               <ListIcon as={CheckCircleIcon} color="green.500" />
-              [2023] Dyanamics Days Europe, Naples
+              P. Mircheski, J. Zhu, H Nakao, “Phase-amplitude reduction of
+              collectively oscillating networks”, Oral presentation at
+              Conference on complex systems, Palma de Mallorca, Spain
+              (17.10.2022)
             </ListItem>
           </List>
-
-          <Heading as="h2" size="md" mb={4}>
-            Papers and Conference Proceedings
-          </Heading>
-          <UnorderedList spacing={2} mb={4}>
-            <ListItem>
-              <FancyLink href="https://doi.org/10.1063/5.0161119">
-                [2023] Phase-amplitude reduction and optimal phase locking of
-                collectively oscillating networks.
-              </FancyLink>{" "}
-              Petar Mircheski, Jinjie Zhu, Hiroya Nakao. Chaos journal.
-            </ListItem>
-          </UnorderedList>
         </Box>
       </Container>
     </MotionWrapper>
