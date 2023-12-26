@@ -29,7 +29,7 @@ const BlogPost = ({ post }: { post: Post }) => {
     <div className="flex flex-col items-center">
       <Link className="group " href={`/blog/${post.slug}`}>
         <Image
-          alt="2022 Year in Review"
+          alt={post.title}
           className="rounded-lg"
           src={post.image}
           style={{

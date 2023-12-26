@@ -1,0 +1,103 @@
+---
+title: '2023 Blog Refresh'
+publishedAt: '2023-12-26'
+summary: 'A much needed blog and website refresh.'
+image: '/static/day_trip_in_atami/bridge_sakura.jpg'
+---
+
+I completely rewrote my webpage using the new Next.js app router and Tailwindcss, and I wanted to share some of my thoughts along the way:
+
+# Tailwindcss
+
+Tailwind CSS takes a different approach to styling by offering a utility-first methodology. 
+Instead of writing custom styles, you compose styles using pre-defined utility classes. 
+This approach provides flexibility and speeds up the development process. 
+Key features of Tailwind CSS include:
+
+- Responsive design: Tailwind worked out of the box on smaller screens.
+- Customization.
+- Rapid development: The vast library of css classes, made the development much more ergonomic which is something that I havent experienced when using react based ui-libraries.
+
+# App Router
+The Next.js App Router introduces a new paradigm for building applications, seamlessly evolving from the existing file-system based router in the Pages Router. 
+This evolution leverages React's latest features and provides a recommended approach for both new and existing applications.
+
+The App Router's emphasis on consistent and performant layouts is notable. 
+Layouts do not rerender, promoting caching and reuse to optimize performance. 
+Restricting layouts from accessing the raw request prevents the execution of potentially slow or expensive user code, ensuring predictable behavior across different pages.
+
+Accessing URL and route information is streamlined in the App Router. By default, pages are Server Components, granting access to route segments and URL search params. 
+
+# Photo gallery
+
+In the realm of web development, creating visually stunning photo galleries that seamlessly fetch and display images is a common challenge.
+Leveraging the power of Next.js and integrating the Flickr API, we can effortlessly build a dynamic and responsive photo gallery.
+This post will walk you through a sample implementation that fetches photos from a Flickr account, retrieves their sizes, and presents them in an interactive PhotoGallery component.
+
+The PhotoGallery component, located in the @/components directory, will be our central display unit for showcasing Flickr photos.
+It receives an array of photo data, including IDs, sources, widths, and heights.
+
+```typescript
+export default async function Photos() {
+  const photos = await fetchData();
+  return <PhotoGallery photos={photos} />;
+}
+```
+
+The fetchData function orchestrates the entire process. 
+It interacts with the Flickr API to retrieve a user's photos using the flickr.people.getPhotos method and then fetches the sizes of each photo with the flickr.photos.getSizes method.
+
+```typescript
+interface PicRequest {
+  secret: string;
+  id: string;
+  server: string;
+}
+
+// Define image size options
+type Sizes = /* ... */;
+
+// Interface for Flickr image size details
+interface FlickrImageSize /* ... */;
+
+// Breakpoints for dynamic sizing
+const breakpoints = [1080, 640, 384, 256, 128, 96, 64, 48];
+
+// Function to fetch data from Flickr API
+const fetchData = async () => {
+  const API_URL = `...`
+
+  // Function to fetch photo sizes for a given photo ID
+  const fetchPhotoSizes = async (photoId: string) => {
+    // Implementation details...
+  };
+
+  // Function to fetch photos and their sizes
+  const fetchPhotos = async () => {
+    // Implementation details...
+  };
+
+  // Fetch and return the photos
+  const photos = await fetchPhotos();
+  return photos;
+};
+```
+
+To ensure a responsive design, our implementation includes dynamic sizing. 
+The fetchPhotoSizes function calculates the optimal photo size for various breakpoints, providing a seamless experience across devices.
+
+# Conclusion
+With the inclusion of the App Router, the preference for colocating most things in the app/ directory signifies a shift toward simplicity and logical organization.
+The developer acknowledges the potential for overuse but finds comfort and clarity in this approach, leveraging the capabilities of the new routing paradigm.
+
+As the codebase evolves, so too do the perspectives that guide it.
+With an open-source ethos, the developer encourages others to fork, hack, and explore, fostering a collaborative spirit in the coding community.
+Until the next blog refresh in 2024, the journey continues.
+
+Happy coding! 🚀
+
+
+
+
+
+

@@ -68,20 +68,20 @@ export default async function BlogPost({
     // Override the default <a> element to use the next/link component.
     a: ({ href, children }) => <Link href={href as string}>{children}</Link>,
     Image: (props) => <Image alt="blog" className="my-4" {...props} />,
-    p: ({ children }) => <p className="my-4"> {children}</p>,
+    p: ({ children }) => <p className="text-gray-300 my-4"> {children}</p>,
     h1: ({ children }) => <h1 className="text-4xl my-4"> {children}</h1>,
     h2: ({ children }) => <h2 className="text-3xl my-4"> {children}</h2>,
     h3: ({ children }) => <h2 className="text-2xl my-4"> {children}</h2>,
     ul: (props: any) => {
       return (
-        <ul className="list-disc list-inside" {...props}>
+        <ul className="list-disc list-inside text-gray-300" {...props}>
           {props.children}
         </ul>
       );
     },
     ol: (props: any) => {
       return (
-        <ol className="list-decimal list-inside" {...props}>
+        <ol className="list-decimal list-inside text-gray-300" {...props}>
           {props.children}
         </ol>
       );
