@@ -1,43 +1,36 @@
-## petarmircheski.com
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-- _Language_: [Typescript](https://www.typescriptlang.org/)
-- _Framework_: : [Next.js](https://nextjs.org/)
-- _Content_: : [MDX](https://mdxjs.com/)
-- _Styling_: [Charkra-UI](https://chakra-ui.com/)
-- _Deployment_: [Vercel](https://vercel.com/)
+## Getting Started
 
-## Project Organization
-
-- `data/*` - MDX data that is used for blogs.
-- `layouts/*` - The different page layouts, both for JSX pages and MDX blog posts.
-- `pages/*` - Static pages.
-- `public/*` - Images, animations and all other static assets.
-- `styles/*` - Global styles for the prism syntax highlighting.
-- `scripts/*` - Sitemap generating script.
-- `components/*` - All .tsx components building blocks.
-
-## Running the dev server
+First, run the development server:
 
 ```bash
-$ git clone https://gitlab.com/petar.mirceski1998/personal-blog
-$ cd personal-blog
-$ npm install
-$ npm run dev
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-## Before publishing
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-```bash
-$ sudo apt install jpegoptim
-$ sudo apt install pngcrush
-$ cd public/static/
-$ bash optimize.sh
-```
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## Image Naming
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-Use the jhead utility
+## Learn More
 
-```bash
-find . -iname '*jpg' -exec jhead -n%Y%m%d
-```
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

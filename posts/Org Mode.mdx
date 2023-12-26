@@ -1,0 +1,110 @@
+---
+title: 'Org Mode'
+publishedAt: '2022-01-27'
+summary: 'My Emacs Org Mode workflow when writing documents and studying.'
+image: '/static/org_mode/org_mode.png'
+---
+
+# Emacs and the meaning of life
+
+Org-mode is one of the many reasons I use GNU Emacs
+
+I’m a relatively fresh user of GNU Emacs. Started using it only a few years ago.
+Coding in python and typescript at my previous job is what hooked me on using Emacs
+especially the Doom Emacs framework for Emacs.
+As an university student I used Latex to take notes and write papers and documents but I had
+always struggled to find a good tool for taking notes, time and task management and general drafting
+of ideas and thought. I spend a large potion of my day in my editor anyway, so transitioning to
+using org-mode was without any hassle.
+
+# Org-Mode ?
+
+So what is Emacs's Org mode really?
+
+Org-mode is a extremely powerful tool for when writing any kind of document not-necessarily
+programming related, through it can be. Org-mode can serve as an replacement or in some cases
+an addition to any kind of program in the likes of Libre Office Writer, Markdown or Latex.
+
+Org-mode has the ability to export it's .org files to Markdown, HTML and Latex files which can
+further be converted to PDF files(the best file format).
+It can be used as an time-organizer or task manager. And since Org-mode is and emacs-package,
+it can be extended and modified to the users needs and wishes.
+
+# Why not Markdown ?
+
+The main features that Emacs's Org-mode has over Markdown are:
+
+1. Rendering $\LaTeX$ fragments inline.
+2. Syntax highlighting of various programming languages.
+3. Great table editing and formatting.
+4. Great foreign language encoding and displaying when using evil-mode.
+5. Styling **bold** and _italicized_ text easily.
+
+# Why not $\LaTeX$
+
+The main features that Emacs's Org-mode has over $\LaTeX$ are:
+
+1. The compilation process is much simpler no need for the Terminal or a fancy IDE.
+2. The layout of the code you write is much simpler.
+3. Org-mode has the same functionality that $\LaTeX$ has but in a much simpler format.
+4. Org-mode has the ability to export all your org files to $\LaTeX$.
+
+# My Org-mode e-lisp dot-files
+
+Since Org-mode is a emacs official package it's open-source and fully customizable.
+One can use their emacs-configuration to improve their org-mode experience.
+
+### Org indent mode
+
+To display the buffer in the indented view, activate Org Indent minor mode, by adding the following
+line of code to your Doom-emacs configuration file.
+
+```lisp
+    (add-hook 'org-mode-hook 'org-indent-mode)
+```
+
+### Org agenda and formatting
+
+If using the org-agenda in org-mode you have to setup the folders in which
+The following code adds your agenda directory and standardizes the date-format
+and file-format.
+
+```lisp
+    (setq org-directory "~/repos/agenda"
+        org-agenda-files '("~/repos/agenda")
+        ;; org-default-notes-file (expand-file-name "notes.org" org-directory)
+        org-ellipsis " ▼ "
+        org-log-done 'time
+        ;; org-journal-dir "~/Org/journal/"
+        org-journal-date-format "%B %d, %Y (%A) "
+        org-journal-file-format "%Y-%m-%d.org"
+        org-hide-emphasis-markers t)
+```
+
+### Org agenda and formatting
+
+Customizing the way the headers are displayed in org-mode.
+
+```lisp
+(setq org-superstar-headline-bullets-list '("⁖" "◉" "○" "✸" "✿"))
+
+```
+
+### Org-mode $\LaTeX$ Xelatex integration
+
+One of the most useful ways to use Org-mode is writing markups and notes.
+The key-point of org-mode is it's excellent integration with $\LaTeX$ and it's ability
+to compile to .tex files that could then be used to compile to pdf-files. Some people
+have even written their Ph.D. thesis in Org-mode.
+
+```lisp
+(setq org-latex-to-pdf-process
+  '("xelatex -interaction nonstopmode %f"
+     "xelatex -interaction nonstopmode %f"))
+```
+
+# Conclusion
+
+Overall, I find the experience of writing in org much simpler and enjoyable than writing in Markdown,
+Office like programs or $\LaTeX$. Plus, I love hacking on emacs, and moving my workflow over to Emacs
+has been a really enjoyable experience, and has taught me a lot of new things.

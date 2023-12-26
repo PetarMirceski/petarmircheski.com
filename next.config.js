@@ -1,24 +1,10 @@
 const { withContentlayer } = require("next-contentlayer");
 
-/**
- * @type {import('next').NextConfig}
- */
-const withMDX = require("@next/mdx")({
-  extension: /\.mdx?$/,
-  options: {
-    remarkPlugins: [],
-    rehypePlugins: [],
-    providerImportSource: "@mdx-js/react",
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  images: {
+    domains: ["img.youtube.com", "live.staticflickr.com"],
   },
-});
+};
 
-module.exports = withMDX(
-  withContentlayer({
-    swcMinify: true,
-    reactStrictMode: true,
-    images: {
-      domains: ["img.youtube.com", "live.staticflickr.com"],
-    },
-    pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
-  })
-);
+module.exports = withContentlayer(nextConfig);
