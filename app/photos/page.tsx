@@ -29,6 +29,7 @@ interface FlickrImageSize {
   url: string;
   media: string;
 }
+const breakpoints = [1080, 640, 384, 256, 128, 96, 64, 48];
 
 const fetchData = async () => {
   const API_URL = `https://www.flickr.com/services/rest/?method=flickr.people.getPhotos&api_key=${process.env.API_KEY}&user_id=199085309%40N08&format=json&nojsoncallback=1`;
@@ -47,6 +48,16 @@ const fetchData = async () => {
         src: selectedSize.source,
         width: selectedSize.width,
         height: selectedSize.height,
+        srcSet: breakpoints.map((breakpoint) => {
+          const height = Math.round(
+            (selectedSize.height / selectedSize.width) * breakpoint,
+          );
+          return {
+            src: selectedSize.url,
+            width: breakpoint,
+            height,
+          };
+        }),
       };
     } catch (error) {
       console.error(
