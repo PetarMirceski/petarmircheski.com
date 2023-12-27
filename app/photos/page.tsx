@@ -1,5 +1,8 @@
 import { PhotoGallery } from "@/components/photoGallery";
 
+// base is in seconds
+export const revalidate = 3600;
+
 interface PicRequest {
   secret: string;
   id: string;
