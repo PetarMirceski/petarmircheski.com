@@ -67,7 +67,15 @@ export default async function BlogPost({
   const mdxComponents: MDXComponents = {
     // Override the default <a> element to use the next/link component.
     a: ({ href, children }) => <Link href={href as string}>{children}</Link>,
-    Image: (props) => <Image alt="blog" className="my-4" {...props} />,
+    Image: (props) => (
+      <Image
+        alt="blog"
+        className="my-4"
+        placeholder="blur"
+        blurDataURL="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P+/HgAFhAJ/wlseKgAAAABJRU5ErkJggg=="
+        {...props}
+      />
+    ),
     p: ({ children }) => <p className="text-gray-300 my-4"> {children}</p>,
     h1: ({ children }) => <h1 className="text-4xl my-4"> {children}</h1>,
     h2: ({ children }) => <h2 className="text-3xl my-4"> {children}</h2>,
@@ -91,7 +99,7 @@ export default async function BlogPost({
   const MDXContent = useMDXComponent(post.body.code);
 
   return (
-    <article className="max-w-3xl mx-auto">
+    <article className="container max-w-3xl mx-auto">
       <header className="mb-6">
         <h1 className="text-4xl font-bold mb-5">{post.title}</h1>
         <div className="flex items-center justify-between">
