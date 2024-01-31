@@ -81,9 +81,17 @@ export default function Home() {
             </li>
 
             <li className="flex items-center mb-2">
+              <CiCircleCheck className="text-blue-500 flex-none" size="30px" />
+              <p className="ml-2 flex-auto">
+                [2021~2022] - Researcher student at Department of Systems and
+                Control Engineering, School of Engineering, Tokyo Institute of
+                Technology, Japan.
+              </p>
+            </li>
+            <li className="flex items-center mb-2">
               <CiTimer className="text-blue-500 flex-none" size="30px" />
               <p className="ml-2 flex-auto">
-                [2021~] - Master studies at Department of Systems and Control
+                [2022~] - Master studies at Department of Systems and Control
                 Engineering, School of Engineering, Tokyo Institute of
                 Technology, Japan.
               </p>
