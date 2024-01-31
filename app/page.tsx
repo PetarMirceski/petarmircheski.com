@@ -1,6 +1,8 @@
 import Link from "next/link";
 
 import { CiCircleCheck } from "react-icons/ci";
+import { CiTimer } from "react-icons/ci";
+
 import Image from "next/image";
 
 export default function Home() {
@@ -58,7 +60,7 @@ export default function Home() {
           I do is to either look up this website or message me at{" "}
           <Link
             className="text-blue-400 hover:text-blue-300"
-            href="mailto:petar.mircheski1998@gmail.com"
+            href="mailto:petar.mirceski1998@gmail.com"
           >
             petar.mircheski1998@gmail.com
           </Link>
@@ -79,7 +81,7 @@ export default function Home() {
             </li>
 
             <li className="flex items-center mb-2">
-              <CiCircleCheck className="text-blue-500 flex-none" size="30px" />
+              <CiTimer className="text-blue-500 flex-none" size="30px" />
               <p className="ml-2 flex-auto">
                 [2021~] - Master studies at Department of Systems and Control
                 Engineering, School of Engineering, Tokyo Institute of
@@ -107,7 +109,7 @@ export default function Home() {
               </p>
             </li>
             <li className="flex items-center">
-              <CiCircleCheck className="text-blue-500 flex-none" size="30px" />
+              <CiTimer className="text-blue-500 flex-none" size="30px" />
               <p className="ml-2 flex-auto">
                 [2022~] Research Assistant at Department of Systems and Control
                 Engineering, School of Engineering, Tokyo Institute of
