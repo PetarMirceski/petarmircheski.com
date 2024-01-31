@@ -118,12 +118,11 @@ export default function Home() {
         </section>
         <section className="mb-8">
           <h2 className="text-2xl mb-4">Papers and Conference Proceedings</h2>
-
           <ul className="mb-2">
             <li className="flex items-center mb-2">
               <CiCircleCheck className="text-blue-500 flex-none" size="30px" />
               <p className="ml-2 flex-auto">
-                P. Miricheski, J. Zhu, H Nakao,{" "}
+                P. Mircheski, J. Zhu, H Nakao,{" "}
                 <Link
                   className="text-blue-400 hover:text-blue-300"
                   href="https://pubs.aip.org/aip/cha/article-abstract/33/10/103111/2916005/Phase-amplitude-reduction-and-optimal-phase?redirectedFrom=fulltext"
@@ -142,7 +141,7 @@ export default function Home() {
             <li className="flex items-center mb-2">
               <CiCircleCheck className="text-blue-500 flex-none" size="30px" />
               <p className="ml-2 flex-auto">
-                P. Miricheski, J. Zhu, H Nakao, &quot;Phase-amplitude reduction
+                P. Mircheski, J. Zhu, H Nakao, &quot;Phase-amplitude reduction
                 of networks and synchronization&quot;, Poster Presentation at
                 Dynamics Days Europe, Naples, Italy, Poster presentation
                 (05-06.09.2023)
@@ -151,7 +150,7 @@ export default function Home() {
             <li className="flex items-center mb-2">
               <CiCircleCheck className="text-blue-500 flex-none" size="30px" />
               <p className="ml-2 flex-auto">
-                P. Miricheski, H Nakao, &quot;Phase-amplitude reduction of limit
+                P. Mircheski, H Nakao, &quot;Phase-amplitude reduction of limit
                 cycling networks for optimal synchronization&quot;, Poster
                 Presentation at International Union of theoretical and applied
                 mechanics, Tsukuba, Japan (01.08.2023)
@@ -160,7 +159,7 @@ export default function Home() {
             <li className="flex items-center mb-2">
               <CiCircleCheck className="text-blue-500 flex-none" size="30px" />
               <p className="ml-2 flex-auto">
-                P. Miricheski, H Nakao, &quot;Phase-amplitude reduction for
+                P. Mircheski, H Nakao, &quot;Phase-amplitude reduction for
                 optimal synchronization of limit cycling networks&quot;, Poster
                 Presentation at International federation of automatic control,
                 Yokohama, Japan (13.07.2023)
@@ -169,10 +168,40 @@ export default function Home() {
             <li className="flex items-center">
               <CiCircleCheck className="text-blue-500 flex-none" size="30px" />
               <p className="ml-2 flex-auto">
-                P. Miricheski, J. Zhu, H Nakao, &quot;Phase-amplitude reduction
+                P. Mircheski, J. Zhu, H Nakao, &quot;Phase-amplitude reduction
                 of collectively oscillating networks&quot;, Oral presentation at
                 Conference on complex systems, Palma de Mallorca, Spain
                 (17.10.2022)
+              </p>
+            </li>
+          </ul>
+        </section>
+
+        <section className="mb-8">
+          <h2 className="text-2xl mb-4">Workshops Attended</h2>
+          <ul>
+            <li className="flex items-center mb-2">
+              <CiCircleCheck className="text-blue-500 flex-none" size="30px" />
+              <p className="ml-2 flex-auto">
+                CREST Computational Dynamics General Meeting, Matsuyama
+                Ehime(愛媛県), Ehime University Media Hall Program,
+                (19~20.12.2023)
+              </p>
+            </li>
+            <li className="flex items-center mb-2">
+              <CiCircleCheck className="text-blue-500 flex-none" size="30px" />
+              <p className="ml-2 flex-auto">
+                CREST Computational Dynamics General Meeting, Awajishima
+                Hyogo(兵庫県), Awaji yumebutai (夢舞台), (25~26.5.2023)
+              </p>
+            </li>
+
+            <li className="flex items-center mb-2">
+              <CiCircleCheck className="text-blue-500 flex-none" size="30px" />
+              <p className="ml-2 flex-auto">
+                Hirosaki University Workshop on Nonlinear Science 2022, Hirosaki
+                Aomori (青森県), Iwaki Hall, 50th Anniversary Memorial Hall,
+                Bunkyocho Campus, Hirosaki University, (14~15.11.2022)
               </p>
             </li>
           </ul>
