@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Blog() {
   const posts = allPosts.sort((a, b) =>
-    compareDesc(new Date(a.publishedAt), new Date(b.publishedAt)),
+    compareDesc(new Date(a.publishedAt), new Date(b.publishedAt))
   );
 
   return (
@@ -16,15 +16,20 @@ export default function Blog() {
         Sometimes I write stuff sometimes I don&apos;t.
       </p>
       <div className="mt-12 grid gap-8 lg:grid-cols-3">
-        {posts.map((post, index) => (
-          <BlogPost key={index} post={post} />
-        ))}
+        {posts.map((post, index) => {
+          const priority = index < 6;
+          return <BlogPost key={index} post={post} priority={priority} />;
+        })}
       </div>
     </div>
   );
 }
 
-const BlogPost = ({ post }: { post: Post }) => {
+interface BlogPostProps {
+  post: Post;
+  priority?: boolean;
+}
+const BlogPost = ({ post, priority = false }: BlogPostProps) => {
   return (
     <div className="flex flex-col items-center">
       <Link className="group " href={`/blog/${post.slug}`}>
@@ -32,6 +37,7 @@ const BlogPost = ({ post }: { post: Post }) => {
           alt={post.title}
           className="rounded-lg"
           src={post.image}
+          priority={priority}
           style={{
             aspectRatio: "450/300",
             objectFit: "cover",
