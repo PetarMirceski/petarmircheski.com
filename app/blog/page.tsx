@@ -1,4 +1,4 @@
-import { allPosts, Post } from "contentlayer/generated";
+import { allPosts, Post } from "content-collections";
 import { format, parseISO, compareDesc } from "date-fns";
 import Image from "next/image";
 
@@ -29,6 +29,7 @@ interface BlogPostProps {
   post: Post;
   priority?: boolean;
 }
+
 const BlogPost = ({ post, priority = false }: BlogPostProps) => {
   return (
     <div className="flex flex-col items-center">

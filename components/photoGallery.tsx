@@ -10,29 +10,29 @@ import Lightbox from "yet-another-react-lightbox";
 import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
 import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
-import Image from "next/image";
+// import Image from "next/image";
 
-import type { RenderPhotoProps } from "react-photo-album";
+// import type { RenderPhotoProps } from "react-photo-album";
 
 import type { Photo } from "react-photo-album";
 
-export default function NextJsImage({
-  photo,
-  imageProps: { alt, title, sizes, className, onClick },
-  wrapperStyle,
-}: RenderPhotoProps) {
-  return (
-    <div style={{ ...wrapperStyle, position: "relative" }}>
-      <Image
-        fill
-        src={photo}
-        placeholder={"blurDataURL" in photo ? "blur" : undefined}
-        {...{ alt, title, sizes, className, onClick }}
-        className={`${className} z-0`}
-      />
-    </div>
-  );
-}
+// export default function NextJsImage({
+//   photo,
+//   imageProps: { alt, title, sizes, className, onClick },
+//   wrapperStyle,
+// }: RenderPhotoProps) {
+//   return (
+//     <div style={{ ...wrapperStyle, position: "relative" }}>
+//       <Image
+//         fill
+//         src={photo}
+//         placeholder={"blurDataURL" in photo ? "blur" : undefined}
+//         {...{ alt, title, sizes, className, onClick }}
+//         // className={`${className} z-0`}
+//       />
+//     </div>
+//   );
+// }
 
 export const PhotoGallery = ({ photos }: { photos: Photo[] }) => {
   const [index, setIndex] = useState(-1);
@@ -43,7 +43,7 @@ export const PhotoGallery = ({ photos }: { photos: Photo[] }) => {
         photos={photos}
         layout="masonry"
         onClick={({ index }) => setIndex(index)}
-        renderPhoto={NextJsImage}
+        // renderPhoto={NextJsImage}
         columns={(containerWidth) => {
           if (containerWidth < 400) return 1;
           if (containerWidth < 800) return 2;

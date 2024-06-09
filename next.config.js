@@ -1,4 +1,4 @@
-const { withContentlayer } = require("next-contentlayer");
+const { withContentCollections } = require("@content-collections/next");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -18,6 +18,6 @@ const nextConfig = {
   },
 };
 
-module.exports = withContentlayer(nextConfig);
+module.exports = withContentCollections(nextConfig);
 
 // domains: ["img.youtube.com", "live.staticflickr.com"],

@@ -1,15 +1,14 @@
-import { allPosts } from "contentlayer/generated";
+import { allPosts } from "content-collections";
 import type { Metadata } from "next";
 
 import type { MDXComponents } from "mdx/types";
+import { MDXContent } from "@content-collections/mdx/react";
 
 import { format, parseISO } from "date-fns";
 import Image from "next/image";
 import Link from "next/link";
 
 import { notFound } from "next/navigation";
-
-import { useMDXComponent } from "next-contentlayer/hooks";
 
 export async function generateMetadata({
   params,
@@ -96,8 +95,6 @@ export default async function BlogPost({
     },
   };
 
-  const MDXContent = useMDXComponent(post.body.code);
-
   return (
     <article className="container max-w-3xl mx-auto">
       <header className="mb-6">
@@ -135,7 +132,7 @@ export default async function BlogPost({
         />
       </figure>
       <section className="mb-6">
-        <MDXContent components={mdxComponents} />
+        <MDXContent code={post.mdx} components={mdxComponents} />
       </section>
     </article>
   );

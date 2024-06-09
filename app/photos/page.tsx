@@ -44,7 +44,7 @@ const fetchData = async () => {
       const sizeData = await sizeResponse.json();
 
       const selectedSize = sizeData.sizes.size.find(
-        (image: FlickrImageSize) => image.label === "Medium 800",
+        (image: FlickrImageSize) => image.label === "Medium 800"
       );
 
       return {
@@ -53,7 +53,7 @@ const fetchData = async () => {
         height: selectedSize.height,
         srcSet: breakpoints.map((breakpoint) => {
           const height = Math.round(
-            (selectedSize.height / selectedSize.width) * breakpoint,
+            (selectedSize.height / selectedSize.width) * breakpoint
           );
           return {
             src: selectedSize.url,
@@ -65,7 +65,7 @@ const fetchData = async () => {
     } catch (error) {
       console.error(
         `Error fetching photo sizes for photo ID ${photoId}:`,
-        error,
+        error
       );
       throw error;
     }
@@ -93,11 +93,11 @@ const fetchData = async () => {
             // Handle errors for individual photos
             console.error(
               `Error fetching photo data for photo ID ${pic.id}:`,
-              error,
+              error
             );
             return null; // Return null for the photo with an error
           }
-        }),
+        })
       );
 
       // Filter out photos with errors
