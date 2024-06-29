@@ -89,9 +89,18 @@ export default function Home() {
               </p>
             </li>
             <li className="flex items-center mb-2">
+              <CiCircleCheck className="text-blue-500 flex-none" size="30px" />
+              <p className="ml-2 flex-auto">
+                [2022~2024] - Master studies at Department of Systems and
+                Control Engineering, School of Engineering, Tokyo Institute of
+                Technology, Japan.
+              </p>
+            </li>
+
+            <li className="flex items-center mb-2">
               <CiTimer className="text-blue-500 flex-none" size="30px" />
               <p className="ml-2 flex-auto">
-                [2022~] - Master studies at Department of Systems and Control
+                [2024~] - Doctoral studies at Department of Systems and Control
                 Engineering, School of Engineering, Tokyo Institute of
                 Technology, Japan.
               </p>
@@ -112,7 +121,7 @@ export default function Home() {
             <li className="flex items-center mb-2">
               <CiCircleCheck className="text-blue-500 flex-none" size="30px" />
               <p className="ml-2 flex-auto">
-                [2020] Worked as Front-End Senior Developer at Aritmatrix,
+                [2020] Worked as a Front-End Senior Developer at Aritmatrix,
                 Skopje.
               </p>
             </li>
