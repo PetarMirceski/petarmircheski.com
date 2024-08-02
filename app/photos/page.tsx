@@ -35,6 +35,9 @@ interface FlickrImageSize {
 const breakpoints = [1080, 640, 384, 256, 128, 96, 64, 48];
 
 const fetchData = async () => {
+  if (!process.env.API_KEY) {
+    throw new Error("The api key for Flickr is missing");
+  }
   const API_URL = `https://www.flickr.com/services/rest/?method=flickr.people.getPhotos&api_key=${process.env.API_KEY}&user_id=199085309%40N08&format=json&nojsoncallback=1`;
 
   const fetchPhotoSizes = async (photoId: string) => {
@@ -78,6 +81,7 @@ const fetchData = async () => {
         throw new Error(`Failed to fetch data. Status: ${response.status}`);
       }
       const data = await response.json();
+      console.log(data);
 
       const picData = await Promise.all(
         data.photos.photo.map(async (pic: PicRequest) => {
