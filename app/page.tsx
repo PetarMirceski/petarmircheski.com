@@ -1,7 +1,6 @@
 import Link from "next/link";
 
-import { CiCircleCheck } from "react-icons/ci";
-import { CiTimer } from "react-icons/ci";
+import { CiCircleCheck, CiTimer } from "react-icons/ci";
 
 import Image from "next/image";
 
@@ -157,6 +156,15 @@ export default function Home() {
         <section className="mb-8">
           <h2 className="text-2xl mb-4">Conferences Attended</h2>
           <ul>
+            <li className="flex items-center">
+              <CiCircleCheck className="text-blue-500 flex-none" size="30px" />
+              <p className="ml-2 flex-auto">
+                P. Mircheski, H Nakao, &quot;Spatially locked chimera
+                states&quot;, Poster presentation at International Conference on
+                "Self-organization in Life and Matter", Meiji University, Tokyo,
+                Japan (10.09.2024)
+              </p>
+            </li>
             <li className="flex items-center mb-2">
               <CiCircleCheck className="text-blue-500 flex-none" size="30px" />
               <p className="ml-2 flex-auto">
