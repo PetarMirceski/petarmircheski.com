@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build-no-content": "next build",
+    "build": "content-collections build && tsc && vite build",
     "start": "next start",
     "lint": "next lint"
   },
