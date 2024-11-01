@@ -81,7 +81,7 @@ const fetchData = async () => {
         throw new Error(`Failed to fetch data. Status: ${response.status}`);
       }
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
 
       const picData = await Promise.all(
         data.photos.photo.map(async (pic: PicRequest) => {

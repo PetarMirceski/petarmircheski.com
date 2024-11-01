@@ -1,8 +1,8 @@
 import { allPosts } from "content-collections";
 import type { Metadata } from "next";
 
-import type { MDXComponents } from "mdx/types";
 import { MDXContent } from "@content-collections/mdx/react";
+import type { MDXComponents } from "mdx/types";
 
 import { format, parseISO } from "date-fns";
 import Image from "next/image";
@@ -13,16 +13,19 @@ import { notFound } from "next/navigation";
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata | undefined> {
-  let post = allPosts.find((post) => post.slug === params.slug);
+  // Destructure slug to ensure params is available synchronously
+  const  slug  = (await params).slug;
+
+  let post = allPosts.find((post) => post.slug === slug);
   if (!post) {
     return;
   }
 
   let ogImage = post.image
     ? `https://petarmircheski.com${post.image}`
-    : `https://petarmircheski.com/og?title=${post.title}`;
+    : `https://petarmircheski.com/og?title=${encodeURIComponent(post.title)}`;
 
   return {
     title: post.title,
@@ -32,7 +35,7 @@ export async function generateMetadata({
       description: post.summary,
       type: "article",
       publishedTime: post.publishedAt,
-      url: `https://petarmircheski.com/blog/${post.slug}`,
+      url: `https://petarmircheski.com/blog/${slug}`,
       images: [
         {
           url: ogImage,
@@ -48,6 +51,7 @@ export async function generateMetadata({
   };
 }
 
+
 export async function generateStaticParams() {
   return allPosts.map((post) => ({
     slug: post.slug,
@@ -57,9 +61,11 @@ export async function generateStaticParams() {
 export default async function BlogPost({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const post = allPosts.find((post) => post.slug === decodeURI(params.slug));
+  const slug  = (await params).slug
+
+  const post = allPosts.find((post) => post.slug === decodeURI(slug));
 
   if (!post) notFound();
 

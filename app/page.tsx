@@ -161,7 +161,7 @@ export default function Home() {
               <p className="ml-2 flex-auto">
                 P. Mircheski, H Nakao, &quot;Spatially locked chimera
                 states&quot;, Poster presentation at International Conference on
-                "Self-organization in Life and Matter", Meiji University, Tokyo,
+                &quot;Self-organization in Life and Matter&quot;, Meiji University, Tokyo,
                 Japan (10.09.2024)
               </p>
             </li>

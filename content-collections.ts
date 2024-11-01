@@ -4,15 +4,15 @@ import { compileMDX } from "@content-collections/mdx";
 import readingTime from "reading-time";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeCodeTitles from "rehype-code-titles";
+import rehypeKatex from "rehype-katex";
 import rehypePrism from "rehype-prism-plus";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
-import rehypeKatex from "rehype-katex";
 
 export const posts = defineCollection({
   name: "Post",
-  directory: "./posts",
+  directory: "/posts",
   include: "**/*.mdx",
   schema: (z) => ({
     title: z.string(),
