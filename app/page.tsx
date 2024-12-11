@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { EmailReveal } from "@/components/emailReveal";
 import { CiCircleCheck, CiTimer } from "react-icons/ci";
 
 import Image from "next/image";
@@ -57,13 +58,8 @@ export default function Home() {
         <p className="text-gray-300 mt-4">
           I generally don&apos;t use social media so the only way to track what
           I do is to either look up this website or message me at{" "}
-          <Link
-            className="text-blue-400 hover:text-blue-300"
-            href="mailto:petar.mirceski1998@gmail.com"
-          >
-            petar.mircheski1998@gmail.com
-          </Link>
         </p>
+        <EmailReveal />
 
         <h2 className="text-2xl font-bold mt-8 mb-4">Resume</h2>
         <section className="mb-8">
@@ -161,8 +157,8 @@ export default function Home() {
               <p className="ml-2 flex-auto">
                 P. Mircheski, H Nakao, &quot;Spatially locked chimera
                 states&quot;, Poster presentation at International Conference on
-                &quot;Self-organization in Life and Matter&quot;, Meiji University, Tokyo,
-                Japan (10.09.2024)
+                &quot;Self-organization in Life and Matter&quot;, Meiji
+                University, Tokyo, Japan (10.09.2024)
               </p>
             </li>
             <li className="flex items-center mb-2">
