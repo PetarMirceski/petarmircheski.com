@@ -25,8 +25,8 @@ export default function Home() {
           I am a Macedonian graduate student at Tokyo Institute of Technology
           majoring in the Department of Systems and Control Engineering, School
           of Engineering, Tokyo Institute of Technology, Japan. My academic
-          advisor is Prof. Dr. Nakao Hirohaya. I have a knack for problem
-          solving. You can find my CV{" "}
+          advisor is Prof. Dr. Nakao Hiroya. I have a knack for problem solving.
+          You can find my CV{" "}
           <Link className="text-blue-400 hover:text-blue-300" href="/cv.pdf">
             here
           </Link>
