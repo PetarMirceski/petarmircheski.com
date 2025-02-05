@@ -16,7 +16,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata | undefined> {
   // Destructure slug to ensure params is available synchronously
-  const  slug  = (await params).slug;
+  const slug = (await params).slug;
 
   let post = allPosts.find((post) => post.slug === slug);
   if (!post) {
@@ -51,7 +51,6 @@ export async function generateMetadata({
   };
 }
 
-
 export async function generateStaticParams() {
   return allPosts.map((post) => ({
     slug: post.slug,
@@ -63,7 +62,7 @@ export default async function BlogPost({
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  const slug  = (await params).slug
+  const slug = (await params).slug;
 
   const post = allPosts.find((post) => post.slug === decodeURI(slug));
 
@@ -75,16 +74,15 @@ export default async function BlogPost({
     Image: (props) => (
       <Image
         alt="blog"
-        className="my-4"
         placeholder="blur"
         blurDataURL="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P+/HgAFhAJ/wlseKgAAAABJRU5ErkJggg=="
         {...props}
       />
     ),
-    p: ({ children }) => <p className="text-gray-300 my-4"> {children}</p>,
-    h1: ({ children }) => <h1 className="text-4xl my-4"> {children}</h1>,
-    h2: ({ children }) => <h2 className="text-3xl my-4"> {children}</h2>,
-    h3: ({ children }) => <h2 className="text-2xl my-4"> {children}</h2>,
+    p: ({ children }) => <p className="text-gray-300"> {children}</p>,
+    h1: ({ children }) => <h2> {children}</h2>,
+    h2: ({ children }) => <h3> {children}</h3>,
+    h3: ({ children }) => <h4> {children}</h4>,
     ul: (props: any) => {
       return (
         <ul className="list-disc list-inside text-gray-300" {...props}>
@@ -104,7 +102,7 @@ export default async function BlogPost({
   return (
     <article className="container max-w-3xl mx-auto">
       <header className="mb-6">
-        <h1 className="text-4xl font-bold mb-5">{post.title}</h1>
+        <h1 className="font-bold mb-5">{post.title}</h1>
         <div className="flex items-center justify-between">
           <div className="flex items-center">
             <Image

@@ -2,21 +2,23 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { GrClose } from "react-icons/gr";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { GrClose } from "react-icons/gr";
 
 export const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
 
   return (
-    <header className="z-10 flex max-sm:flex-col sm:justify-between fixed top-0 w-full px-2 lg:px-20 items-center py-4 border-b shadow-lg border-gray-700 backdrop-blur-lg">
+    <header className="z-10 flex max-sm:flex-col sm:justify-between fixed top-0 w-full px-3 lg:px-20 items-center border-b shadow-lg border-gray-700 backdrop-blur-lg">
       <div className="flex justify-between w-full">
         <Link className="hover:text-gray-300" href="/">
           <div className="flex-1">
             <h1 className="text-3xl font-bold hidden md:block">
               Petar Mircheski
             </h1>
-            <h1 className="text-3xl font-bold block md:hidden">PM</h1>
+            <h1 className="text-3xl font-bold block md:hidden">
+              Petar Mircheski
+            </h1>
           </div>
         </Link>
         <button

@@ -1,5 +1,5 @@
 import { allPosts, Post } from "content-collections";
-import { format, parseISO, compareDesc } from "date-fns";
+import { compareDesc, format, parseISO } from "date-fns";
 import Image from "next/image";
 
 import Link from "next/link";
@@ -10,18 +10,18 @@ export default function Blog() {
   );
 
   return (
-    <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-      <h1 className="text-5xl font-bold mb-6">My Personal Blog</h1>
-      <p className="text-xl mb-12">
+    <section className="max-w-7xl mx-auto container px-10">
+      <h1 className="font-bold">My Personal Blog</h1>
+      <p className="font-semibold mb-10">
         Sometimes I write stuff sometimes I don&apos;t.
       </p>
-      <div className="mt-12 grid gap-8 lg:grid-cols-3">
+      <div className="grid gap-8 lg:grid-cols-3">
         {posts.map((post, index) => {
           const priority = index < 6;
           return <BlogPost key={index} post={post} priority={priority} />;
         })}
       </div>
-    </div>
+    </section>
   );
 }
 
@@ -46,11 +46,11 @@ const BlogPost = ({ post, priority = false }: BlogPostProps) => {
           width="450"
           height="300"
         />
-        <h2 className="mt-4 text-2xl font-bold group-hover:text-gray-300">
+        <h4 className="mt-4 font-bold group-hover:text-gray-300">
           {post.title}
-        </h2>
-        <p className="mt-2 text-base">{post.summary}</p>
-        <p className="mt-1 text-sm text-gray-400">
+        </h4>
+        <p>{post.summary}</p>
+        <p className="text-sm text-gray-400">
           {format(parseISO(post.publishedAt), "LLLL d, yyyy")}
         </p>
       </Link>

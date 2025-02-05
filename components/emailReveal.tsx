@@ -9,7 +9,7 @@ export const EmailReveal = () => {
     setIsRevealed(true);
   };
   return (
-    <div>
+    <>
       {!isRevealed ? (
         <button
           onClick={handleReveal}
@@ -25,6 +25,6 @@ export const EmailReveal = () => {
           petar.mirceski1998@gmail.com
         </Link>
       )}
-    </div>
+    </>
   );
 };

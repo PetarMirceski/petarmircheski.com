@@ -20,7 +20,7 @@ export const Song = ({ title, videoId, link }: Props) => {
         width="400"
         height="400"
       />
-      <h2 className="text-lg font-semibold text-center">{title}</h2>
+      <h5 className="font-bold text-center">{title}</h5>
     </Link>
   );
 };

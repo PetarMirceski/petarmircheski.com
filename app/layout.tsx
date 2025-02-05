@@ -44,12 +44,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="min-h-screen bg-gray-900 text-white">
+        <div className="min-h-screen flex flex-col">
           <Header />
-          <main className="flex flex-col items-center px-4 py-10 py-32">
-            {children}
-            <Footer />
+          <main className="flex-grow">
+            <div className="flex flex-col gap-6 pt-24">{children}</div>
           </main>
+          <Footer />
         </div>
       </body>
     </html>
