@@ -47,7 +47,7 @@ export default function RootLayout({
         <div className="flex min-h-screen flex-col">
           <Header />
           <main className="grow">
-            <div className="flex flex-col gap-6 pt-24">{children}</div>
+            <div className="flex flex-col gap-6 pt-32">{children}</div>
           </main>
           <Footer />
         </div>
