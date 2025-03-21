@@ -9,7 +9,9 @@ export default function Home() {
           <Image
             alt="Profile"
             src="/images/profile.jpeg"
+            priority
             fill
+            sizes="350px"
             style={{
               objectFit: "cover",
               objectPosition: "0% 4%", // moved a little to the right

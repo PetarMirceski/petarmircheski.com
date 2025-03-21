@@ -43,14 +43,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <div className="flex min-h-screen flex-col">
-          <Header />
-          <main className="grow">
-            <div className="flex flex-col gap-6 pt-32">{children}</div>
-          </main>
-          <Footer />
-        </div>
+      <body
+        className={`${inter.className} flex min-h-screen flex-col overflow-hidden`}
+      >
+        <Header />
+        <main className="grow">
+          <div className="flex flex-col gap-8 pt-32">{children}</div>
+        </main>
+        <Footer />
       </body>
     </html>
   );
