@@ -1,17 +1,17 @@
 ---
-title: '2023 Blog Refresh'
-publishedAt: '2023-12-26'
-summary: 'A much needed blog and website refresh.'
-image: '/static/2023_blog_refresh/next.png'
+title: "2023 Blog Refresh"
+publishedAt: "2023-12-26"
+summary: "A much needed blog and website refresh."
+image: "/static/2023_blog_refresh/next.png"
 ---
 
 I completely rewrote my webpage using the new Next.js app router and Tailwindcss, and I wanted to share some of my thoughts along the way:
 
 # Tailwindcss
 
-Tailwind CSS takes a different approach to styling by offering a utility-first methodology. 
-Instead of writing custom styles, you compose styles using pre-defined utility classes. 
-This approach provides flexibility and speeds up the development process. 
+Tailwind CSS takes a different approach to styling by offering a utility-first methodology.
+Instead of writing custom styles, you compose styles using pre-defined utility classes.
+This approach provides flexibility and speeds up the development process.
 Key features of Tailwind CSS include:
 
 - Responsive design: Tailwind worked out of the box on smaller screens.
@@ -19,14 +19,15 @@ Key features of Tailwind CSS include:
 - Rapid development: The vast library of css classes, made the development much more ergonomic which is something that I havent experienced when using react based ui-libraries.
 
 # App Router
-The Next.js App Router introduces a new paradigm for building applications, seamlessly evolving from the existing file-system based router in the Pages Router. 
+
+The Next.js App Router introduces a new paradigm for building applications, seamlessly evolving from the existing file-system based router in the Pages Router.
 This evolution leverages React's latest features and provides a recommended approach for both new and existing applications.
 
-The App Router's emphasis on consistent and performant layouts is notable. 
-Layouts do not rerender, promoting caching and reuse to optimize performance. 
+The App Router's emphasis on consistent and performant layouts is notable.
+Layouts do not rerender, promoting caching and reuse to optimize performance.
 Restricting layouts from accessing the raw request prevents the execution of potentially slow or expensive user code, ensuring predictable behavior across different pages.
 
-Accessing URL and route information is streamlined in the App Router. By default, pages are Server Components, granting access to route segments and URL search params. 
+Accessing URL and route information is streamlined in the App Router. By default, pages are Server Components, granting access to route segments and URL search params.
 
 # Photo gallery
 
@@ -44,7 +45,7 @@ export default async function Photos() {
 }
 ```
 
-The fetchData function orchestrates the entire process. 
+The fetchData function orchestrates the entire process.
 It interacts with the Flickr API to retrieve a user's photos using the flickr.people.getPhotos method and then fetches the sizes of each photo with the flickr.photos.getSizes method.
 
 ```typescript
@@ -83,10 +84,11 @@ const fetchData = async () => {
 };
 ```
 
-To ensure a responsive design, our implementation includes dynamic sizing. 
+To ensure a responsive design, our implementation includes dynamic sizing.
 The fetchPhotoSizes function calculates the optimal photo size for various breakpoints, providing a seamless experience across devices.
 
 # Conclusion
+
 With the inclusion of the App Router, the preference for colocating most things in the app/ directory signifies a shift toward simplicity and logical organization.
 The developer acknowledges the potential for overuse but finds comfort and clarity in this approach, leveraging the capabilities of the new routing paradigm.
 
@@ -95,9 +97,3 @@ With an open-source ethos, the developer encourages others to fork, hack, and ex
 Until the next blog refresh in 2024, the journey continues.
 
 Happy coding! 🚀
-
-
-
-
-
-

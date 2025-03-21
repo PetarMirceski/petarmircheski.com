@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
-import { Footer } from "@/components/footer";
-import { Header } from "@/components/header";
+import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Header";
 import "./globals.css";
 import "./prism.css";
 
@@ -44,9 +44,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="min-h-screen flex flex-col">
+        <div className="flex min-h-screen flex-col">
           <Header />
-          <main className="flex-grow">
+          <main className="grow">
             <div className="flex flex-col gap-6 pt-24">{children}</div>
           </main>
           <Footer />

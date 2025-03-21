@@ -1,8 +1,8 @@
 ---
-title: 'How I Programmed this Blog'
-publishedAt: '2022-02-04'
-summary: 'Brief guide on how this blog was made using static site generation with Next.js  and MDX.'
-image: '/static/how_i_programmed_this_blog/next_js_logo.png'
+title: "How I Programmed this Blog"
+publishedAt: "2022-02-04"
+summary: "Brief guide on how this blog was made using static site generation with Next.js  and MDX."
+image: "/static/how_i_programmed_this_blog/next_js_logo.png"
 ---
 
 After coming to Japan during the winter holidays since I had too much free time
@@ -67,10 +67,10 @@ contains the following structure:
 
 ```md
 ---
-title: '2021 Year in Review'
-publishedAt: '2021-12-30'
-summary: 'Highlights and reflections on 2021 and a look forward to 2022.'
-image: '/static/2021_year_in_review/2021.jpg'
+title: "2021 Year in Review"
+publishedAt: "2021-12-30"
+summary: "Highlights and reflections on 2021 and a look forward to 2022."
+image: "/static/2021_year_in_review/2021.jpg"
 ---
 ```
 
@@ -144,10 +144,10 @@ aesthetically appealing.
 
 ```md
 ---
-title: '2021 Year in Review'
-publishedAt: '2021-12-30'
-summary: 'Highlights and reflections on 2021 and a look forward to 2022.'
-image: '/static/2021_year_in_review/2021.jpg'
+title: "2021 Year in Review"
+publishedAt: "2021-12-30"
+summary: "Highlights and reflections on 2021 and a look forward to 2022."
+image: "/static/2021_year_in_review/2021.jpg"
 ---
 
 <Image
@@ -163,7 +163,7 @@ priority
 
 Using Next.js gives us the ability to programmatically create static html documents
 using the data that ContentLayer serves us. This increases the performance of the
-web-site and also allows us to use the native *getStaticProps()* function that Next.js
+web-site and also allows us to use the native _getStaticProps()_ function that Next.js
 has. Using the post-slug we can build the structure of the blog very easily:
 
 ```ts:pages/blog/[slug].tsx

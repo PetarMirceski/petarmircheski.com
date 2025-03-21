@@ -1,4 +1,4 @@
-import { PhotoGallery } from "@/components/photoGallery";
+import { PhotoGallery } from "@/components/PhotoGallery";
 
 // base is in seconds
 export const revalidate = 3600;

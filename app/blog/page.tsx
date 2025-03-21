@@ -1,3 +1,4 @@
+import { Section } from "@/components/Section";
 import { allPosts, Post } from "content-collections";
 import { compareDesc, format, parseISO } from "date-fns";
 import Image from "next/image";
@@ -6,22 +7,23 @@ import Link from "next/link";
 
 export default function Blog() {
   const posts = allPosts.sort((a, b) =>
-    compareDesc(new Date(a.publishedAt), new Date(b.publishedAt))
+    compareDesc(new Date(a.publishedAt), new Date(b.publishedAt)),
   );
 
   return (
-    <section className="max-w-7xl mx-auto container px-10">
-      <h1 className="font-bold">My Personal Blog</h1>
-      <p className="font-semibold mb-10">
-        Sometimes I write stuff sometimes I don&apos;t.
-      </p>
-      <div className="grid gap-8 lg:grid-cols-3">
-        {posts.map((post, index) => {
-          const priority = index < 6;
-          return <BlogPost key={index} post={post} priority={priority} />;
-        })}
-      </div>
-    </section>
+    <>
+      <Section
+        title={"My Personal Blog"}
+        subTitle={"Sometimes I write stuff sometimes I don't."}
+      >
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {posts.map((post, index) => {
+            const priority = index < 6;
+            return <BlogPost key={index} post={post} priority={priority} />;
+          })}
+        </div>
+      </Section>
+    </>
   );
 }
 
@@ -32,25 +34,26 @@ interface BlogPostProps {
 
 const BlogPost = ({ post, priority = false }: BlogPostProps) => {
   return (
-    <div className="flex flex-col items-center">
-      <Link className="group " href={`/blog/${post.slug}`}>
-        <Image
-          alt={post.title}
-          className="rounded-lg"
-          src={post.image}
-          priority={priority}
-          style={{
-            aspectRatio: "450/300",
-            objectFit: "cover",
-          }}
-          width="450"
-          height="300"
-        />
-        <h4 className="mt-4 font-bold group-hover:text-gray-300">
+    <div className="w-full max-w-sm overflow-hidden rounded-2xl border p-4 transition-shadow hover:shadow-lg">
+      <Link href={`/blog/${post.slug}`} className="group block">
+        <div className="overflow-hidden rounded-xl">
+          <Image
+            alt={post.title}
+            src={post.image}
+            priority={priority}
+            width={450}
+            height={300}
+            style={{
+              aspectRatio: "450 / 300",
+              objectFit: "cover",
+            }}
+          />
+        </div>
+        <h4 className="mt-4 text-lg font-semibold group-hover:text-indigo-500">
           {post.title}
         </h4>
-        <p>{post.summary}</p>
-        <p className="text-sm text-gray-400">
+        <p className="mt-2 text-sm text-gray-600">{post.summary}</p>
+        <p className="mt-3 text-xs text-gray-500">
           {format(parseISO(post.publishedAt), "LLLL d, yyyy")}
         </p>
       </Link>

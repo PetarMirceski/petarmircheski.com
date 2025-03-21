@@ -18,12 +18,12 @@ export async function generateMetadata({
   // Destructure slug to ensure params is available synchronously
   const slug = (await params).slug;
 
-  let post = allPosts.find((post) => post.slug === slug);
+  const post = allPosts.find((post) => post.slug === slug);
   if (!post) {
     return;
   }
 
-  let ogImage = post.image
+  const ogImage = post.image
     ? `https://petarmircheski.com${post.image}`
     : `https://petarmircheski.com/og?title=${encodeURIComponent(post.title)}`;
 
@@ -69,7 +69,6 @@ export default async function BlogPost({
   if (!post) notFound();
 
   const mdxComponents: MDXComponents = {
-    // Override the default <a> element to use the next/link component.
     a: ({ href, children }) => <Link href={href as string}>{children}</Link>,
     Image: (props) => (
       <Image
@@ -79,38 +78,20 @@ export default async function BlogPost({
         {...props}
       />
     ),
-    p: ({ children }) => <p className="text-gray-300"> {children}</p>,
-    h1: ({ children }) => <h2> {children}</h2>,
-    h2: ({ children }) => <h3> {children}</h3>,
-    h3: ({ children }) => <h4> {children}</h4>,
-    ul: (props: any) => {
-      return (
-        <ul className="list-disc list-inside text-gray-300" {...props}>
-          {props.children}
-        </ul>
-      );
-    },
-    ol: (props: any) => {
-      return (
-        <ol className="list-decimal list-inside text-gray-300" {...props}>
-          {props.children}
-        </ol>
-      );
-    },
   };
 
   return (
-    <article className="container max-w-3xl mx-auto">
+    <article className="container mx-auto max-w-3xl">
       <header className="mb-6">
-        <h1 className="font-bold mb-5">{post.title}</h1>
+        <h1 className="mb-5 text-4xl font-bold">{post.title}</h1>
         <div className="flex items-center justify-between">
           <div className="flex items-center">
             <Image
               alt="Author's avatar"
-              className="w-15 h-15 rounded-full"
+              className="h-24 w-20 rounded-full"
               src="/images/newer_profile.jpg"
-              height={50}
-              width={50}
+              height={80}
+              width={80}
             />
             <div className="ml-3">
               <p className="text-sm font-semibold">Mircheski Petar</p>
@@ -125,7 +106,7 @@ export default async function BlogPost({
       <figure className="mb-6">
         <Image
           alt="blog image"
-          className="w-full h-auto rounded-lg"
+          className="h-auto w-full rounded-lg"
           height="400"
           src={post.image}
           style={{
@@ -136,7 +117,9 @@ export default async function BlogPost({
         />
       </figure>
       <section className="mb-6">
-        <MDXContent code={post.mdx} components={mdxComponents} />
+        <article className="prose max-w-none">
+          <MDXContent code={post.mdx} components={mdxComponents} />
+        </article>
       </section>
     </article>
   );

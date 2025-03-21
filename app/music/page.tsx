@@ -1,15 +1,16 @@
-import { Song } from "@/components/song";
+import { Section } from "@/components/Section";
+import { Song } from "@/components/Song";
 
 export default function Music() {
   return (
-    <section className="flex flex-col items-center">
-      <section className="max-w-7xl mx-auto container px-10">
-        <h1 className="font-bold">Music That I Enjoy</h1>
-        <p className="font-semibold mb-10">
-          Handpicked songs that I think are worth sharing with the internet
-        </p>
-
-        <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+    <>
+      <Section
+        title={"Music That I Enjoy"}
+        subTitle={
+          "Handpicked songs that I think are worth sharing with the internet"
+        }
+      >
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <Song
             title="Alexandra Savior - Can't Help Myself"
             videoId="2faK7a4NdMg"
@@ -88,7 +89,7 @@ export default function Music() {
             link="https://www.youtube.com/watch?v=uE8EhJ9gS28"
           />
         </div>
-      </section>
-    </section>
+      </Section>
+    </>
   );
 }
