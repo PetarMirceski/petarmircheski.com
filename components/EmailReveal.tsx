@@ -13,7 +13,7 @@ export const EmailReveal = () => {
       {!isRevealed ? (
         <button
           onClick={handleReveal}
-          className="text-blue-400 hover:text-blue-300 underline"
+          className="text-blue-400 underline hover:text-blue-300"
         >
           Click to reveal email
         </button>

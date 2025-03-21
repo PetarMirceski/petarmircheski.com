@@ -100,7 +100,7 @@ export default async function BlogPost({
               </p>
             </div>
           </div>
-          <p className="text-sm text-gray-500">{post.readingTime.text}</p>
+          <p className="text-sm text-gray-500">{post.readingTime}</p>
         </div>
       </header>
       <figure className="mb-6">

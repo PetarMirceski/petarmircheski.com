@@ -16,17 +16,15 @@ export const Header = () => {
 
   return (
     <header className="fixed top-0 z-20 w-full border-b bg-white/80 shadow-sm backdrop-blur-lg">
-      <div className="container mx-auto flex max-w-7xl flex-col items-center justify-between px-4 py-3 sm:flex-row">
+      <div className="container mx-auto flex max-w-7xl flex-col items-center justify-between px-4 py-5 sm:flex-row">
         {/* Logo & Toggle */}
         <div className="flex w-full items-center justify-between sm:w-auto">
           <Link href="/">
-            <h1 className="text-2xl font-bold text-gray-900">
-              Petar Mircheski
-            </h1>
+            <h1 className="text-3xl font-bold">Petar Mircheski</h1>
           </Link>
           <button
             onClick={() => setShowMenu(!showMenu)}
-            className="text-2xl text-gray-800 sm:hidden"
+            className="text-2xl sm:hidden"
             aria-label="Toggle Menu"
           >
             {showMenu ? <GrClose /> : <GiHamburgerMenu />}
@@ -39,7 +37,7 @@ export const Header = () => {
             <Link
               key={index}
               href={link.href}
-              className="font-medium text-gray-700 transition-colors hover:text-indigo-600"
+              className="font-medium transition-colors"
             >
               {link.text}
             </Link>
@@ -53,7 +51,8 @@ export const Header = () => {
               <Link
                 key={index}
                 href={link.href}
-                className="w-full rounded-md py-2 text-center text-gray-800 transition-colors hover:bg-gray-100"
+                onClick={() => setShowMenu(false)}
+                className="w-full rounded-md py-2 text-center transition-colors"
               >
                 {link.text}
               </Link>

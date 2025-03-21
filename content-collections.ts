@@ -26,7 +26,6 @@ export const posts = defineCollection({
         rehypeAutolinkHeadings,
         rehypeCodeTitles,
         rehypeSlug,
-        // @ts-ignore
         rehypePrism,
         rehypeKatex,
       ],
@@ -37,13 +36,12 @@ export const posts = defineCollection({
       mdx,
       url: doc._meta.filePath,
       slug: doc._meta.fileName.replace(/\.mdx$/, ""),
-      readingTime: readingTime(doc.content),
+      readingTime: readingTime(doc.content).text,
       wordCount: doc.content.split(/\s+/).length,
     };
   },
 });
 
 export default defineConfig({
-  // @ts-ignore
   collections: [posts],
 });
