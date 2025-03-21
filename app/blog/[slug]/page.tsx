@@ -86,13 +86,13 @@ export default async function BlogPost({
         <h1 className="mb-5 text-4xl font-bold">{post.title}</h1>
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <Image
+            {/* <Image
               alt="Author's avatar"
               className="h-24 w-20 rounded-full"
-              src="/images/newer_profile.jpg"
+              src="/images/profile.jpeg"
               height={80}
               width={80}
-            />
+            /> */}
             <div className="ml-3">
               <p className="text-sm font-semibold">Mircheski Petar</p>
               <p className="text-sm text-gray-500">
