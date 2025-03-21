@@ -17,10 +17,10 @@ export const Song = ({ title, videoId, link }: Props) => {
           aspectRatio: "300/300",
           objectFit: "cover",
         }}
-        width="400"
-        height="400"
+        width={400}
+        height={400}
       />
-      <h5 className="font-bold text-xl text-center">{title}</h5>
+      <h5 className="text-center text-xl font-bold">{title}</h5>
     </Link>
   );
 };

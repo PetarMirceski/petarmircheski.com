@@ -7,8 +7,10 @@ interface Props {
 export const Section = ({ title, subTitle, children }: Props) => {
   return (
     <section className="container mx-auto max-w-7xl px-10">
-      <h1 className="text-4xl font-bold">{title}</h1>
-      <p className="mb-10 text-2xl font-semibold">{subTitle}</p>
+      <h1 className="mb-3 text-4xl font-extrabold tracking-tight lg:text-5xl">
+        {title}
+      </h1>
+      <p className="mb-6 text-xl">{subTitle}</p>
       {children}
     </section>
   );
