@@ -2,38 +2,120 @@
 title: "Chimera States"
 publishedAt: "2025-04-28"
 summary: "Research and simulations to get a chimera states"
-image: "/static/2021_year_in_review/2021.jpg"
+image: "/static/chimeras/homogenious.jpg"
 draft: true
 ---
 
-# Introduction
+# How Chimera States Adapt to Frequency Heterogeneity: A Self-Organizing Dance of Oscillators
 
-In my native language there is a fequently asked question that roughly translates to "What do you do?" in English.
+Chimera states are one of the most intriguing phenomena in the world of nonlinear dynamics.
+They are composed of identical oscilaltors connected in a ring.
+Under certain conditions, they mysteriously split into two groups: one synchronized and coherent, the other disordered and chaotic.
+This coexistence of coherence and incoherence, is what defines a _chimera state_.
 
-When asking this question, people are usually asking about my job, or affiliation to an organization.
-I used to work as a software engineer for a few years, but I never got comfortable with calling myself a "Programmer".
+Originally reported by Kuramoto and Battogtokh in 2002 and named by Abrams and Strogatz in 2004, chimera states have fascinated scientists across disciplines.
+They've been observed in chemical reactions, mechanical systems, lasers, and more.
+Over the years, researchers have dug into how different types of connections, oscillator behaviors, and dimensional setups influence these states.
 
-My current position as a PhD candidate at Tokyo Institute of Technology, Japan is at the department of systems and control.
-The first thought that comes to mind when I say that, is that they always think that I either work with robots or something related to control systems, which is also not true.
+But what happens when the oscillators aren't quite identical?
+What if each one has a slightly different natural rhythm?
 
-I work with a field called "Complex Networks" which is a field that studies the behavior of networks of interconnected systems.
-But people usually don't understand what that means, so I usually say that I work with "Patterns" and draw nice looking figures.
+## The Ring of Oscillators
 
-# Chimera States
+We begin with a standard setup: a ring of phase oscillators, where each oscillator's behavior is described by a simple mathematical model.
 
-Some equations produce patterns that are not uniform, but rather a mix of different patterns.
-For example, the Kuramoto model is a system of coupled oscillators that can produce a pattern called a "Chimera State".
+$\dot{\theta}(x, t) = \omega(x) + \int_{-\pi}^{\pi} G(x-x') \sin(\theta(x', t) - \theta(x, t) - \alpha) d x'.$
 
-$
-\dot{\theta}(x, t) = \omega(x) + \int_{-\pi}^{\pi} G(x-x') \sin(\theta(x', t) - \theta(x, t) - \alpha) d x'.
-$
+These oscillators are connected nonlocally, each one of them feels the influence of its neighbors, but not just the immediate ones.
+The coupling strength is determined by the function $G(x)$, and the phase lag is given by $\alpha$.
+In our case we define a ring of 256 oscillators, connected through a cosine distance kernel,
+
+$G(x-x') = (1 + A \cos(x - x')) \frac{1}{2\pi},$
+
+and fix the system parameters to $\alpha = \frac{\pi}{2} -0.18$ and $A = 0.995$.
+
+In a perfectly uniform setup, the position of the chimera state on the ring is completely determined by the system's initial conditions.
+That's because the system is _spatially homogeneous_ meaning, no location is special.
+
+## Chimera States Without Heterogeneity
+
+We begin with this uniform system $\omega(x) = 0$ and observe the classic chimera behavior: a stable pattern with a coherent region and an incoherent region coexisting side by side.
+These patterns arise spontaneously and can be visualized in terms of phase snapshots, local coherence, and even instantaneous frequencies across the ring.
 
 <Image
-  src="/static/2021_year_in_review/2021.jpg"
-  alt="Chimera State"
-  caption="Chimera State"
-  height={630}
-  width={1200}
+  src="/static/chimeras/homogenious.jpg"
+  alt="Chimera state in a ring of oscillators"
+  caption="Chimera state in a ring of oscillators"
+  height="800"
+  width="800"
 />
 
-# Results
+But what happens when we gently nudge the system out of uniformity?
+
+## Introducing Frequency Heterogeneity
+
+To probe the system's adaptability, we introduce a small _frequency heterogeneity_—a subtle difference in the natural frequencies of the oscillators.
+This can be thought of as introducing a "preference" in certain parts of the ring.
+The mathematical form of this perturbation is:
+
+$\omega(x) = \omega_0 + \epsilon h(x - \gamma)$
+
+Here, $\epsilon$ is a small number (think of it as a tiny tweak), and $h(x)$ is a function that defines how the frequency varies in space.
+The parameter $\gamma$ determines where this heterogeneity is placed on the ring.
+
+We explore two types of heterogeneity:
+
+### 1. **Point heterogeneity**:
+
+A spike at a single location.
+
+$h(x) = \tilde\delta(x)$
+
+<Image
+  src="/static/chimeras/point.jpg"
+  alt="Chimera state in a ring of oscillators"
+  caption="Chimera state in a ring of oscillators"
+  height="800"
+  width="800"
+/>
+
+### 2. **Cosine heterogeneity**: A smooth wave function across the ring.
+
+$h(x) = \cos(x)$
+
+<Image
+  src="/static/chimeras/cos.jpg"
+  alt="Chimera state in a ring of oscillators"
+  caption="Chimera state in a ring of oscillators"
+  height="800"
+  width="800"
+/>
+
+## The Self-Adaptive Behavior of Chimera States
+
+When we introduce point heterogeneity (like a single oscillator ticking faster), the chimera state responds in a surprising but consistent way.
+The incoherent region starts drifting—migrating toward the faster oscillator.
+Meanwhile, the coherent region drifts in the opposite direction, settling in the slower area.
+
+This migration continues until the system reaches a new equilibrium, where the incoherent region hugs the heterogeneity, and the coherent region finds its new home far away from it.
+
+When we switch to the smoother cosine heterogeneity, the same behavior emerges—only this time, more gracefully.
+The incoherent region slides toward the high-frequency side of the cosine wave, while the coherent region moves toward the low-frequency trough.
+Again, a new steady state is reached, but now perfectly aligned with the shape of the heterogeneity.
+
+## Coherence Loves Low Frequencies
+
+The takeaway from all of this? Regardless of how the heterogeneity is shaped—spiky or smooth—the chimera state adapts in the same fundamental way:
+
+- **Incoherent regions gravitate toward high natural frequencies.**
+- **Coherent regions drift toward low natural frequencies.**
+
+This self-adaptive behavior is both robust and elegant.
+It shows that even in complex dynamical systems, a simple principle can emerge: _the system self-organizes in a way that aligns its internal structure with the external heterogeneity._
+
+We call this phenomenon **spatial phase locking to frequency heterogeneity**.
+
+## Why Does This Matter?
+
+Understanding how chimera states adapt to heterogeneity has implications in various domains—from neuroscience (where brain regions may sync or desync) to engineered systems (like power grids or laser arrays).
+Knowing how these patterns respond to imperfections or design tweaks could help us control, harness, or stabilize such systems in the real world.
