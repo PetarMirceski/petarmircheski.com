@@ -1,6 +1,15 @@
 import { withContentCollections } from "@content-collections/next";
 import createMDX from "@next/mdx";
 import type { NextConfig } from "next";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypeCodeTitles from "rehype-code-titles";
+import rehypeKatex from "rehype-katex";
+import rehypePrism from "rehype-prism-plus";
+import rehypeSlug from "rehype-slug";
+import remarkFrontmatter from "remark-frontmatter";
+import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
+import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -21,6 +30,22 @@ const nextConfig: NextConfig = {
   },
 };
 
-const withMDX = createMDX({});
+const withMDX = createMDX({
+  options: {
+    remarkPlugins: [
+      remarkFrontmatter,
+      remarkMdxFrontmatter,
+      remarkGfm,
+      remarkMath,
+    ],
+    rehypePlugins: [
+      rehypeAutolinkHeadings,
+      rehypeCodeTitles,
+      rehypeSlug,
+      rehypePrism,
+      rehypeKatex,
+    ],
+  },
+});
 
 export default withContentCollections(withMDX(nextConfig));

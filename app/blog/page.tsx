@@ -19,6 +19,9 @@ export default function Blog() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {posts.map((post, index) => {
             const priority = index < 6;
+            if (post.draft) {
+              return null;
+            }
             return <BlogPost key={index} post={post} priority={priority} />;
           })}
         </div>

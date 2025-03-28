@@ -1,13 +1,8 @@
 import { allPosts } from "content-collections";
-import type { Metadata } from "next";
-
-import { MDXContent } from "@content-collections/mdx/react";
-import type { MDXComponents } from "mdx/types";
-
 import { format, parseISO } from "date-fns";
+import "katex/dist/katex.min.css";
+import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
-
 import { notFound } from "next/navigation";
 
 export async function generateMetadata({
@@ -68,17 +63,7 @@ export default async function BlogPost({
 
   if (!post) notFound();
 
-  const mdxComponents: MDXComponents = {
-    a: ({ href, children }) => <Link href={href as string}>{children}</Link>,
-    Image: (props) => (
-      <Image
-        alt="blog"
-        placeholder="blur"
-        blurDataURL="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P+/HgAFhAJ/wlseKgAAAABJRU5ErkJggg=="
-        {...props}
-      />
-    ),
-  };
+  const MdxContent = post.mdxContent;
 
   return (
     <article className="container mx-auto max-w-3xl">
@@ -100,7 +85,7 @@ export default async function BlogPost({
               </p>
             </div>
           </div>
-          <p className="text-sm text-gray-500">{post.readingTime}</p>
+          {/* <p className="text-sm text-gray-500">{post.readingTime}</p> */}
         </div>
       </header>
       <figure className="mb-6">
@@ -118,7 +103,7 @@ export default async function BlogPost({
       </figure>
       <section className="mb-6">
         <article className="prose max-w-none">
-          <MDXContent code={post.mdx} components={mdxComponents} />
+          <MdxContent />
         </article>
       </section>
     </article>
