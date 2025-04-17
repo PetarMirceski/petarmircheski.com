@@ -3,7 +3,6 @@ title: "Chimera States"
 publishedAt: "2025-04-28"
 summary: "Research and simulations to get a chimera states"
 image: "/static/chimeras/pattern.png"
-draft: true
 ---
 
 # How Chimera States Adapt to Frequency Heterogeneity: A Self-Organizing Dance of Oscillators
@@ -34,7 +33,7 @@ $G(x-x') = (1 + A \cos(x - x')) \frac{1}{2\pi},$
 
 and fix the system parameters to $\alpha = \frac{\pi}{2} -0.18$ and $A = 0.995$.
 
-```python 
+```python
 from typing import Callable
 
 import numba
@@ -120,6 +119,7 @@ alpha = (np.pi / 2) - 0.18
 kernel = calculate_dy_matrix(A, N)
 dt = 0.1
 ```
+
 In a perfectly uniform setup, the position of the chimera state on the ring is completely determined by the system's initial conditions.
 That's because the system is _spatially homogeneous_ meaning, no location is special.
 
@@ -128,7 +128,7 @@ That's because the system is _spatially homogeneous_ meaning, no location is spe
 We begin with this uniform system $\omega(x) = 0$ and observe the classic chimera behavior: a stable pattern with a coherent region and an incoherent region coexisting side by side.
 These patterns arise spontaneously and can be visualized in terms of phase snapshots, local coherence, and even instantaneous frequencies across the ring.
 
-```python 
+```python
 evolve_time = 500.0
 t_evolve_eval = np.arange(0, evolve_time + dt, dt)
 t_evolve_span = (0, evolve_time + dt)
@@ -207,13 +207,13 @@ The parameter $\gamma$ determines where this heterogeneity is placed on the ring
 
 We explore two types of heterogeneity:
 
-### 1. **Point heterogeneity**:
+### 1. **Point heterogeneity**
 
 A spike at a single location.
 
 $h(x) = \tilde\delta(x)$
 
-```python 
+```python
 new_omegas = np.zeros(N)
 new_omegas[0] += 0.2
 kuramoto = kuramoto_kernel(new_omegas, kernel, N, alpha=alpha)
@@ -271,11 +271,11 @@ plt.show()
   width="800"
 />
 
-### 2. **Cosine heterogeneity**: A smooth wave function across the ring.
+### 2. **Cosine heterogeneity**
 
 $h(x) = \cos(x)$
 
-```python 
+```python
 x = np.linspace(-np.pi, np.pi, N, endpoint=False)
 new_omegas = 0.01 * np.cos(x + np.pi)
 kuramoto = kuramoto_kernel(new_omegas, kernel, N, alpha=alpha)
@@ -339,10 +339,10 @@ When we introduce point heterogeneity (like a single oscillator ticking faster),
 The incoherent region starts drifting—migrating toward the faster oscillator.
 Meanwhile, the coherent region drifts in the opposite direction, settling in the slower area.
 
-This migration continues until the system reaches a new equilibrium, where the incoherent region hugs the heterogeneity, and the coherent region finds its new home far away from it.
+This movement continues until the system reaches a new equilibrium, where the incoherent region hugs the heterogeneity, and the coherent region finds its new home far away from it.
 
-When we switch to the smoother cosine heterogeneity, the same behavior emerges—only this time, more gracefully.
-The incoherent region slides toward the high-frequency side of the cosine wave, while the coherent region moves toward the low-frequency trough.
+When we switch to the smoother cosine heterogeneity, the same behavior emerges only this time, more gracefully.
+The incoherent region moves toward the high-frequency side of the cosine wave, while the coherent region moves toward the low-frequency trough.
 Again, a new steady state is reached, but now perfectly aligned with the shape of the heterogeneity.
 
 ## Coherence Loves Low Frequencies
@@ -359,5 +359,5 @@ We call this phenomenon **spatial phase locking to frequency heterogeneity**.
 
 ## Why Does This Matter?
 
-Understanding how chimera states adapt to heterogeneity has implications in various domains—from neuroscience (where brain regions may sync or desync) to engineered systems (like power grids or laser arrays).
+Understanding how chimera states adapt to heterogeneity has implications in various fields.
 Knowing how these patterns respond to imperfections or design tweaks could help us control, harness, or stabilize such systems in the real world.
