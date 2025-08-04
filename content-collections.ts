@@ -4,13 +4,14 @@ import {
   defineConfig,
 } from "@content-collections/core";
 import { MDXContent } from "mdx/types";
+import { z } from "zod";
 
 export const posts = defineCollection({
   name: "Post",
   directory: "/posts",
   include: "**/*.mdx",
   parser: "frontmatter-only",
-  schema: (z) => ({
+  schema: z.object({
     title: z.string(),
     publishedAt: z.string().date(),
     summary: z.string(),
