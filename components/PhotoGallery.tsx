@@ -40,14 +40,18 @@ function renderNextImage(
   );
 }
 
-export const PhotoGallery = ({ photos }: { photos: Photo[] }) => {
+interface Props {
+  galeryPhotos: Photo[];
+  slidePhotos: Photo[];
+}
+export const PhotoGallery = ({ galeryPhotos, slidePhotos }: Props) => {
   const [index, setIndex] = useState(-1);
 
   return (
     <section className="container mx-auto max-w-7xl px-5">
       <MasonryPhotoAlbum
         onClick={({ index }) => setIndex(index)}
-        photos={photos}
+        photos={galeryPhotos}
         columns={(containerWidth) => {
           if (containerWidth < 400) return 1;
           if (containerWidth < 800) return 2;
@@ -57,7 +61,7 @@ export const PhotoGallery = ({ photos }: { photos: Photo[] }) => {
       />
 
       <Lightbox
-        slides={photos}
+        slides={slidePhotos}
         open={index >= 0}
         index={index}
         close={() => setIndex(-1)}
