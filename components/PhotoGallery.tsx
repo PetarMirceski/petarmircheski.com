@@ -5,8 +5,8 @@ import { useState } from "react";
 import type { Photo } from "react-photo-album";
 import {
   MasonryPhotoAlbum,
-  RenderImageContext,
-  RenderImageProps,
+  type RenderImageContext,
+  type RenderImageProps,
 } from "react-photo-album";
 import "react-photo-album/masonry.css";
 import Lightbox from "yet-another-react-lightbox";

@@ -4,12 +4,17 @@ import type { NextConfig } from "next";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeCodeTitles from "rehype-code-titles";
 import rehypeKatex from "rehype-katex";
+import rehypePrettyCode from "rehype-pretty-code";
 import rehypePrism from "rehype-prism-plus";
 import rehypeSlug from "rehype-slug";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import remarkMdxFrontmatter from "remark-mdx-frontmatter";
+
+const rehypePrettyCodeOptions = {
+  theme: "dark-plus",
+};
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -40,6 +45,7 @@ const withMDX = createMDX({
     ],
     rehypePlugins: [
       rehypeAutolinkHeadings,
+      [rehypePrettyCode, rehypePrettyCodeOptions],
       rehypeCodeTitles,
       rehypeSlug,
       rehypePrism,

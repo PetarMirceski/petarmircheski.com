@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { IconType } from "react-icons";
+import type { IconType } from "react-icons";
 import { CiCircleCheck, CiTimer } from "react-icons/ci";
 
 export const educationConfig = [
@@ -101,8 +101,8 @@ interface Props {
 const ListItem = ({ text, Icon }: Props) => {
   return (
     <li className="flex items-center">
-      <Icon className="text-blue-500 flex-none" size="30px" />
-      <p className="ml-2 flex-auto my-1">{text}</p>
+      <Icon className="flex-none text-blue-500" size="30px" />
+      <p className="my-1 ml-2 flex-auto">{text}</p>
     </li>
   );
 };

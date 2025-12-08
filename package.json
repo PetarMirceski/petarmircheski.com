@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "format": "biome check --write",
+    "lint": "biome lint",
     "knip": "knip",
     "type-check": "tsc"
   },
@@ -26,6 +27,7 @@
     "rehype-autolink-headings": "^7.1.0",
     "rehype-code-titles": "^1.2.0",
     "rehype-katex": "^7.0.1",
+    "rehype-pretty-code": "0.14.1",
     "rehype-prism-plus": "^2.0.1",
     "rehype-slug": "^6.0.0",
     "remark-gfm": "^4.0.1",
@@ -33,25 +35,21 @@
     "yet-another-react-lightbox": "^3.25.0"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.3.8",
     "@content-collections/core": "^0.10.0",
     "@content-collections/markdown": "^0.1.4",
     "@content-collections/mdx": "^0.2.2",
     "@content-collections/next": "^0.2.6",
-    "@eslint/eslintrc": "^3.3.1",
     "@tailwindcss/typography": "^0.5.16",
-    "@types/node": "^24.1.0",
+    "@types/node": "^24.10.1",
     "@types/react": "^19.1.9",
     "@types/react-dom": "^19.1.7",
     "autoprefixer": "^10.4.21",
     "concurrently": "^9.2.0",
-    "eslint": "^9.32.0",
-    "eslint-config-next": "15.4.5",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-tailwindcss": "^3.18.2",
+    "knip": "^5.71.0",
     "postcss": "^8.5.6",
-    "prettier": "3.6.2",
-    "prettier-plugin-tailwindcss": "^0.6.14",
+    "shiki": "3.19.0",
     "tailwindcss": "^4.1.11",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.3"
   }
 }

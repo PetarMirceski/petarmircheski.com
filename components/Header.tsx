@@ -20,7 +20,7 @@ export const Header = () => {
         {/* Logo & Toggle */}
         <div className="flex w-full items-center justify-between sm:w-auto">
           <Link href="/">
-            <h1 className="text-3xl font-bold">Petar Mircheski</h1>
+            <h1 className="font-bold text-3xl">Petar Mircheski</h1>
           </Link>
           <button
             onClick={() => setShowMenu(!showMenu)}

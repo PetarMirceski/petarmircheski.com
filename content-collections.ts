@@ -3,7 +3,7 @@ import {
   defineCollection,
   defineConfig,
 } from "@content-collections/core";
-import { MDXContent } from "mdx/types";
+import type { MDXContent } from "mdx/types";
 import { z } from "zod";
 
 export const posts = defineCollection({

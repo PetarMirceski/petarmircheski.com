@@ -68,7 +68,7 @@ export default async function BlogPost({
   return (
     <article className="container mx-auto max-w-3xl">
       <header className="mb-6">
-        <h1 className="mb-5 text-4xl font-bold">{post.title}</h1>
+        <h1 className="mb-5 font-bold text-4xl">{post.title}</h1>
         <div className="flex items-center justify-between">
           <div className="flex items-center">
             {/* <Image
@@ -79,8 +79,8 @@ export default async function BlogPost({
               width={80}
             /> */}
             <div className="ml-3">
-              <p className="text-sm font-semibold">Mircheski Petar</p>
-              <p className="text-sm text-gray-500">
+              <p className="font-semibold text-sm">Mircheski Petar</p>
+              <p className="text-gray-500 text-sm">
                 {format(parseISO(post.publishedAt), "MMMM dd, yyyy")}
               </p>
             </div>

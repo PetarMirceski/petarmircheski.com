@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import "./globals.css";
-import "./prism.css";
 
 import { Roboto } from "next/font/google";
 
