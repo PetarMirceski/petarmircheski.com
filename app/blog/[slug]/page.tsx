@@ -66,7 +66,7 @@ export default async function BlogPost({
   const MdxContent = post.mdxContent;
 
   return (
-    <article className="container mx-auto max-w-3xl">
+    <article className="container mx-auto max-w-3xl px-5">
       <header className="mb-6">
         <h1 className="mb-5 font-bold text-4xl">{post.title}</h1>
         <div className="flex items-center justify-between">

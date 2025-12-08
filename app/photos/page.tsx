@@ -32,17 +32,16 @@ interface FlickrImageSize {
   media: string;
 }
 
-const breakpoints = [1080, 640, 384, 256, 128, 96, 64, 48];
-
 const FLICKR_API_KEY = process.env.API_KEY;
-const FLICKR_USER_ID = "199085309@N08";
+const FLICKR_USER_ID = process.env.FLICKR_ID;
 
-if (!FLICKR_API_KEY) {
-  throw new Error("The API key for Flickr is missing");
+if (!FLICKR_API_KEY || !FLICKR_USER_ID) {
+  throw new Error("The API key or User ID for Flickr is missing");
 }
 
 const fetchPhotoSizes = async (photoId: string) => {
   const sizeUrl = new URL("https://www.flickr.com/services/rest/");
+
   sizeUrl.search = new URLSearchParams({
     method: "flickr.photos.getSizes",
     api_key: FLICKR_API_KEY,
@@ -60,7 +59,7 @@ const fetchPhotoSizes = async (photoId: string) => {
   const sizeData = await sizeResponse.json();
 
   // Try to fetch a smaller size image.
-  const selectedSize =
+  const selectedSizeSmall =
     sizeData.sizes.size.find(
       (image: FlickrImageSize) => image.label === "Medium 640",
     ) ||
@@ -71,27 +70,35 @@ const fetchPhotoSizes = async (photoId: string) => {
       (image: FlickrImageSize) => image.label === "Small 400",
     );
 
-  if (!selectedSize) {
+  const selectedSizeLarge =
+    sizeData.sizes.size.find(
+      (image: FlickrImageSize) => image.label === "Large",
+    ) ||
+    sizeData.sizes.size.find(
+      (image: FlickrImageSize) => image.label === "Medium 800",
+    ) ||
+    sizeData.sizes.size.find(
+      (image: FlickrImageSize) => image.label === "Medium 640",
+    );
+
+  if (!selectedSizeSmall || !selectedSizeLarge) {
     throw new Error(
       `Photo ID ${photoId} does not have a suitable small size image.`,
     );
   }
 
-  return {
-    src: selectedSize.source,
-    width: selectedSize.width,
-    height: selectedSize.height,
-    srcSet: breakpoints.map((breakpoint) => {
-      const height = Math.round(
-        (selectedSize.height / selectedSize.width) * breakpoint,
-      );
-      return {
-        src: selectedSize.url,
-        width: breakpoint,
-        height,
-      };
-    }),
-  };
+  return [
+    {
+      src: selectedSizeSmall.source,
+      width: selectedSizeSmall.width,
+      height: selectedSizeSmall.height,
+    },
+    {
+      src: selectedSizeLarge.source,
+      width: selectedSizeLarge.width,
+      height: selectedSizeLarge.height,
+    },
+  ];
 };
 
 const fetchPhotos = async () => {
@@ -114,13 +121,20 @@ const fetchPhotos = async () => {
   const results = await Promise.allSettled(
     data.photos.photo.map(async (pic: PicRequest) => {
       try {
-        const photoSizes = await fetchPhotoSizes(pic.id);
-        return {
-          id: pic.id,
-          src: photoSizes.src,
-          width: photoSizes.width,
-          height: photoSizes.height,
-        };
+        const [photoSizesSmall, photoSizesLarge] = await fetchPhotoSizes(
+          pic.id,
+        );
+
+        return [
+          {
+            id: pic.id,
+            ...photoSizesSmall,
+          },
+          {
+            id: pic.id,
+            ...photoSizesLarge,
+          },
+        ];
       } catch (error) {
         console.error(
           `Error fetching photo data for photo ID ${pic.id}:`,
@@ -132,16 +146,16 @@ const fetchPhotos = async () => {
   );
 
   // Filter out any null results and return only the successful photos.
+  type PhotoOut = {
+    id: string;
+    src: string;
+    width: number;
+    height: number;
+  };
   const photos = results
     .filter(
-      (
-        result,
-      ): result is PromiseFulfilledResult<{
-        id: string;
-        src: string;
-        width: number;
-        height: number;
-      }> => result.status === "fulfilled" && result.value !== null,
+      (result): result is PromiseFulfilledResult<[PhotoOut, PhotoOut]> =>
+        result.status === "fulfilled" && result.value !== null,
     )
     .map((result) => result.value);
 
@@ -160,5 +174,14 @@ const fetchData = async () => {
 
 export default async function Photos() {
   const photos = await fetchData();
-  return <PhotoGallery photos={photos} />;
+
+  const smallPhotos = photos.map(([small, _]) => {
+    return small;
+  });
+
+  const largePhotos = photos.map(([_, large]) => {
+    return large;
+  });
+
+  return <PhotoGallery galeryPhotos={smallPhotos} slidePhotos={largePhotos} />;
 }
