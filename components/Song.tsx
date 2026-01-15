@@ -8,7 +8,7 @@ interface Props {
 }
 export const Song = ({ title, videoId, link }: Props) => {
   return (
-    <Link href={link} className="hover:underline">
+    <Link href={link}>
       <Image
         alt={title}
         className="mb-4 rounded-3xl"

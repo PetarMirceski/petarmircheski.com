@@ -26,7 +26,8 @@ const icons = {
 
 export const metadata: Metadata = {
   title: "Petar Mircheski",
-  description: "",
+  description:
+    "PhD researcher in nonlinear dynamics and control engineering at Tokyo Institute of Technology. Published work on network synchronization, chimera states, and phase-amplitude reduction",
   keywords: ["blog", "academia", "music", "adventure"],
   authors: [{ name: "Petar Mircheski" }],
   creator: "Petar Mircheski",

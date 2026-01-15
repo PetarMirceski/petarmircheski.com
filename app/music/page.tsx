@@ -4,90 +4,82 @@ import { Song } from "@/components/Song";
 export default function Music() {
   return (
     <Section
-      title={"Music That I Enjoy"}
-      subTitle={
-        "Handpicked songs that I think are worth sharing with the internet"
-      }
+      title="Music That I Enjoy"
+      subTitle="Handpicked songs that I think are worth sharing with the internet"
     >
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <Song
-          title="Alexandra Savior - Can't Help Myself"
-          videoId="2faK7a4NdMg"
-          link="https://www.youtube.com/watch?v=2faK7a4NdMg"
-        />
-        <Song
-          title="Puma Blue - Hounds"
-          videoId="IuVFMVX2eY0"
-          link="https://www.youtube.com/watch?v=IuVFMVX2eY0"
-        />
-        <Song
-          title="Magdalena Bay - Dreamcatching"
-          videoId="8QfQeYaS-7A"
-          link="https://www.youtube.com/watch?v=8QfQeYaS-7A"
-        />
-        <Song
-          title="Radiohead - Let Down"
-          videoId="ZVgHPSyEIqk"
-          link="https://www.youtube.com/watch?v=ZVgHPSyEIqk"
-        />
-        <Song
-          title="Arcade Fire - Reflektor"
-          videoId="7E0fVfectDo"
-          link="https://www.youtube.com/watch?v=7E0fVfectDo"
-        />
-        <Song
-          title="CHVRCHES - Violent Delights"
-          videoId="Emi3HNK_tiI"
-          link="https://www.youtube.com/watch?v=Emi3HNK_tiI"
-        />
-        <Song
-          title="Radiohead - Knives Out"
-          videoId="2Lpw3yMCWro"
-          link="https://www.youtube.com/watch?v=2Lpw3yMCWro"
-        />
-        <Song
-          title="Tigran Hamasyan - Road Song"
-          videoId="XzYi73A7g7E"
-          link="https://www.youtube.com/watch?v=XzYi73A7g7E"
-        />
-        <Song
-          title="toe - グッドバイ / Goodbye"
-          videoId="e1pZIfretEs"
-          link="https://www.youtube.com/watch?v=e1pZIfretEs"
-        />
-        <Song
-          title="Chick Corea - Spain"
-          videoId="sEhQTjgoTdU"
-          link="https://www.youtube.com/watch?v=sEhQTjgoTdU"
-        />
-
-        <Song
-          title="Angel Olsen - Lark"
-          videoId="6uaN60k0-zY"
-          link="https://www.youtube.com/watch?v=6uaN60k0-zY"
-        />
-        <Song
-          title="Tom Jobim - Chega De Saudade"
-          videoId="tlp8iY4g--4"
-          link="https://www.youtube.com/watch?v=tlp8iY4g--4"
-        />
-        <Song
-          title="Talking Heads - Once In A Lifetime"
-          videoId="fR0jgT9UX0Q"
-          link="https://www.youtube.com/watch?v=fR0jgT9UX0Q"
-        />
-
-        <Song
-          title="Emma Ruth Rundle - The Distance"
-          videoId="w9LgIOx6WJ8"
-          link="https://www.youtube.com/watch?v=w9LgIOx6WJ8"
-        />
-        <Song
-          title="M83 - My Tears Are Becoming A Sea"
-          videoId="uE8EhJ9gS28"
-          link="https://www.youtube.com/watch?v=uE8EhJ9gS28"
-        />
+        {songs.map((song) => (
+          <Song
+            key={song.title}
+            title={song.title}
+            videoId={song.videoId}
+            link={`https://www.youtube.com/watch?v=${song.videoId}`}
+          />
+        ))}
       </div>
     </Section>
   );
 }
+type SongType = { title: string; videoId: string };
+const songs: SongType[] = [
+  {
+    title: "Alexandra Savior - Can't Help Myself",
+    videoId: "2faK7a4NdMg",
+  },
+  {
+    title: "Puma Blue - Hounds",
+    videoId: "IuVFMVX2eY0",
+  },
+  {
+    title: "Magdalena Bay - Dreamcatching",
+    videoId: "8QfQeYaS-7A",
+  },
+  {
+    title: "Radiohead - Let Down",
+    videoId: "ZVgHPSyEIqk",
+  },
+  {
+    title: "Arcade Fire - Reflektor",
+    videoId: "7E0fVfectDo",
+  },
+  {
+    title: "CHVRCHES - Violent Delights",
+    videoId: "Emi3HNK_tiI",
+  },
+  {
+    title: "Radiohead - Knives Out",
+    videoId: "2Lpw3yMCWro",
+  },
+  {
+    title: "Tigran Hamasyan - Road Song",
+    videoId: "XzYi73A7g7E",
+  },
+  {
+    title: "toe - グッドバイ / Goodbye",
+    videoId: "e1pZIfretEs",
+  },
+  {
+    title: "Chick Corea - Spain",
+    videoId: "sEhQTjgoTdU",
+  },
+  {
+    title: "Angel Olsen - Lark",
+    videoId: "6uaN60k0-zY",
+  },
+  {
+    title: "Tom Jobim - Chega De Saudade",
+    videoId: "tlp8iY4g--4",
+  },
+  {
+    title: "Talking Heads - Once In A Lifetime",
+    videoId: "fR0jgT9UX0Q",
+  },
+  {
+    title: "Emma Ruth Rundle - The Distance",
+    videoId: "w9LgIOx6WJ8",
+  },
+  {
+    title: "M83 - My Tears Are Becoming A Sea",
+    videoId: "uE8EhJ9gS28",
+  },
+];
